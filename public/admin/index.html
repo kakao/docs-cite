@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Administration - Cite Documents</title>
+    <meta name="generator" content="Hugo 0.17" />
+
+    
+    <meta name="description" content="cite documentation.">
+    
+    <link rel="canonical" href="https://tech.kakao.com/citedocs/admin/">
+    
+    <meta name="author" content="Seung Lee &lt;code0x9@gmail.com&gt;">
+    
+
+    <meta property="og:url" content="https://tech.kakao.com/citedocs/admin/">
+    <meta property="og:title" content="Cite Documents">
+    <meta property="og:image" content="https://tech.kakao.com/citedocsimages/cite-logo.png">
+    <meta name="apple-mobile-web-app-title" content="Cite Documents">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://tech.kakao.com/citedocsimages/favicons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://tech.kakao.com/citedocsimages/favicons/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://tech.kakao.com/citedocsfonts/icon.eot?52m981');
+        src: url('https://tech.kakao.com/citedocsfonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+             url('https://tech.kakao.com/citedocsfonts/icon.woff?52m981')
+               format('woff'),
+             url('https://tech.kakao.com/citedocsfonts/icon.ttf?52m981')
+               format('truetype'),
+             url('https://tech.kakao.com/citedocsfonts/icon.svg?52m981#icon')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://tech.kakao.com/citedocsstylesheets/application.css">
+    <link rel="stylesheet" href="https://tech.kakao.com/citedocsstylesheets/temporary.css">
+    <link rel="stylesheet" href="https://tech.kakao.com/citedocsstylesheets/palettes.css">
+    <link rel="stylesheet" href="https://tech.kakao.com/citedocsstylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://tech.kakao.com/citedocsjavascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-blue palette-accent-black">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Administration
+      </div>
+    </div>
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="kakao/cite" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <div class="project">
+    <div class="banner">
+      
+      <div class="logo">
+        <a href="https://tech.kakao.com/citedocs">
+          <img src="https://tech.kakao.com/citedocsimages/cite-logo.png">
+        </a>
+      </div>
+      
+
+      <div class="name">
+        <a href="https://tech.kakao.com/citedocs">
+          <strong>Cite Documents <span class="version">0.1</span></strong>
+        </a>
+      </a>
+    </div>
+  </div>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/kakao/cite/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/kakao/cite/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+    
+    
+
+
+
+<a  title="Introduction" href="https://tech.kakao.com/citedocs/">
+	
+	Introduction
+</a>
+
+
+
+    
+</li>
+
+
+
+<li>
+    
+    
+
+
+
+<a  title="Design" href="https://tech.kakao.com/citedocs/design/">
+	
+	Design
+</a>
+
+
+
+    
+</li>
+
+
+
+<li>
+    
+    
+
+
+
+<a  title="Usage" href="https://tech.kakao.com/citedocs/usage/">
+	
+	Usage
+</a>
+
+
+
+    <ul>
+        
+        
+        
+
+
+
+<a  title="Go" href="https://tech.kakao.com/citedocs/usage/languages/go/">
+	
+	Go
+</a>
+
+
+
+        
+        
+        
+
+
+
+<a  title="Logging" href="https://tech.kakao.com/citedocs/usage/logging/">
+	
+	Logging
+</a>
+
+
+
+        
+    </ul>
+    
+</li>
+
+
+
+<li>
+    
+    
+
+
+
+<a  title="Development" href="https://tech.kakao.com/citedocs/develop/">
+	
+	Development
+</a>
+
+
+
+    
+</li>
+
+
+
+<li>
+    
+    
+
+
+
+<a class="current" title="Administration" href="https://tech.kakao.com/citedocs/admin/">
+	
+	Administration
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+    
+</li>
+
+
+
+<li>
+    
+    
+
+
+
+<a  title="FAQ" href="https://tech.kakao.com/citedocs/faq/">
+	
+	FAQ
+</a>
+
+
+
+    
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+
+        <span class="section">Author : Seung Lee &lt;code0x9@gmail.com&gt;</span>
+
+        <ul>
+          
+          <li>
+            <a href="https://github.com/code0x9" target="_blank" title="@code0x9 on GitHub">
+              @code0x9 on GitHub
+            </a>
+          </li>
+          
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Administration </h1>
+
+			
+
+<h2 id="kubernetes-ansible">kubernetes-ansible</h2>
+
+<ul>
+<li>source : <a href="https://github.daumkakao.com/ctf/kubernetes-ansible">https://github.daumkakao.com/ctf/kubernetes-ansible</a></li>
+<li>branch : develop</li>
+</ul>
+
+<h3 id="inventory">Inventory</h3>
+
+<ul>
+<li>alpha : <a href="https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-alpha">https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-alpha</a></li>
+<li>pgx : <a href="https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-pgx">https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-pgx</a></li>
+</ul>
+
+<h3 id="준비">준비</h3>
+
+<ul>
+<li><p>openstack 환경변수 설정</p>
+
+<ul>
+<li>사용자가 cite 테넌트에 admin 권한으로 등록되어 있어야 함
+<br /></li>
+</ul>
+
+<pre><code>export OS_REGION_NAME=busan-v1
+export OS_PROJECT_NAME=cite
+export OS_USERNAME=[username]
+export OS_PASSWORD=[password]
+export OS_AUTH_URL=https://krane-api.9rum.cc:5000/v2.0/
+export OS_SERVICE_ENDPOINT=https://krane-api.9rum.cc:35357/v2.0
+</code></pre></li>
+</ul>
+
+<h3 id="install">Install</h3>
+
+<ul>
+<li><p>VM 생성</p>
+
+<pre><code>ansible-playbook -i [hosts파일] create_vm.yml
+</code></pre></li>
+
+<li><p>설치</p>
+
+<pre><code>ansible-playbook -i [hosts파일] setup.yml
+</code></pre></li>
+
+<li><p>VM 삭제</p>
+
+<pre><code>ansible-playbook -i [hosts파일] delete_vm.sh
+</code></pre></li>
+</ul>
+
+<h2 id="elasticsearch">elasticsearch</h2>
+
+<pre><code>curl -XPUT http://elasticsearch.d.9rum.cc:9200/_template/cite_template -d '
+{
+   &quot;template&quot;: &quot;*&quot;,
+   &quot;mappings&quot;: {
+      &quot;_default_&quot;: {
+         &quot;dynamic_templates&quot;: [
+            {
+               &quot;log_obj&quot;: {
+                  &quot;path_match&quot;: &quot;log_obj.*&quot;,
+                  &quot;match_mapping_type&quot;: &quot;string&quot;,
+                  &quot;mapping&quot;: {
+                     &quot;type&quot;: &quot;string&quot;,
+                     &quot;index&quot;: &quot;not_analyzed&quot;
+                  }
+               }
+            },
+            {
+               &quot;kubernetes&quot;: {
+                  &quot;path_match&quot;: &quot;kubernetes.*&quot;,
+                  &quot;match_mapping_type&quot;: &quot;string&quot;,
+                  &quot;mapping&quot;: {
+                     &quot;type&quot;: &quot;string&quot;,
+                     &quot;index&quot;: &quot;not_analyzed&quot;
+                  }
+               }
+            }
+         ]
+      }
+   }
+}
+'
+</code></pre>
+
+<h2 id="jenkins">jenkins</h2>
+
+<ol>
+<li><p>jdk 설치</p>
+
+<pre><code>yum install -y http://repo.krane.iwilab.com/daum.kakao/jdk/jdk-8u65-linux-x64.rpm
+</code></pre></li>
+
+<li><p>jenkins 설치</p>
+
+<pre><code>wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+yum install jenkins
+service jenkins restart
+</code></pre></li>
+
+<li><p>port forward</p>
+
+<pre><code>iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+</code></pre></li>
+</ol>
+
+<h2 id="kube-nodes-증설">kube-nodes 증설</h2>
+
+<p>hosts 파일에 신규 노드 추가, ansible-playbook구동</p>
+
+<ul>
+<li>IP대역이 바뀌는 경우
+
+<ul>
+<li>사내정보시스템 파트 아지트에 IP 추가요청(참조 : <a href="https://kakao.agit.in/g/300000555/wall/304215671">https://kakao.agit.in/g/300000555/wall/304215671</a>)</li>
+<li>전사 proxy 업무 요청 아지트에 IP 추가요청(참조 : <a href="https://kakao.agit.in/g/300003863/wall/303873709">https://kakao.agit.in/g/300003863/wall/303873709</a>)</li>
+</ul></li>
+</ul>
+
+<h2 id="kube-nodes-제거">kube-nodes 제거</h2>
+
+<ol>
+<li><p>kubernetes에서 노드 제거 준비</p>
+
+<pre><code>kubectl drain
+</code></pre></li>
+
+<li><p>노드 제거</p></li>
+</ol>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2016 Released under the Apache License 2.0 &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://tech.kakao.com/citedocs/develop/" title="Development">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Development
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://tech.kakao.com/citedocs/faq/" title="FAQ">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              FAQ
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/tech.kakao.com\/citedocs';
+      var repo_id  = 'kakao\/cite';
+    
+    </script>
+
+    <script src="https://tech.kakao.com/citedocsjavascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+            
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+        
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//gohugo.io/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
