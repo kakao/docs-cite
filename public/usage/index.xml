@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Usage-rsses on Cite Documents</title>
-    <link>http://localhost:1313/usage/index.xml</link>
+    <link>http://localhost:1313/citedocs/usage/index.xml</link>
     <description>Recent content in Usage-rsses on Cite Documents</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache License 2.0</copyright>
     <lastBuildDate>Tue, 23 Aug 2016 17:27:31 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/usage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/citedocs/usage/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Usage</title>
-      <link>http://localhost:1313/usage/</link>
+      <link>http://localhost:1313/citedocs/usage/</link>
       <pubDate>Tue, 23 Aug 2016 17:27:31 +0900</pubDate>
       
-      <guid>http://localhost:1313/usage/</guid>
+      <guid>http://localhost:1313/citedocs/usage/</guid>
       <description>
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
@@ -35,10 +35,10 @@
 &lt;ol&gt;
 &lt;li&gt;cite web(&lt;a href=&#34;http://cite.d.9rum.cc/&#34;&gt;http://cite.d.9rum.cc/&lt;/a&gt;) 접속&lt;/li&gt;
 &lt;li&gt;최초 접속시 cite 권한 부여
-&lt;img src=&#34;http://localhost:1313/images/usage/cite_auth.png&#34; alt=&#34;Auth&#34; /&gt;&lt;/li&gt;
+&lt;img src=&#34;http://localhost:1313/citedocs/images/usage/cite_auth.png&#34; alt=&#34;Auth&#34; /&gt;&lt;/li&gt;
 &lt;li&gt;서비스 생성
-&lt;img src=&#34;http://localhost:1313/images/usage/cite_create.png&#34; alt=&#34;Create&#34; /&gt;
-&lt;img src=&#34;http://localhost:1313/images/usage/cite_create_form.png&#34; alt=&#34;Create Form&#34; /&gt;
+&lt;img src=&#34;http://localhost:1313/citedocs/images/usage/cite_create.png&#34; alt=&#34;Create&#34; /&gt;
+&lt;img src=&#34;http://localhost:1313/citedocs/images/usage/cite_create_form.png&#34; alt=&#34;Create Form&#34; /&gt;
 
 &lt;ul&gt;
 &lt;li&gt;GitHub : github 프로젝트 위치, 브랜치&lt;/li&gt;
@@ -55,12 +55,12 @@
 
 &lt;ol&gt;
 &lt;li&gt;GitHub Commits 목록 중 배포할 버전 옆의 Deploy버튼 클릭. 빌드되어 있지 않은 경우 Build버튼 클릭
-&lt;img src=&#34;http://localhost:1313/images/usage/cite_service.png&#34; alt=&#34;Service&#34; /&gt;&lt;/li&gt;
+&lt;img src=&#34;http://localhost:1313/citedocs/images/usage/cite_service.png&#34; alt=&#34;Service&#34; /&gt;&lt;/li&gt;
 &lt;li&gt;buildbot에서 빌드 로그 조회 및 필요시 다시 빌드 수행
-&lt;img src=&#34;http://localhost:1313/images/usage/cite_build_1.png&#34; alt=&#34;Build&#34; /&gt;
-&lt;img src=&#34;http://localhost:1313/images/usage/cite_build_2.png&#34; alt=&#34;Build&#34; /&gt;&lt;/li&gt;
+&lt;img src=&#34;http://localhost:1313/citedocs/images/usage/cite_build_1.png&#34; alt=&#34;Build&#34; /&gt;
+&lt;img src=&#34;http://localhost:1313/citedocs/images/usage/cite_build_2.png&#34; alt=&#34;Build&#34; /&gt;&lt;/li&gt;
 &lt;li&gt;kibana에서 배포 로그 및 런타임 로그 조회
-&lt;img src=&#34;http://localhost:1313/images/usage/cite_deploy.png&#34; alt=&#34;Deploy&#34; /&gt;&lt;/li&gt;
+&lt;img src=&#34;http://localhost:1313/citedocs/images/usage/cite_deploy.png&#34; alt=&#34;Deploy&#34; /&gt;&lt;/li&gt;
 &lt;li&gt;배포에 성공하면 Deploy버튼이 Redeploy버튼으로 변경됨
 
 &lt;ol&gt;
@@ -117,10 +117,10 @@ kubectl config set-credentials niko-bellic --token=XXXXXX
     
     <item>
       <title>Go</title>
-      <link>http://localhost:1313/usage/languages/go/</link>
+      <link>http://localhost:1313/citedocs/usage/languages/go/</link>
       <pubDate>Tue, 23 Aug 2016 17:02:37 +0900</pubDate>
       
-      <guid>http://localhost:1313/usage/languages/go/</guid>
+      <guid>http://localhost:1313/citedocs/usage/languages/go/</guid>
       <description>
 
 &lt;h2 id=&#34;prepare&#34;&gt;Prepare&lt;/h2&gt;
@@ -209,21 +209,21 @@ lastupdate.tmp
     
     <item>
       <title>Logging</title>
-      <link>http://localhost:1313/usage/logging/</link>
+      <link>http://localhost:1313/citedocs/usage/logging/</link>
       <pubDate>Tue, 23 Aug 2016 17:27:31 +0900</pubDate>
       
-      <guid>http://localhost:1313/usage/logging/</guid>
+      <guid>http://localhost:1313/citedocs/usage/logging/</guid>
       <description>
 
 &lt;h2 id=&#34;raw-log&#34;&gt;Raw Log&lt;/h2&gt;
 
 &lt;p&gt;stdout/stderr를 elasticsearch에 log컬럼으로 저장
-&lt;img src=&#34;http://localhost:1313/images/usage/raw_log.png&#34; alt=&#34;RawLog&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;http://localhost:1313/citedocs/images/usage/raw_log.png&#34; alt=&#34;RawLog&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;structured-log&#34;&gt;Structured Log&lt;/h2&gt;
 
 &lt;p&gt;stdout/stderr중 &amp;lsquo;{&amp;lsquo;로 시작하고 JSON.parse()에 성공하는 로그는 elasticsearch에 log_obj컬럼으로 저장
-&lt;img src=&#34;http://localhost:1313/images/usage/structured_log.png&#34; alt=&#34;StructuredLog&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;http://localhost:1313/citedocs/images/usage/structured_log.png&#34; alt=&#34;StructuredLog&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

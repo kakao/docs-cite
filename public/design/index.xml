@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design-rsses on Cite Documents</title>
-    <link>http://localhost:1313/design/index.xml</link>
+    <link>http://localhost:1313/citedocs/design/index.xml</link>
     <description>Recent content in Design-rsses on Cite Documents</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache License 2.0</copyright>
-    <atom:link href="http://localhost:1313/design/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/citedocs/design/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Design</title>
-      <link>http://localhost:1313/design/</link>
+      <link>http://localhost:1313/citedocs/design/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/design/</guid>
+      <guid>http://localhost:1313/citedocs/design/</guid>
       <description>
 
 &lt;h2 id=&#34;create&#34;&gt;Create&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sequencediagrams/cite_userapp_create.png&#34; alt=&#34;cite userapp create&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/citedocs/images/sequencediagrams/cite_userapp_create.png&#34; alt=&#34;cite userapp create&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxR1h8QhgAcxMJaAB3SHEtAHtBkRqiOq6m1zKykpoAM0xoFHRXKNhB8BVxQcxgXbGvazC-COQckNEJcNloZgA3ARIgA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
@@ -41,7 +41,7 @@
 
 &lt;h3 id=&#34;automatic&#34;&gt;Automatic&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sequencediagrams/cite_auto_build.png&#34; alt=&#34;cite auto build&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/citedocs/images/sequencediagrams/cite_auto_build.png&#34; alt=&#34;cite auto build&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQEbJOAJgFAEAOiATqPKQHbDQCqAzpGSeZSDXQOJgASyTGwogqiWtABCOfJjTBhHLtAAiaWAGsWAJUgBzRaM7i6AYQREmLALQA+XsAGYAXND1hoxZIwAWBB0520rh4csCuAO6QmD5oaBrQAGZoZJ7ePtCQAG6QtATBsvJ2AYKuyMR4iMAwsGgAtnUejMBV3tCuxLl4INQGJZh25tWR0bHxSSnQza2MmTl5Q5B2VmSu1PIgiaJVIGjUE6nYIVMtFPkyoUW2BZfhWBfQeOpaqSB1iHqQ5yFhdmqaOn0HXSj2eLGgbw+Xxuv3s-FK0HKlWqcHqjTo02AbVcjGQsFgkEYjH88IGtkWIxicQSyVSmLa2VyCkWy2Yq2g61AW1gOz2B3uxy6BCAA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
@@ -60,7 +60,7 @@
 
 &lt;h3 id=&#34;manual&#34;&gt;Manual&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sequencediagrams/cite_manual_build.png&#34; alt=&#34;cite manual build&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/citedocs/images/sequencediagrams/cite_manual_build.png&#34; alt=&#34;cite manual build&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgWwIYDsCuzzQEbpOACYBQxADsgE6jwWrDQCqAzpJeVTSHQwMIIdqIWmgYBxMAAl0OQVx7QAQviI4A9sDnDuo6ABE1sANZsASpADmpFmwC0APn7BIALlwqSTyA+UFC64DcLMAALGWgAcnhnCOhIADdIemJfVQ0HCWBpHDd0MkJkZzg1REQwaGZgQvRmaDcyJMIQVCtM7IcvNwB3SBwQtTUjaAAzNUoKquAauMTkrwcbSjdUDRBh4UKQNVQRsfc-Cc4UjwCfE403PAPCQxNxkBQLSGO-U-sDYzNLepqQ6BvPvdHs9Uv50vY2jJcvlCjBYCUygxKtVam5mOhYLBIMxmMRITgOghur1+oNduNkVNagkkpp5vZFstVutYJttuT9kQ4qgSEA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
@@ -85,7 +85,7 @@
 
 &lt;h3 id=&#34;automatic-1&#34;&gt;Automatic&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sequencediagrams/cite_auto_deploy.png&#34; alt=&#34;cite auto deploy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/citedocs/images/sequencediagrams/cite_auto_deploy.png&#34; alt=&#34;cite auto deploy&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQCaQA7jQJ4BQROiATqPGQHbDQDiYAEsgEakVUi30DCCTpRDVEdaAGl2kcjUjBIAZxJNgrNgFoAfAIUAuaAHMwAC3bRFwRMGSLokAG6RxBxcliwly3ZG2r1BrDkkNYw2HiEALbOwEQ+fizsgcGhWLj4BNHilta20AY4zpggNIZxCNpSbDJyCorJIQrQwXgi1iBoNHCdwORo4FDk5QqV0rLySgbIOJipijIOIpDDvlr+SXApTeEZWfQ5Nnau7p6KykA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
@@ -100,7 +100,7 @@
 
 &lt;h3 id=&#34;manual-1&#34;&gt;Manual&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sequencediagrams/cite_manual_deploy.png&#34; alt=&#34;cite manual deploy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/citedocs/images/sequencediagrams/cite_manual_deploy.png&#34; alt=&#34;cite manual deploy&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgWwIYDsCuzzQCaQA7gD2AngFBn7IBOo8Vqw0AqgM6TWU10gNMDiYABLoARl1oh6aJgGEEEnn2gBpMR1SRgkVhTYcAtAD552gFy4CxEtGqQAjuh3AypyMcHARoi7DvJtS0JSREhGVwQPYTFff0C8YJJQxmhWYAD0VmgLfDCcEFQAcwjtYzVRDS0dWMgAmDtCKQCQIlQ4VuBqInAoTjcy9WpNbVYLdHwcOtSOADcpSBL3I09vGqmE62SmNIysi1Z0WFgdXSA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
@@ -117,10 +117,10 @@
     
     <item>
       <title>Components</title>
-      <link>http://localhost:1313/design/components/</link>
+      <link>http://localhost:1313/citedocs/design/components/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/design/components/</guid>
+      <guid>http://localhost:1313/citedocs/design/components/</guid>
       <description>
 
 &lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;

@@ -2,53 +2,53 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/citedocs/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/citedocs/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/design/</loc>
+    <loc>http://localhost:1313/citedocs/design/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/design/components/</loc>
+    <loc>http://localhost:1313/citedocs/design/components/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/install/</loc>
+    <loc>http://localhost:1313/citedocs/install/</loc>
     <lastmod>2016-08-23T17:27:31+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/usage/</loc>
+    <loc>http://localhost:1313/citedocs/usage/</loc>
     <lastmod>2016-08-23T17:27:31+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/usage/languages/go/</loc>
+    <loc>http://localhost:1313/citedocs/usage/languages/go/</loc>
     <lastmod>2016-08-23T17:02:37+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/usage/logging/</loc>
+    <loc>http://localhost:1313/citedocs/usage/logging/</loc>
     <lastmod>2016-08-23T17:27:31+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/develop/</loc>
+    <loc>http://localhost:1313/citedocs/develop/</loc>
     <lastmod>2016-08-23T18:47:15+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/admin/</loc>
+    <loc>http://localhost:1313/citedocs/admin/</loc>
     <lastmod>2016-08-23T18:47:19+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/faq/</loc>
+    <loc>http://localhost:1313/citedocs/faq/</loc>
     <lastmod>2016-08-23T18:47:20+09:00</lastmod>
   </url>
   
