@@ -6,18 +6,39 @@ weight: 10
 ## Create
 ![cite userapp create](/images/sequencediagrams/cite_userapp_create.png)
 
-[edit diagram](http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxR1h8QhgAcxMJaAB3SHEtAHtBkRqiOq6m1zKykpoAM0xoFHRXKNhB8BVxQcxgXbGvazC-COQckNEJcNloZgA3ARIgA)
+[edit diagram](http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxHJDoAHMTCWgAd0hxLQB7fpEaojqOptcysrgEaBR0VyjYfvAVcX7MYA2Rr2swvwjkZrzRCXDZaGYANwESIA)
 
-1. cite UI 에서 신규 서비스 생성 버튼 클릭
-1. kubernetes에 namespace 생성
-1. elasticsearch에 kibana index 생성 : Pod 로그 조회용
-1. github repository에 cite webhook 등록
-1. github repository에 cite 계정을 collaborator로 등록
-  * cite계정으로 source checkout, commit status update, deployment create, deployment status update 수행
-1. ETCD의 /cite/{namespace}/{service} 디렉토리에 기본 metadata 기록
-1. ETCD의 /cite/{namespace}/{service}/{branch} 디렉토리에 branch별 metadata 기록
+1. create new service on cite webUI
+1. create/update kubernetes namespace
+1. create/update kibana index on elasticsearch for Pod log
+1. register cite webhook on github repository
+1. add cite account as a collaborator on github repository for source checkout, commit status update, deployment create, deployment status update
 
 
+{{< gist spf13 7896402 >}}
+
+<html>
+<div id="myDiagramDiv"
+     style="width:400px; height:150px; background-color: #DAE4E4;"></div>
+</html>
+<script type="text/x-mathjax-config">
+var $ = go.GraphObject.make;
+var myDiagram =
+  $(go.Diagram, 'myDiagramDiv',
+    {
+      initialContentAlignment: go.Spot.Center, // center Diagram contents
+      'undoManager.isEnabled': true // enable Ctrl-Z to undo and Ctrl-Y to redo
+    });
+
+var myModel = $(go.Model);
+// in the model data, each node is represented by a JavaScript object:
+myModel.nodeDataArray = [
+  { key: 'Alpha' },
+  { key: 'Beta' },
+  { key: 'Gamma' }
+];
+myDiagram.model = myModel;
+</script>
 
 ## Build
 
@@ -27,8 +48,8 @@ weight: 10
 
 [edit diagram](http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQEbJOAJgFAEAOiATqPKQHbDQCqAzpGSeZSDXQOJgASyTGwogqiWtABCOfJjTBhHLtAAiaWAGsWAJUgBzRaM7i6AYQREmLALQA+XsAGYAXND1hoxZIwAWBB0520rh4csCuAO6QmD5oaBrQAGZoZJ7ePtCQAG6QtATBsvJ2AYKuyMR4iMAwsGgAtnUejMBV3tCuxLl4INQGJZh25tWR0bHxSSnQza2MmTl5Q5B2VmSu1PIgiaJVIGjUE6nYIVMtFPkyoUW2BZfhWBfQeOpaqSB1iHqQ5yFhdmqaOn0HXSj2eLGgbw+Xxuv3s-FK0HKlWqcHqjTo02AbVcjGQsFgkEYjH88IGtkWIxicQSyVSmLa2VyCkWy2Yq2g61AW1gOz2B3uxy6BCAA)
 
-1. 사용자가 github에 push
-1. github 이 push event 에 대한 webhook (buildbot API) 요청
+1. git push to github
+1. github executes webhook : push event 
 1. buildbot 이 github 의 commit status 업데이트 : pending
 1. github 이 status event 에 대한 webhook (cite API) 요청
 1. cite 가 사용자에게 빌드 시작 알림

@@ -23,7 +23,7 @@ canonifyurls = true
 
 	# Custom assets
 	custom_css = []
-	custom_js  = []
+	custom_js  = ["https://cdnjs.cloudflare.com/ajax/libs/gojs/1.6.7/go-debug.js"]
  
 	# Syntax highlighting theme
 	highlight_css  = ""

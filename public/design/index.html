@@ -381,21 +381,40 @@
 
 <p><img src="http://tech.kakao.com/citedocs/images/sequencediagrams/cite_userapp_create.png" alt="cite userapp create" /></p>
 
-<p><a href="http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxR1h8QhgAcxMJaAB3SHEtAHtBkRqiOq6m1zKykpoAM0xoFHRXKNhB8BVxQcxgXbGvazC-COQckNEJcNloZgA3ARIgA">edit diagram</a></p>
+<p><a href="http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxHJDoAHMTCWgAd0hxLQB7fpEaojqOptcysrgEaBR0VyjYfvAVcX7MYA2Rr2swvwjkZrzRCXDZaGYANwESIA">edit diagram</a></p>
 
 <ol>
-<li>cite UI 에서 신규 서비스 생성 버튼 클릭</li>
-<li>kubernetes에 namespace 생성</li>
-<li>elasticsearch에 kibana index 생성 : Pod 로그 조회용</li>
-<li>github repository에 cite webhook 등록</li>
-<li>github repository에 cite 계정을 collaborator로 등록
-
-<ul>
-<li>cite계정으로 source checkout, commit status update, deployment create, deployment status update 수행</li>
-</ul></li>
-<li>ETCD의 /cite/{namespace}/{service} 디렉토리에 기본 metadata 기록</li>
-<li>ETCD의 /cite/{namespace}/{service}/{branch} 디렉토리에 branch별 metadata 기록</li>
+<li>create new service on cite webUI</li>
+<li>create/update kubernetes namespace</li>
+<li>create/update kibana index on elasticsearch for Pod log</li>
+<li>register cite webhook on github repository</li>
+<li>add cite account as a collaborator on github repository for source checkout, commit status update, deployment create, deployment status update</li>
 </ol>
+
+<script src="//gist.github.com/spf13/7896402.js"></script>
+
+<p><html>
+<div id="myDiagramDiv"
+     style="width:400px; height:150px; background-color: #DAE4E4;"></div>
+</html>
+<script type="text/x-mathjax-config">
+var $ = go.GraphObject.make;
+var myDiagram =
+  $(go.Diagram, &lsquo;myDiagramDiv&rsquo;,
+    {
+      initialContentAlignment: go.Spot.Center, // center Diagram contents
+      &lsquo;undoManager.isEnabled&rsquo;: true // enable Ctrl-Z to undo and Ctrl-Y to redo
+    });</p>
+
+<p>var myModel = $(go.Model);
+// in the model data, each node is represented by a JavaScript object:
+myModel.nodeDataArray = [
+  { key: &lsquo;Alpha&rsquo; },
+  { key: &lsquo;Beta&rsquo; },
+  { key: &lsquo;Gamma&rsquo; }
+];
+myDiagram.model = myModel;
+</script></p>
 
 <h2 id="build">Build</h2>
 
@@ -406,8 +425,8 @@
 <p><a href="http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQEbJOAJgFAEAOiATqPKQHbDQCqAzpGSeZSDXQOJgASyTGwogqiWtABCOfJjTBhHLtAAiaWAGsWAJUgBzRaM7i6AYQREmLALQA+XsAGYAXND1hoxZIwAWBB0520rh4csCuAO6QmD5oaBrQAGZoZJ7ePtCQAG6QtATBsvJ2AYKuyMR4iMAwsGgAtnUejMBV3tCuxLl4INQGJZh25tWR0bHxSSnQza2MmTl5Q5B2VmSu1PIgiaJVIGjUE6nYIVMtFPkyoUW2BZfhWBfQeOpaqSB1iHqQ5yFhdmqaOn0HXSj2eLGgbw+Xxuv3s-FK0HKlWqcHqjTo02AbVcjGQsFgkEYjH88IGtkWIxicQSyVSmLa2VyCkWy2Yq2g61AW1gOz2B3uxy6BCAA">edit diagram</a></p>
 
 <ol>
-<li>사용자가 github에 push</li>
-<li>github 이 push event 에 대한 webhook (buildbot API) 요청</li>
+<li>git push to github</li>
+<li>github executes webhook : push event</li>
 <li>buildbot 이 github 의 commit status 업데이트 : pending</li>
 <li>github 이 status event 에 대한 webhook (cite API) 요청</li>
 <li>cite 가 사용자에게 빌드 시작 알림</li>
@@ -555,6 +574,8 @@
     </script>
 
     <script src="http://tech.kakao.com/citedocs/javascripts/application.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.6.7/go-debug.js"></script>
     
 
     <script>
