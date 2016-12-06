@@ -1,5 +1,4 @@
 ---
-date: 2016-08-22T18:41:20+09:00
 title: Design
 weight: 10
 ---

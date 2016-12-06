@@ -1,4 +1,4 @@
-baseurl = "https://github.daumkakao.com/pages/CTF/citedocs/"
+baseurl = "http://localhost:1313/"
 languageCode = "en-us"
 title = "Cite Documents"
 theme = "hugo-material-docs"
@@ -54,24 +54,29 @@ canonifyurls = true
 	weight = 10
 
 [[menu.main]]
+	name   = "Install"
+	url    = "install/"
+	weight = 20
+
+[[menu.main]]
 	name   = "Usage"
 	url    = "usage/"
-	weight = 20
+	weight = 30
 
 [[menu.main]]
 	name   = "Development"
 	url    = "develop/"
-	weight = 30
+	weight = 40
 
 [[menu.main]]
 	name   = "Administration"
 	url    = "admin/"
-	weight = 40
+	weight = 50
 
 [[menu.main]]
 	name   = "FAQ"
 	url    = "faq/"
-	weight = 50
+	weight = 60
 
 
 [blackfriday]
