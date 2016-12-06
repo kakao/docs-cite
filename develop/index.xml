@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Develop-rsses on Cite Documents</title>
-    <link>https://tech.kakao.com/citedocs/develop/index.xml</link>
+    <link>https://github.daumkakao.com/pages/CTF/citedocs/develop/index.xml</link>
     <description>Recent content in Develop-rsses on Cite Documents</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache License 2.0</copyright>
     <lastBuildDate>Tue, 23 Aug 2016 18:47:15 +0900</lastBuildDate>
-    <atom:link href="https://tech.kakao.com/citedocs/develop/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.daumkakao.com/pages/CTF/citedocs/develop/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Development</title>
-      <link>https://tech.kakao.com/citedocs/develop/</link>
+      <link>https://github.daumkakao.com/pages/CTF/citedocs/develop/</link>
       <pubDate>Tue, 23 Aug 2016 18:47:15 +0900</pubDate>
       
-      <guid>https://tech.kakao.com/citedocs/develop/</guid>
+      <guid>https://github.daumkakao.com/pages/CTF/citedocs/develop/</guid>
       <description>
 
 &lt;h2 id=&#34;kubernetes&#34;&gt;kubernetes&lt;/h2&gt;
