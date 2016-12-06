@@ -1,4 +1,4 @@
-baseurl = "http://localhost:1313/citedocs"
+baseurl = "http://localhost:1313/citedocs/"
 languageCode = "en-us"
 title = "Cite Documents"
 theme = "hugo-material-docs"
