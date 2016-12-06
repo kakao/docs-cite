@@ -1,0 +1,81 @@
+baseurl = "https://tech.kakao.com/citedocs"
+languageCode = "en-us"
+title = "Cite Documents"
+theme = "hugo-material-docs"
+metadataformat = "yaml"
+canonifyurls = true
+
+[params]
+	# General information
+	author = "Seung Lee <code0x9@gmail.com>"
+	description = "cite documentation."
+	copyright = "Released under the Apache License 2.0"
+
+	# Repository
+	provider = "GitHub"
+	repo_url = "https://github.com/kakao/cite"
+
+	version = "0.1"
+	logo = "images/cite-logo.png"
+	favicon = "images/favicons/favicon.ico"
+
+	permalink = "#"
+
+	# Custom assets
+	custom_css = []
+	custom_js  = []
+ 
+	# Syntax highlighting theme
+	highlight_css  = ""
+
+	[params.palette]
+		primary = "blue"
+		accent  = "black"
+
+	[params.font]
+		text = "Ubuntu"
+		code = "Ubuntu Mono"
+
+
+[social]
+	github  = "code0x9"
+
+[forum]
+  agit = "300005513"
+
+[[menu.main]]
+	name   = "Introduction"
+	url    = ""
+	weight = 0
+
+[[menu.main]]
+	name   = "Design"
+	url    = "design/"
+	weight = 10
+
+[[menu.main]]
+	name   = "Usage"
+	url    = "usage/"
+	weight = 20
+
+[[menu.main]]
+	name   = "Development"
+	url    = "develop/"
+	weight = 30
+
+[[menu.main]]
+	name   = "Administration"
+	url    = "admin/"
+	weight = 40
+
+[[menu.main]]
+	name   = "FAQ"
+	url    = "faq/"
+	weight = 50
+
+
+[blackfriday]
+	smartypants	= true
+	fractions = true
+	smartDashes = true
+	plainIDAnchors = true

@@ -1,0 +1,13 @@
+title cite manual deploy
+
+participant User
+participant GitHub
+participant Cite
+participant Kubernetes
+
+User->Cite: deploy request
+Cite->GitHub: create deployment
+Cite->GitHub: create deployment status : pending
+Cite->Kubernetes: create replication controller
+Cite->Kubernetes: update service
+Cite->GitHub: create deployment status : success

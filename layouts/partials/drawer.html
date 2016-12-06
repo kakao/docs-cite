@@ -1,0 +1,81 @@
+<nav aria-label="Navigation">
+  <div class="project">
+    <div class="banner">
+      {{ if isset .Site.Params "logo" }}
+      <div class="logo">
+        <a href="{{ .Site.BaseURL }}">
+          <img src="{{ .Site.BaseURL }}{{ .Site.Params.logo }}">
+        </a>
+      </div>
+      {{ end }}
+
+      <div class="name">
+        <a href="{{ $.Site.BaseURL }}">
+          <strong>{{ .Site.Title }} {{ with .Site.Params.version }}<span class="version">{{ . }}</span>{{ end }}</strong>
+        </a>
+      </a>
+    </div>
+  </div>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      {{ if (eq (trim .Site.Params.provider " " | lower) "github") | and (isset .Site.Params "repo_url") }}
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="{{ .Site.Params.repo_url }}/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="{{ .Site.Params.repo_url }}/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+            </a>
+          </li>
+        </ul>
+        <hr>
+      {{ end }}
+
+      <div class="toc">
+        {{ if gt (len .Site.Menus.main) 0 }}
+        <ul>
+          {{ partial "nav" . }}
+        </ul>
+        {{ end }}
+
+        {{ if isset .Site.Params "author" }}
+        <hr>
+
+        <span class="section">Author : {{ .Site.Params.author }}</span>
+
+        <ul>
+          {{ with .Site.Social.github }}
+          <li>
+            <a href="https://github.com/{{ . }}" target="_blank" title="@{{ . }} on GitHub">
+              @{{ . }} on GitHub
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }}
+
+        {{ if isset .Site.Params "agit" }}
+        <h1>aaa</h1>
+        <hr>
+        <hr>
+        <hr>
+        <span class="section">Forum</span>
+
+        <ul>
+          {{ with .Site.Forum.agit }}
+          <li>
+            <a href="https://kakao.agit.in/g/{{ . }}" target="_blank" title="Agit">
+              Agit
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</nav>
