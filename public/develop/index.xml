@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Develop-rsses on Cite Documents</title>
+    <link>https://tech.kakao.com/citedocs/develop/index.xml</link>
+    <description>Recent content in Develop-rsses on Cite Documents</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the Apache License 2.0</copyright>
+    <lastBuildDate>Tue, 23 Aug 2016 18:47:15 +0900</lastBuildDate>
+    <atom:link href="https://tech.kakao.com/citedocs/develop/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Development</title>
+      <link>https://tech.kakao.com/citedocs/develop/</link>
+      <pubDate>Tue, 23 Aug 2016 18:47:15 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/develop/</guid>
+      <description>
+
+&lt;h2 id=&#34;kubernetes&#34;&gt;kubernetes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;source : &lt;a href=&#34;https://github.com/kubernetes/kubernetes&#34;&gt;https://github.com/kubernetes/kubernetes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;branch : master&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;로컬-빌드&#34;&gt;로컬 빌드&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hack/build-go.sh
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

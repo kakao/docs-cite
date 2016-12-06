@@ -1,0 +1,18 @@
+title cite auto build
+
+participant User
+participant GitHub
+participant Buildbot
+participant DockerReg
+participant Cite
+
+User->GitHub: git push
+GitHub->Buildbot: webhook for push event
+Buildbot->GitHub: update commit status : pending
+GitHub->Cite: webhook for status event
+Cite->User: notification for build start
+Buildbot->Buildbot: build docker image
+Buildbot->DockerReg: push docker image
+Buildbot->GitHub: update commit status : success
+GitHub->Cite: webhook for status event
+Cite->User: notification for build end

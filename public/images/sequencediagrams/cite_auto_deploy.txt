@@ -1,0 +1,12 @@
+title cite auto deploy
+
+participant GitHub
+participant Cite
+participant Kubernetes
+
+GitHub->Cite: github status event : success
+Cite->GitHub: create deployment
+Cite->GitHub: create deployment status : pending
+Cite->Kubernetes: create replication controller
+Cite->Kubernetes: update service
+Cite->GitHub: create deployment status : success
