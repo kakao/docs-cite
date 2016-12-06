@@ -19,3 +19,4 @@
 
 ## reference
 * hugo : https://gohugo.io/
+* hugo hosting on github pages : https://gohugo.io/tutorials/github-pages-blog/
