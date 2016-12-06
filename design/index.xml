@@ -21,21 +21,40 @@
 
 &lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/citedocs/images/sequencediagrams/cite_userapp_create.png&#34; alt=&#34;cite userapp create&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxR1h8QhgAcxMJaAB3SHEtAHtBkRqiOq6m1zKykpoAM0xoFHRXKNhB8BVxQcxgXbGvazC-COQckNEJcNloZgA3ARIgA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxHJDoAHMTCWgAd0hxLQB7fpEaojqOptcysrgEaBR0VyjYfvAVcX7MYA2Rr2swvwjkZrzRCXDZaGYANwESIA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;cite UI 에서 신규 서비스 생성 버튼 클릭&lt;/li&gt;
-&lt;li&gt;kubernetes에 namespace 생성&lt;/li&gt;
-&lt;li&gt;elasticsearch에 kibana index 생성 : Pod 로그 조회용&lt;/li&gt;
-&lt;li&gt;github repository에 cite webhook 등록&lt;/li&gt;
-&lt;li&gt;github repository에 cite 계정을 collaborator로 등록
-
-&lt;ul&gt;
-&lt;li&gt;cite계정으로 source checkout, commit status update, deployment create, deployment status update 수행&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;ETCD의 /cite/{namespace}/{service} 디렉토리에 기본 metadata 기록&lt;/li&gt;
-&lt;li&gt;ETCD의 /cite/{namespace}/{service}/{branch} 디렉토리에 branch별 metadata 기록&lt;/li&gt;
+&lt;li&gt;create new service on cite webUI&lt;/li&gt;
+&lt;li&gt;create/update kubernetes namespace&lt;/li&gt;
+&lt;li&gt;create/update kibana index on elasticsearch for Pod log&lt;/li&gt;
+&lt;li&gt;register cite webhook on github repository&lt;/li&gt;
+&lt;li&gt;add cite account as a collaborator on github repository for source checkout, commit status update, deployment create, deployment status update&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;script src=&#34;//gist.github.com/spf13/7896402.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;html&gt;
+&lt;div id=&#34;myDiagramDiv&#34;
+     style=&#34;width:400px; height:150px; background-color: #DAE4E4;&#34;&gt;&lt;/div&gt;
+&lt;/html&gt;
+&lt;script type=&#34;text/x-mathjax-config&#34;&gt;
+var $ = go.GraphObject.make;
+var myDiagram =
+  $(go.Diagram, &amp;lsquo;myDiagramDiv&amp;rsquo;,
+    {
+      initialContentAlignment: go.Spot.Center, // center Diagram contents
+      &amp;lsquo;undoManager.isEnabled&amp;rsquo;: true // enable Ctrl-Z to undo and Ctrl-Y to redo
+    });&lt;/p&gt;
+
+&lt;p&gt;var myModel = $(go.Model);
+// in the model data, each node is represented by a JavaScript object:
+myModel.nodeDataArray = [
+  { key: &amp;lsquo;Alpha&amp;rsquo; },
+  { key: &amp;lsquo;Beta&amp;rsquo; },
+  { key: &amp;lsquo;Gamma&amp;rsquo; }
+];
+myDiagram.model = myModel;
+&lt;/script&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;build&#34;&gt;Build&lt;/h2&gt;
 
@@ -46,8 +65,8 @@
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQEbJOAJgFAEAOiATqPKQHbDQCqAzpGSeZSDXQOJgASyTGwogqiWtABCOfJjTBhHLtAAiaWAGsWAJUgBzRaM7i6AYQREmLALQA+XsAGYAXND1hoxZIwAWBB0520rh4csCuAO6QmD5oaBrQAGZoZJ7ePtCQAG6QtATBsvJ2AYKuyMR4iMAwsGgAtnUejMBV3tCuxLl4INQGJZh25tWR0bHxSSnQza2MmTl5Q5B2VmSu1PIgiaJVIGjUE6nYIVMtFPkyoUW2BZfhWBfQeOpaqSB1iHqQ5yFhdmqaOn0HXSj2eLGgbw+Xxuv3s-FK0HKlWqcHqjTo02AbVcjGQsFgkEYjH88IGtkWIxicQSyVSmLa2VyCkWy2Yq2g61AW1gOz2B3uxy6BCAA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;사용자가 github에 push&lt;/li&gt;
-&lt;li&gt;github 이 push event 에 대한 webhook (buildbot API) 요청&lt;/li&gt;
+&lt;li&gt;git push to github&lt;/li&gt;
+&lt;li&gt;github executes webhook : push event&lt;/li&gt;
 &lt;li&gt;buildbot 이 github 의 commit status 업데이트 : pending&lt;/li&gt;
 &lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
 &lt;li&gt;cite 가 사용자에게 빌드 시작 알림&lt;/li&gt;
