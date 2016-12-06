@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cite Documents</title>
+    <link>https://tech.kakao.com/citedocs/index.xml</link>
+    <description>Recent content on Cite Documents</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the Apache License 2.0</copyright>
+    <lastBuildDate>Tue, 23 Aug 2016 17:02:37 +0900</lastBuildDate>
+    <atom:link href="https://tech.kakao.com/citedocs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://tech.kakao.com/citedocs/</link>
+      <pubDate>Tue, 23 Aug 2016 17:02:37 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/</guid>
+      <description>
+
+&lt;h2 id=&#34;what-is-caas-container-as-a-service&#34;&gt;What is CaaS(Container as a Service)?&lt;/h2&gt;
+
+&lt;p&gt;CaaS는 컨테이너화(Containerized)된 어플리케이션을 서버에 배포하고 원하는 상태로 유지하는 서비스입니다. 널리 알려진 오픈소스 솔루션으로는 &lt;a href=&#34;http://kubernetes.io/&#34;&gt;kubernetes&lt;/a&gt;, &lt;a href=&#34;https://docs.docker.com/swarm/&#34;&gt;docker  swarm&lt;/a&gt;, &lt;a href=&#34;http://mesos.apache.org/&#34;&gt;mesos&lt;/a&gt;+&lt;a href=&#34;http://aurora.apache.org/&#34;&gt;aurora&lt;/a&gt;/&lt;a href=&#34;https://mesosphere.github.io/marathon/&#34;&gt;marathon&lt;/a&gt; 등이 있으며, 상용 서비스로는 &lt;a href=&#34;https://azure.microsoft.com/en-us/services/container-service/&#34;&gt;microsoft azure container service&lt;/a&gt;, &lt;a href=&#34;https://cloud.google.com/container-engine/&#34;&gt;google container engine&lt;/a&gt;, &lt;a href=&#34;https://aws.amazon.com/ecs/&#34;&gt;Amazon EC2 Container Service&lt;/a&gt; 등이 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-cite&#34;&gt;What is Cite?&lt;/h2&gt;
+
+&lt;p&gt;cite는 google kubernetes기반 CaaS(Container as a Service)입니다. 처음 사용자는 &lt;a href=&#34;usage&#34;&gt;사용자 문서&lt;/a&gt; 를 참조해주세요.&lt;/p&gt;
+
+&lt;p&gt;cite는 &lt;a href=&#34;https://guides.github.com/introduction/flow/&#34;&gt;GitHub Flow&lt;/a&gt;를 따릅니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-cite&#34;&gt;Why Cite?&lt;/h2&gt;
+
+&lt;h3 id=&#34;fast-it&#34;&gt;Fast IT&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;더 빠르게 서비스를 생성/배포/롤백합니다. 가능한 모든 부분을 자동화하여 서비스 생성에서 릴리즈까지 걸리는 시간을 단축합니다.&lt;/li&gt;
+&lt;li&gt;빠르게 확장(horizontal/vertical scaling)할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;efficient-it&#34;&gt;Efficient IT&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;더 적은 하드웨어로 더 많은 서비스를 수행합니다.&lt;/li&gt;
+&lt;li&gt;서비스 개발자와 SE의 인프라 관리 비용을 줄입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;network&#34;&gt;Network&lt;/h2&gt;
+
+&lt;h3 id=&#34;ip-address-range-pgx-dev&#34;&gt;IP Address Range (PGX-DEV)&lt;/h3&gt;
+
+&lt;p&gt;cite가 구동하는 컨테이너는 아래의 IP주소 2560개중 임의의 IP를 사용하며, 향후 추가될 수 있습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;10.60.240.0/24
+10.60.241.0/24
+10.60.242.0/24
+10.60.243.0/24
+10.60.244.0/24
+10.60.245.0/24
+10.60.246.0/24
+10.60.247.0/24
+10.60.248.0/24
+10.60.249.0/24
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;cite physical node들은 아래의 IP를 사용합니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;10.60.25.139
+10.60.25.140
+10.60.25.141
+10.60.25.142
+10.60.25.143
+10.60.25.203
+10.60.25.204
+10.60.25.205
+10.60.25.206
+10.60.25.207
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;관련 아지트 글 : &lt;a href=&#34;https://kakao.agit.in/g/300003331/wall/304430092#comment_panel_304431968&#34;&gt;https://kakao.agit.in/g/300003331/wall/304430092#comment_panel_304431968&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
+
+&lt;h3 id=&#34;cite-https-github-daumkakao-com-ctf-cite&#34;&gt;&lt;a href=&#34;https://github.daumkakao.com/CTF/cite&#34;&gt;cite&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;cite web frontend 및 github의 요청을 처리하는 API 서버. google developer console에 대응&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;service metadata 설정&lt;/li&gt;
+&lt;li&gt;service 생성/삭제&lt;/li&gt;
+&lt;li&gt;pod 상태 조회&lt;/li&gt;
+&lt;li&gt;배포/롤백&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;cite-watcher-https-github-daumkakao-com-ctf-cite-watcher&#34;&gt;&lt;a href=&#34;https://github.daumkakao.com/CTF/cite-watcher&#34;&gt;cite-watcher&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;kubernetes ingress관련 이벤트 처리.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;domain update&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;cite-batch-https-github-daumkakao-com-ctf-cite-batch&#34;&gt;&lt;a href=&#34;https://github.daumkakao.com/CTF/cite-batch&#34;&gt;cite-batch&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;batch성 작업 모음&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;garbage collect : 사용되지 않는 replication controller 삭제&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;external-components&#34;&gt;External Components&lt;/h2&gt;
+
+&lt;h3 id=&#34;etcd&#34;&gt;etcd&lt;/h3&gt;
+
+&lt;p&gt;cite의 main storage. cite configuration, kubernetes metadata, fleet metadata, cite metadata 및 loadbalancer endpoint 관리&lt;/p&gt;
+
+&lt;h3 id=&#34;kubernetes&#34;&gt;kubernetes&lt;/h3&gt;
+
+&lt;p&gt;container pod, replication controller, service 등 관리. replication controller가 container instance개수 유지&lt;/p&gt;
+
+&lt;h3 id=&#34;elasticsearch-kibana&#34;&gt;elasticsearch + kibana&lt;/h3&gt;
+
+&lt;p&gt;kubernetes POD의 로그 수집, kubernetes 및 cite 자체 로그 수집&lt;/p&gt;
+
+&lt;h3 id=&#34;jenkins&#34;&gt;jenkins&lt;/h3&gt;
+
+&lt;p&gt;배치 작업 처리&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;etcd backup&lt;/li&gt;
+&lt;li&gt;elasticsearch cleanup : 오래된 앱 로그 및 배포 로그 삭제&lt;/li&gt;
+&lt;li&gt;service health check&lt;/li&gt;
+&lt;li&gt;kubernetes node lvs 상태 보고&lt;/li&gt;
+&lt;li&gt;cite-batch로 사용되지 않는 replication controller삭제&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;supplement-components&#34;&gt;Supplement Components&lt;/h2&gt;
+
+&lt;h3 id=&#34;ansible&#34;&gt;ansible&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;cite 및 kubernetes 설치, 업데이트&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-registry&#34;&gt;docker-registry&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;docker image 호스팅&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;fluentd&#34;&gt;fluentd&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;pod 및 cite 로그 수집&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;repository&#34;&gt;Repository&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;cite : &lt;a href=&#34;https://github.daumkakao.com/ctf/cite&#34;&gt;https://github.daumkakao.com/ctf/cite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;cite-lb : &lt;a href=&#34;https://github.daumkakao.com/ctf/cite-lb&#34;&gt;https://github.daumkakao.com/ctf/cite-lb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;cite ansible : &lt;a href=&#34;https://github.daumkakao.com/ctf/kubernetes-ansible&#34;&gt;https://github.daumkakao.com/ctf/kubernetes-ansible&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Kubernetes : &lt;a href=&#34;http://kubernetes.io&#34;&gt;http://kubernetes.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kubernetes Github : &lt;a href=&#34;https://github.com/GoogleCloudPlatform/kubernetes&#34;&gt;https://github.com/GoogleCloudPlatform/kubernetes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Google Container Engine : &lt;a href=&#34;https://cloud.google.com/container-engine/docs/&#34;&gt;https://cloud.google.com/container-engine/docs/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Design</title>
+      <link>https://tech.kakao.com/citedocs/design/</link>
+      <pubDate>Mon, 22 Aug 2016 18:41:20 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/design/</guid>
+      <description>
+
+&lt;h2 id=&#34;create&#34;&gt;Create&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tech.kakao.com/citedocs/images/sequencediagrams/cite_userapp_create.png&#34; alt=&#34;cite userapp create&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxR1h8QhgAcxMJaAB3SHEtAHtBkRqiOq6m1zKykpoAM0xoFHRXKNhB8BVxQcxgXbGvazC-COQckNEJcNloZgA3ARIgA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;cite UI 에서 신규 서비스 생성 버튼 클릭&lt;/li&gt;
+&lt;li&gt;kubernetes에 namespace 생성&lt;/li&gt;
+&lt;li&gt;elasticsearch에 kibana index 생성 : Pod 로그 조회용&lt;/li&gt;
+&lt;li&gt;github repository에 cite webhook 등록&lt;/li&gt;
+&lt;li&gt;github repository에 cite 계정을 collaborator로 등록
+
+&lt;ul&gt;
+&lt;li&gt;cite계정으로 source checkout, commit status update, deployment create, deployment status update 수행&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ETCD의 /cite/{namespace}/{service} 디렉토리에 기본 metadata 기록&lt;/li&gt;
+&lt;li&gt;ETCD의 /cite/{namespace}/{service}/{branch} 디렉토리에 branch별 metadata 기록&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;build&#34;&gt;Build&lt;/h2&gt;
+
+&lt;h3 id=&#34;automatic&#34;&gt;Automatic&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tech.kakao.com/citedocs/images/sequencediagrams/cite_auto_build.png&#34; alt=&#34;cite auto build&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQEbJOAJgFAEAOiATqPKQHbDQCqAzpGSeZSDXQOJgASyTGwogqiWtABCOfJjTBhHLtAAiaWAGsWAJUgBzRaM7i6AYQREmLALQA+XsAGYAXND1hoxZIwAWBB0520rh4csCuAO6QmD5oaBrQAGZoZJ7ePtCQAG6QtATBsvJ2AYKuyMR4iMAwsGgAtnUejMBV3tCuxLl4INQGJZh25tWR0bHxSSnQza2MmTl5Q5B2VmSu1PIgiaJVIGjUE6nYIVMtFPkyoUW2BZfhWBfQeOpaqSB1iHqQ5yFhdmqaOn0HXSj2eLGgbw+Xxuv3s-FK0HKlWqcHqjTo02AbVcjGQsFgkEYjH88IGtkWIxicQSyVSmLa2VyCkWy2Yq2g61AW1gOz2B3uxy6BCAA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;사용자가 github에 push&lt;/li&gt;
+&lt;li&gt;github 이 push event 에 대한 webhook (buildbot API) 요청&lt;/li&gt;
+&lt;li&gt;buildbot 이 github 의 commit status 업데이트 : pending&lt;/li&gt;
+&lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
+&lt;li&gt;cite 가 사용자에게 빌드 시작 알림&lt;/li&gt;
+&lt;li&gt;buildbot 이 docker image build&lt;/li&gt;
+&lt;li&gt;buildbot 이 docker registry 로 image push&lt;/li&gt;
+&lt;li&gt;buildbot 이 github 의 commit status 업데이트 : success or failure&lt;/li&gt;
+&lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
+&lt;li&gt;cite 가 사용자에게 빌드 결과(성공 or 실패) 알림&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;manual&#34;&gt;Manual&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tech.kakao.com/citedocs/images/sequencediagrams/cite_manual_build.png&#34; alt=&#34;cite manual build&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgWwIYDsCuzzQEbpOACYBQxADsgE6jwWrDQCqAzpJeVTSHQwMIIdqIWmgYBxMAAl0OQVx7QAQviI4A9sDnDuo6ABE1sANZsASpADmpFmwC0APn7BIALlwqSTyA+UFC64DcLMAALGWgAcnhnCOhIADdIemJfVQ0HCWBpHDd0MkJkZzg1REQwaGZgQvRmaDcyJMIQVCtM7IcvNwB3SBwQtTUjaAAzNUoKquAauMTkrwcbSjdUDRBh4UKQNVQRsfc-Cc4UjwCfE403PAPCQxNxkBQLSGO-U-sDYzNLepqQ6BvPvdHs9Uv50vY2jJcvlCjBYCUygxKtVam5mOhYLBIMxmMRITgOghur1+oNduNkVNagkkpp5vZFstVutYJttuT9kQ4qgSEA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;cite UI 에서 build 또는 rebuild 버튼 클릭&lt;/li&gt;
+&lt;li&gt;cite 가 buildbot 으로 custom github event 전송
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;X-GitHub-Event: cite&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;buildbot 이 github 의 commit status 업데이트 : pending&lt;/li&gt;
+&lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
+&lt;li&gt;cite 가 사용자에게 빌드 시작 알림&lt;/li&gt;
+&lt;li&gt;buildbot 이 docker image build&lt;/li&gt;
+&lt;li&gt;buildbot 이 docker registry로 image push&lt;/li&gt;
+&lt;li&gt;buildbot 이 github 의 commit status 업데이트 : success or failure&lt;/li&gt;
+&lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
+&lt;li&gt;cite 가 사용자에게 빌드 결과(성공 or 실패) 알림&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
+
+&lt;h3 id=&#34;automatic-1&#34;&gt;Automatic&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tech.kakao.com/citedocs/images/sequencediagrams/cite_auto_deploy.png&#34; alt=&#34;cite auto deploy&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQCaQA7jQJ4BQROiATqPGQHbDQDiYAEsgEakVUi30DCCTpRDVEdaAGl2kcjUjBIAZxJNgrNgFoAfAIUAuaAHMwAC3bRFwRMGSLokAG6RxBxcliwly3ZG2r1BrDkkNYw2HiEALbOwEQ+fizsgcGhWLj4BNHilta20AY4zpggNIZxCNpSbDJyCorJIQrQwXgi1iBoNHCdwORo4FDk5QqV0rLySgbIOJipijIOIpDDvlr+SXApTeEZWfQ5Nnau7p6KykA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment 생성&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment status 생성 : pending&lt;/li&gt;
+&lt;li&gt;Kubernetes replication controller 생성&lt;/li&gt;
+&lt;li&gt;Kubernetes service의 selector 갱신&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment status 생성 : success&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;manual-1&#34;&gt;Manual&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tech.kakao.com/citedocs/images/sequencediagrams/cite_manual_deploy.png&#34; alt=&#34;cite manual deploy&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgWwIYDsCuzzQCaQA7gD2AngFBn7IBOo8Vqw0AqgM6TWU10gNMDiYABLoARl1oh6aJgGEEEnn2gBpMR1SRgkVhTYcAtAD552gFy4CxEtGqQAjuh3AypyMcHARoi7DvJtS0JSREhGVwQPYTFff0C8YJJQxmhWYAD0VmgLfDCcEFQAcwjtYzVRDS0dWMgAmDtCKQCQIlQ4VuBqInAoTjcy9WpNbVYLdHwcOtSOADcpSBL3I09vGqmE62SmNIysi1Z0WFgdXSA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;cite UI 에서 deploy버튼 클릭&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment 생성&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment status 생성 : pending&lt;/li&gt;
+&lt;li&gt;Kubernetes replication controller 생성&lt;/li&gt;
+&lt;li&gt;Kubernetes service의 selector 갱신&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment status 생성 : success&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Usage</title>
+      <link>https://tech.kakao.com/citedocs/usage/</link>
+      <pubDate>Tue, 23 Aug 2016 17:27:31 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/usage/</guid>
+      <description>
+
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Dockerfile : 서비스 repository의 root directory에 위치.
+
+&lt;ul&gt;
+&lt;li&gt;base image는 docker-alpine(&lt;a href=&#34;http://gliderlabs.viewdocs.io/docker-alpine/&#34;&gt;http://gliderlabs.viewdocs.io/docker-alpine/&lt;/a&gt;) 권장&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;gui-cite&#34;&gt;GUI: cite&lt;/h2&gt;
+
+&lt;h3 id=&#34;생성&#34;&gt;생성&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;cite web(&lt;a href=&#34;http://cite.d.9rum.cc/&#34;&gt;http://cite.d.9rum.cc/&lt;/a&gt;) 접속&lt;/li&gt;
+&lt;li&gt;최초 접속시 cite 권한 부여
+&lt;img src=&#34;https://tech.kakao.com/citedocs/images/usage/cite_auth.png&#34; alt=&#34;Auth&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;서비스 생성
+&lt;img src=&#34;https://tech.kakao.com/citedocs/images/usage/cite_create.png&#34; alt=&#34;Create&#34; /&gt;
+&lt;img src=&#34;https://tech.kakao.com/citedocs/images/usage/cite_create_form.png&#34; alt=&#34;Create Form&#34; /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GitHub : github 프로젝트 위치, 브랜치&lt;/li&gt;
+&lt;li&gt;Service : 서비스명. 서비스 생성시 서비스명으로 도메인 생성&lt;/li&gt;
+&lt;li&gt;HTTP Ports : container의 http/https서비스 listen port. 첫번째 포트는 80으로 redirect됨&lt;/li&gt;
+&lt;li&gt;Watchcenter : 빌드/배포 이벤트를 받을 watchcenter group id&lt;/li&gt;
+&lt;li&gt;Replicas : container 인스턴스 개수&lt;/li&gt;
+&lt;li&gt;Auto Deploy : 자동 배포 On/Off&lt;/li&gt;
+&lt;li&gt;Environment Variables : 구동시 환경변수. #으로 시작하는 줄은 주석으로 무시됨&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;서비스&#34;&gt;서비스&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;GitHub Commits 목록 중 배포할 버전 옆의 Deploy버튼 클릭. 빌드되어 있지 않은 경우 Build버튼 클릭
+&lt;img src=&#34;https://tech.kakao.com/citedocs/images/usage/cite_service.png&#34; alt=&#34;Service&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;buildbot에서 빌드 로그 조회 및 필요시 다시 빌드 수행
+&lt;img src=&#34;https://tech.kakao.com/citedocs/images/usage/cite_build_1.png&#34; alt=&#34;Build&#34; /&gt;
+&lt;img src=&#34;https://tech.kakao.com/citedocs/images/usage/cite_build_2.png&#34; alt=&#34;Build&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;kibana에서 배포 로그 및 런타임 로그 조회
+&lt;img src=&#34;https://tech.kakao.com/citedocs/images/usage/cite_deploy.png&#34; alt=&#34;Deploy&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;배포에 성공하면 Deploy버튼이 Redeploy버튼으로 변경됨
+
+&lt;ol&gt;
+&lt;li&gt;환경변수 갱신 또는 replica 개수 변경시 재배포 목적&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;모니터링&#34;&gt;모니터링&lt;/h2&gt;
+
+&lt;p&gt;influxDB의 clustering기능이 오픈소스 버전에서 제외됨에 따라(&lt;a href=&#34;https://influxdata.com/blog/update-on-influxdb-clustering-high-availability-and-monetization/&#34;&gt;https://influxdata.com/blog/update-on-influxdb-clustering-high-availability-and-monetization/&lt;/a&gt;) 별도의 Time Based Database도입 예정&lt;/p&gt;
+
+&lt;!--
+![Monitor](/images/usage/cite_log_metric.png)
+* 로그 : ElasticSearch기반. 24시간 유지
+![Log](/images/usage/cite_log.png)
+* 상태 : InfluxDB기반.
+![Metric](/images/usage/cite_metric.png)
+--&gt;
+
+&lt;h2 id=&#34;cli-kubectl&#34;&gt;CLI: kubectl&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;kubectl설치&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew update
+brew install kubernetes-cli
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;citeui(&lt;a href=&#34;http://cite.d.9rum.cc/&#34;&gt;http://cite.d.9rum.cc/&lt;/a&gt;) 에서 프로젝트 생성&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;클러스터, 컨텍스트, 인증 토큰 설정&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl config set-cluster cite-alpha-cluster --server=http://k8s.d.9rum.cc:8080
+kubectl config set-context cite-alpha-context --cluster=cite-alpha-cluster --namespace=default --user=niko-bellic
+kubectl config use-context cite-alpha-context
+kubectl config set-credentials niko-bellic --token=XXXXXX
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://cite.d.9rum.cc/settings/profile&#34;&gt;http://cite.d.9rum.cc/settings/profile&lt;/a&gt; 참조&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;kubectl로 인스턴스 제어&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;인스턴스 개수 조절&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl scale --replicas={NUM} replicationcontrollers {replicationcontrollers name}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://tech.kakao.com/citedocs/usage/languages/go/</link>
+      <pubDate>Tue, 23 Aug 2016 17:02:37 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/usage/languages/go/</guid>
+      <description>
+
+&lt;h2 id=&#34;prepare&#34;&gt;Prepare&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;govendor설치&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go get github.com/kardianos/govendor
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;vendor 초기화&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;govendor init
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;vendor 디렉토리에 외부 라이브러리 추가&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;govendor add +external
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-dockerfile&#34;&gt;FROM golang:1.6
+
+ENV TZ Asia/Seoul
+
+ADD . /go/src/[리모트 패키지 경로]
+
+WORKDIR /go/src/[리모트 패키지 경로]
+
+RUN go-wrapper download
+RUN go-wrapper install
+
+EXPOSE [서버가 사용하는 포트]
+
+CMD [&amp;quot;실행 파일 경로&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;예제&#34;&gt;예제&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-dockerfile&#34;&gt;FROM golang:1.6
+
+ENV TZ Asia/Seoul
+
+ADD . /go/src/github.daumkakao.com/ctf/cite
+
+WORKDIR /go/src/github.daumkakao.com/ctf/cite
+
+RUN go-wrapper download
+RUN go-wrapper install
+
+EXPOSE 8080
+
+CMD [&amp;quot;/go/bin/cite&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;dockerignore&#34;&gt;.dockerignore&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;.git
+lastupdate.tmp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;vendoring을 통해 라이브러리 업데이트로 인한 버그나 외부 repository의 문제로 인한 빌드 실패를 최소화. govendor외에도 vendoring도구는 뭐든 사용 가능함.&lt;/li&gt;
+&lt;li&gt;glide는 vendor디렉토리 내에 .git파일을 그냥 둬서 git에서 submodule로 관리할 필요가 있으나, cite에서는 vendor라이브러리를 직접 github에 호스팅하는 모델로 생각하고 govendor로 변경.&lt;/li&gt;
+&lt;li&gt;golang에 한정해서 scratch 이미지 기반으로 만드는게 더 효율적이겠지만 대부분의 사용자가 OSX 또는 windows일것을 감안하면 빌드용 docker, 릴리즈용 docker를 따로 관리하기가 더 불편할것으로 예상됨.
+
+&lt;ul&gt;
+&lt;li&gt;docker in docker패턴은 향후 needs가 있으면 추가할 예정&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;govendor : &lt;a href=&#34;https://github.com/kardianos/govendor&#34;&gt;https://github.com/kardianos/govendor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;package management tools : &lt;a href=&#34;https://github.com/golang/go/wiki/PackageManagementTools&#34;&gt;https://github.com/golang/go/wiki/PackageManagementTools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;golang docker guide : &lt;a href=&#34;https://blog.golang.org/docker&#34;&gt;https://blog.golang.org/docker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Building Docker Images for Static Go Binaries : &lt;a href=&#34;https://medium.com/@kelseyhightower/optimizing-docker-images-for-static-binaries-b5696e26eb07#.a056g91oo&#34;&gt;https://medium.com/@kelseyhightower/optimizing-docker-images-for-static-binaries-b5696e26eb07#.a056g91oo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Logging</title>
+      <link>https://tech.kakao.com/citedocs/usage/logging/</link>
+      <pubDate>Tue, 23 Aug 2016 17:27:31 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/usage/logging/</guid>
+      <description>
+
+&lt;h2 id=&#34;raw-log&#34;&gt;Raw Log&lt;/h2&gt;
+
+&lt;p&gt;stdout/stderr를 elasticsearch에 log컬럼으로 저장
+&lt;img src=&#34;https://tech.kakao.com/citedocs/images/usage/raw_log.png&#34; alt=&#34;RawLog&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;structured-log&#34;&gt;Structured Log&lt;/h2&gt;
+
+&lt;p&gt;stdout/stderr중 &amp;lsquo;{&amp;lsquo;로 시작하고 JSON.parse()에 성공하는 로그는 elasticsearch에 log_obj컬럼으로 저장
+&lt;img src=&#34;https://tech.kakao.com/citedocs/images/usage/structured_log.png&#34; alt=&#34;StructuredLog&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://tech.kakao.com/citedocs/develop/</link>
+      <pubDate>Tue, 23 Aug 2016 18:47:15 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/develop/</guid>
+      <description>
+
+&lt;h2 id=&#34;kubernetes&#34;&gt;kubernetes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;source : &lt;a href=&#34;https://github.com/kubernetes/kubernetes&#34;&gt;https://github.com/kubernetes/kubernetes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;branch : master&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;로컬-빌드&#34;&gt;로컬 빌드&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hack/build-go.sh
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Administration</title>
+      <link>https://tech.kakao.com/citedocs/admin/</link>
+      <pubDate>Tue, 23 Aug 2016 18:47:19 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/admin/</guid>
+      <description>
+
+&lt;h2 id=&#34;kubernetes-ansible&#34;&gt;kubernetes-ansible&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;source : &lt;a href=&#34;https://github.daumkakao.com/ctf/kubernetes-ansible&#34;&gt;https://github.daumkakao.com/ctf/kubernetes-ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;branch : develop&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;inventory&#34;&gt;Inventory&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;alpha : &lt;a href=&#34;https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-alpha&#34;&gt;https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-alpha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;pgx : &lt;a href=&#34;https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-pgx&#34;&gt;https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-pgx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;준비&#34;&gt;준비&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;openstack 환경변수 설정&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;사용자가 cite 테넌트에 admin 권한으로 등록되어 있어야 함
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;export OS_REGION_NAME=busan-v1
+export OS_PROJECT_NAME=cite
+export OS_USERNAME=[username]
+export OS_PASSWORD=[password]
+export OS_AUTH_URL=https://krane-api.9rum.cc:5000/v2.0/
+export OS_SERVICE_ENDPOINT=https://krane-api.9rum.cc:35357/v2.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;VM 생성&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-playbook -i [hosts파일] create_vm.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;설치&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-playbook -i [hosts파일] setup.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;VM 삭제&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-playbook -i [hosts파일] delete_vm.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;elasticsearch&#34;&gt;elasticsearch&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -XPUT http://elasticsearch.d.9rum.cc:9200/_template/cite_template -d &#39;
+{
+   &amp;quot;template&amp;quot;: &amp;quot;*&amp;quot;,
+   &amp;quot;mappings&amp;quot;: {
+      &amp;quot;_default_&amp;quot;: {
+         &amp;quot;dynamic_templates&amp;quot;: [
+            {
+               &amp;quot;log_obj&amp;quot;: {
+                  &amp;quot;path_match&amp;quot;: &amp;quot;log_obj.*&amp;quot;,
+                  &amp;quot;match_mapping_type&amp;quot;: &amp;quot;string&amp;quot;,
+                  &amp;quot;mapping&amp;quot;: {
+                     &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
+                     &amp;quot;index&amp;quot;: &amp;quot;not_analyzed&amp;quot;
+                  }
+               }
+            },
+            {
+               &amp;quot;kubernetes&amp;quot;: {
+                  &amp;quot;path_match&amp;quot;: &amp;quot;kubernetes.*&amp;quot;,
+                  &amp;quot;match_mapping_type&amp;quot;: &amp;quot;string&amp;quot;,
+                  &amp;quot;mapping&amp;quot;: {
+                     &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
+                     &amp;quot;index&amp;quot;: &amp;quot;not_analyzed&amp;quot;
+                  }
+               }
+            }
+         ]
+      }
+   }
+}
+&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;jenkins&#34;&gt;jenkins&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;jdk 설치&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum install -y http://repo.krane.iwilab.com/daum.kakao/jdk/jdk-8u65-linux-x64.rpm
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;jenkins 설치&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+yum install jenkins
+service jenkins restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;port forward&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;kube-nodes-증설&#34;&gt;kube-nodes 증설&lt;/h2&gt;
+
+&lt;p&gt;hosts 파일에 신규 노드 추가, ansible-playbook구동&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;IP대역이 바뀌는 경우
+
+&lt;ul&gt;
+&lt;li&gt;사내정보시스템 파트 아지트에 IP 추가요청(참조 : &lt;a href=&#34;https://kakao.agit.in/g/300000555/wall/304215671&#34;&gt;https://kakao.agit.in/g/300000555/wall/304215671&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;전사 proxy 업무 요청 아지트에 IP 추가요청(참조 : &lt;a href=&#34;https://kakao.agit.in/g/300003863/wall/303873709&#34;&gt;https://kakao.agit.in/g/300003863/wall/303873709&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;kube-nodes-제거&#34;&gt;kube-nodes 제거&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;kubernetes에서 노드 제거 준비&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl drain
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;노드 제거&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>https://tech.kakao.com/citedocs/faq/</link>
+      <pubDate>Tue, 23 Aug 2016 18:47:20 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/faq/</guid>
+      <description>
+
+&lt;h2 id=&#34;cite와-dkos의-다른점이-뭔가요&#34;&gt;CITE와 DKOS의 다른점이 뭔가요?&lt;/h2&gt;
+
+&lt;p&gt;CITE는&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;kubernetes기반의 CaaS입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DKOS는&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;mesos, marathon provisioning서비스입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Kubernetes는&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;google에서 사용해 오던 C기반의 container orchestration도구인 borg를 golang으로 처음부터 다시 만들고 오픈소스화한 것입니다.&lt;/li&gt;
+&lt;li&gt;scheduling기능이 포함되어 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Mesos는&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2009년 발표된 apache 오픈소스 프로젝트입니다.&lt;/li&gt;
+&lt;li&gt;mesos생태계의 수많은 프레임워크와 솔루션들을 손쉽게 생성하여 사용할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;scheduling은 marathon이나 aurora를 사용합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;CITE를 이용하면&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;사전에 만들어진 클러스터와 scheduler를 사용합니다.&lt;/li&gt;
+&lt;li&gt;클러스터를 인프라팀에서 관리합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DKOS를 이용하면&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;클러스터를 직접 생성합니다.&lt;/li&gt;
+&lt;li&gt;클러스터를 사용자가 관리합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;public-service가-가능한가요&#34;&gt;public service가 가능한가요?&lt;/h2&gt;
+
+&lt;p&gt;네 가능합니다. public service는 아래의 순서를 따릅니다.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;cite agit(&lt;a href=&#34;https://kakao.agit.in/g/300005513&#34;&gt;https://kakao.agit.in/g/300005513&lt;/a&gt;) 로 public IP 등록 요청&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;보안 검수&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;향후 docker push시 자동으로 보안 검수를 수행할 예정입니다.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;공인 VIP 및 도메인 할당&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;cite-lb-pg1-dlb01-02-서비스-공인-vip-할당-정책&#34;&gt;Cite LB (PG1-DLB01/02) 서비스 공인 VIP 할당 정책&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;공인 VIP 가 필요한 서비스의 경우 @niko.bellic 가 보안검수 후 @@cec 에게 공인 VIP 구성 요청을 한다.&lt;/li&gt;
+&lt;li&gt;PG1-DLB01/02 공인 VIP(211.231.111.0/24 ) 대역은 @@cec 에서 직접 관리 한다. (사설 VIP 제외)&lt;/li&gt;
+&lt;li&gt;기존 사설 VIP 구성과 동일하게 PG1-DLB01/02 공인 VIP 구성을 진행함 (인증서별도) @@cec&lt;/li&gt;
+&lt;li&gt;서버는 기존 사설 VIP 와 매칭된 ServiceGorup 으로 동일하게 지정 한다. @@cec&lt;/li&gt;
+&lt;li&gt;공인 VIP 에 Vname 네이밍 룰은 사설 VIP 에 Vname 에서 맨앞에 p 를 붙여 별도로 관리 한다. @@cec
+ex) cite_crizin-avi_master-viewgrave_80 -&amp;gt; pcite_crizin-avi_master-viewgrave_80&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;최종 구성&lt;/li&gt;
+&lt;li&gt;사설 VIP - ServiceGroup(A)&lt;/li&gt;
+&lt;li&gt;공인 VIP - ServiceGroup(A)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

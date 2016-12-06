@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design-rsses on Cite Documents</title>
+    <link>https://tech.kakao.com/citedocs/design/index.xml</link>
+    <description>Recent content in Design-rsses on Cite Documents</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the Apache License 2.0</copyright>
+    <lastBuildDate>Mon, 22 Aug 2016 18:41:20 +0900</lastBuildDate>
+    <atom:link href="https://tech.kakao.com/citedocs/design/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Design</title>
+      <link>https://tech.kakao.com/citedocs/design/</link>
+      <pubDate>Mon, 22 Aug 2016 18:41:20 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/design/</guid>
+      <description>
+
+&lt;h2 id=&#34;create&#34;&gt;Create&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tech.kakao.com/citedocs/images/sequencediagrams/cite_userapp_create.png&#34; alt=&#34;cite userapp create&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxR1h8QhgAcxMJaAB3SHEtAHtBkRqiOq6m1zKykpoAM0xoFHRXKNhB8BVxQcxgXbGvazC-COQckNEJcNloZgA3ARIgA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;cite UI 에서 신규 서비스 생성 버튼 클릭&lt;/li&gt;
+&lt;li&gt;kubernetes에 namespace 생성&lt;/li&gt;
+&lt;li&gt;elasticsearch에 kibana index 생성 : Pod 로그 조회용&lt;/li&gt;
+&lt;li&gt;github repository에 cite webhook 등록&lt;/li&gt;
+&lt;li&gt;github repository에 cite 계정을 collaborator로 등록
+
+&lt;ul&gt;
+&lt;li&gt;cite계정으로 source checkout, commit status update, deployment create, deployment status update 수행&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ETCD의 /cite/{namespace}/{service} 디렉토리에 기본 metadata 기록&lt;/li&gt;
+&lt;li&gt;ETCD의 /cite/{namespace}/{service}/{branch} 디렉토리에 branch별 metadata 기록&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;build&#34;&gt;Build&lt;/h2&gt;
+
+&lt;h3 id=&#34;automatic&#34;&gt;Automatic&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tech.kakao.com/citedocs/images/sequencediagrams/cite_auto_build.png&#34; alt=&#34;cite auto build&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQEbJOAJgFAEAOiATqPKQHbDQCqAzpGSeZSDXQOJgASyTGwogqiWtABCOfJjTBhHLtAAiaWAGsWAJUgBzRaM7i6AYQREmLALQA+XsAGYAXND1hoxZIwAWBB0520rh4csCuAO6QmD5oaBrQAGZoZJ7ePtCQAG6QtATBsvJ2AYKuyMR4iMAwsGgAtnUejMBV3tCuxLl4INQGJZh25tWR0bHxSSnQza2MmTl5Q5B2VmSu1PIgiaJVIGjUE6nYIVMtFPkyoUW2BZfhWBfQeOpaqSB1iHqQ5yFhdmqaOn0HXSj2eLGgbw+Xxuv3s-FK0HKlWqcHqjTo02AbVcjGQsFgkEYjH88IGtkWIxicQSyVSmLa2VyCkWy2Yq2g61AW1gOz2B3uxy6BCAA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;사용자가 github에 push&lt;/li&gt;
+&lt;li&gt;github 이 push event 에 대한 webhook (buildbot API) 요청&lt;/li&gt;
+&lt;li&gt;buildbot 이 github 의 commit status 업데이트 : pending&lt;/li&gt;
+&lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
+&lt;li&gt;cite 가 사용자에게 빌드 시작 알림&lt;/li&gt;
+&lt;li&gt;buildbot 이 docker image build&lt;/li&gt;
+&lt;li&gt;buildbot 이 docker registry 로 image push&lt;/li&gt;
+&lt;li&gt;buildbot 이 github 의 commit status 업데이트 : success or failure&lt;/li&gt;
+&lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
+&lt;li&gt;cite 가 사용자에게 빌드 결과(성공 or 실패) 알림&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;manual&#34;&gt;Manual&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tech.kakao.com/citedocs/images/sequencediagrams/cite_manual_build.png&#34; alt=&#34;cite manual build&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgWwIYDsCuzzQEbpOACYBQxADsgE6jwWrDQCqAzpJeVTSHQwMIIdqIWmgYBxMAAl0OQVx7QAQviI4A9sDnDuo6ABE1sANZsASpADmpFmwC0APn7BIALlwqSTyA+UFC64DcLMAALGWgAcnhnCOhIADdIemJfVQ0HCWBpHDd0MkJkZzg1REQwaGZgQvRmaDcyJMIQVCtM7IcvNwB3SBwQtTUjaAAzNUoKquAauMTkrwcbSjdUDRBh4UKQNVQRsfc-Cc4UjwCfE403PAPCQxNxkBQLSGO-U-sDYzNLepqQ6BvPvdHs9Uv50vY2jJcvlCjBYCUygxKtVam5mOhYLBIMxmMRITgOghur1+oNduNkVNagkkpp5vZFstVutYJttuT9kQ4qgSEA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;cite UI 에서 build 또는 rebuild 버튼 클릭&lt;/li&gt;
+&lt;li&gt;cite 가 buildbot 으로 custom github event 전송
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;X-GitHub-Event: cite&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;buildbot 이 github 의 commit status 업데이트 : pending&lt;/li&gt;
+&lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
+&lt;li&gt;cite 가 사용자에게 빌드 시작 알림&lt;/li&gt;
+&lt;li&gt;buildbot 이 docker image build&lt;/li&gt;
+&lt;li&gt;buildbot 이 docker registry로 image push&lt;/li&gt;
+&lt;li&gt;buildbot 이 github 의 commit status 업데이트 : success or failure&lt;/li&gt;
+&lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
+&lt;li&gt;cite 가 사용자에게 빌드 결과(성공 or 실패) 알림&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
+
+&lt;h3 id=&#34;automatic-1&#34;&gt;Automatic&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tech.kakao.com/citedocs/images/sequencediagrams/cite_auto_deploy.png&#34; alt=&#34;cite auto deploy&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQCaQA7jQJ4BQROiATqPGQHbDQDiYAEsgEakVUi30DCCTpRDVEdaAGl2kcjUjBIAZxJNgrNgFoAfAIUAuaAHMwAC3bRFwRMGSLokAG6RxBxcliwly3ZG2r1BrDkkNYw2HiEALbOwEQ+fizsgcGhWLj4BNHilta20AY4zpggNIZxCNpSbDJyCorJIQrQwXgi1iBoNHCdwORo4FDk5QqV0rLySgbIOJipijIOIpDDvlr+SXApTeEZWfQ5Nnau7p6KykA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;github 이 status event 에 대한 webhook (cite API) 요청&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment 생성&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment status 생성 : pending&lt;/li&gt;
+&lt;li&gt;Kubernetes replication controller 생성&lt;/li&gt;
+&lt;li&gt;Kubernetes service의 selector 갱신&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment status 생성 : success&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;manual-1&#34;&gt;Manual&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tech.kakao.com/citedocs/images/sequencediagrams/cite_manual_deploy.png&#34; alt=&#34;cite manual deploy&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgWwIYDsCuzzQCaQA7gD2AngFBn7IBOo8Vqw0AqgM6TWU10gNMDiYABLoARl1oh6aJgGEEEnn2gBpMR1SRgkVhTYcAtAD552gFy4CxEtGqQAjuh3AypyMcHARoi7DvJtS0JSREhGVwQPYTFff0C8YJJQxmhWYAD0VmgLfDCcEFQAcwjtYzVRDS0dWMgAmDtCKQCQIlQ4VuBqInAoTjcy9WpNbVYLdHwcOtSOADcpSBL3I09vGqmE62SmNIysi1Z0WFgdXSA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;cite UI 에서 deploy버튼 클릭&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment 생성&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment status 생성 : pending&lt;/li&gt;
+&lt;li&gt;Kubernetes replication controller 생성&lt;/li&gt;
+&lt;li&gt;Kubernetes service의 selector 갱신&lt;/li&gt;
+&lt;li&gt;cite 가 github 에 deployment status 생성 : success&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

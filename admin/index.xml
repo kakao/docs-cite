@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Admin-rsses on Cite Documents</title>
+    <link>https://tech.kakao.com/citedocs/admin/index.xml</link>
+    <description>Recent content in Admin-rsses on Cite Documents</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the Apache License 2.0</copyright>
+    <lastBuildDate>Tue, 23 Aug 2016 18:47:19 +0900</lastBuildDate>
+    <atom:link href="https://tech.kakao.com/citedocs/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Administration</title>
+      <link>https://tech.kakao.com/citedocs/admin/</link>
+      <pubDate>Tue, 23 Aug 2016 18:47:19 +0900</pubDate>
+      
+      <guid>https://tech.kakao.com/citedocs/admin/</guid>
+      <description>
+
+&lt;h2 id=&#34;kubernetes-ansible&#34;&gt;kubernetes-ansible&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;source : &lt;a href=&#34;https://github.daumkakao.com/ctf/kubernetes-ansible&#34;&gt;https://github.daumkakao.com/ctf/kubernetes-ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;branch : develop&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;inventory&#34;&gt;Inventory&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;alpha : &lt;a href=&#34;https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-alpha&#34;&gt;https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-alpha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;pgx : &lt;a href=&#34;https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-pgx&#34;&gt;https://github.daumkakao.com/ctf/kubernetes-ansible/blob/develop/hosts-pgx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;준비&#34;&gt;준비&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;openstack 환경변수 설정&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;사용자가 cite 테넌트에 admin 권한으로 등록되어 있어야 함
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;export OS_REGION_NAME=busan-v1
+export OS_PROJECT_NAME=cite
+export OS_USERNAME=[username]
+export OS_PASSWORD=[password]
+export OS_AUTH_URL=https://krane-api.9rum.cc:5000/v2.0/
+export OS_SERVICE_ENDPOINT=https://krane-api.9rum.cc:35357/v2.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;VM 생성&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-playbook -i [hosts파일] create_vm.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;설치&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-playbook -i [hosts파일] setup.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;VM 삭제&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-playbook -i [hosts파일] delete_vm.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;elasticsearch&#34;&gt;elasticsearch&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -XPUT http://elasticsearch.d.9rum.cc:9200/_template/cite_template -d &#39;
+{
+   &amp;quot;template&amp;quot;: &amp;quot;*&amp;quot;,
+   &amp;quot;mappings&amp;quot;: {
+      &amp;quot;_default_&amp;quot;: {
+         &amp;quot;dynamic_templates&amp;quot;: [
+            {
+               &amp;quot;log_obj&amp;quot;: {
+                  &amp;quot;path_match&amp;quot;: &amp;quot;log_obj.*&amp;quot;,
+                  &amp;quot;match_mapping_type&amp;quot;: &amp;quot;string&amp;quot;,
+                  &amp;quot;mapping&amp;quot;: {
+                     &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
+                     &amp;quot;index&amp;quot;: &amp;quot;not_analyzed&amp;quot;
+                  }
+               }
+            },
+            {
+               &amp;quot;kubernetes&amp;quot;: {
+                  &amp;quot;path_match&amp;quot;: &amp;quot;kubernetes.*&amp;quot;,
+                  &amp;quot;match_mapping_type&amp;quot;: &amp;quot;string&amp;quot;,
+                  &amp;quot;mapping&amp;quot;: {
+                     &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
+                     &amp;quot;index&amp;quot;: &amp;quot;not_analyzed&amp;quot;
+                  }
+               }
+            }
+         ]
+      }
+   }
+}
+&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;jenkins&#34;&gt;jenkins&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;jdk 설치&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum install -y http://repo.krane.iwilab.com/daum.kakao/jdk/jdk-8u65-linux-x64.rpm
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;jenkins 설치&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+yum install jenkins
+service jenkins restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;port forward&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;kube-nodes-증설&#34;&gt;kube-nodes 증설&lt;/h2&gt;
+
+&lt;p&gt;hosts 파일에 신규 노드 추가, ansible-playbook구동&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;IP대역이 바뀌는 경우
+
+&lt;ul&gt;
+&lt;li&gt;사내정보시스템 파트 아지트에 IP 추가요청(참조 : &lt;a href=&#34;https://kakao.agit.in/g/300000555/wall/304215671&#34;&gt;https://kakao.agit.in/g/300000555/wall/304215671&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;전사 proxy 업무 요청 아지트에 IP 추가요청(참조 : &lt;a href=&#34;https://kakao.agit.in/g/300003863/wall/303873709&#34;&gt;https://kakao.agit.in/g/300003863/wall/303873709&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;kube-nodes-제거&#34;&gt;kube-nodes 제거&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;kubernetes에서 노드 제거 준비&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl drain
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;노드 제거&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
