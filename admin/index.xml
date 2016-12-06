@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Admin-rsses on Cite Documents</title>
-    <link>http://localhost:1313/admin/index.xml</link>
+    <link>http://localhost:1313/citedocs/admin/index.xml</link>
     <description>Recent content in Admin-rsses on Cite Documents</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache License 2.0</copyright>
     <lastBuildDate>Tue, 23 Aug 2016 18:47:19 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/admin/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/citedocs/admin/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Administration</title>
-      <link>http://localhost:1313/admin/</link>
+      <link>http://localhost:1313/citedocs/admin/</link>
       <pubDate>Tue, 23 Aug 2016 18:47:19 +0900</pubDate>
       
-      <guid>http://localhost:1313/admin/</guid>
+      <guid>http://localhost:1313/citedocs/admin/</guid>
       <description>
 
 &lt;h2 id=&#34;kubernetes-ansible&#34;&gt;kubernetes-ansible&lt;/h2&gt;
