@@ -6,7 +6,7 @@ weight: 0
 ---
 ## What is CaaS(Container as a Service)?
 
-CaaS__는 컨테이너화(Containerized)된 어플리케이션을 서버에 배포하고 원하는 상태로 유지하는 서비스입니다. 널리 알려진 오픈소스 솔루션으로는 [kubernetes](http://kubernetes.io/), [docker  swarm](https://docs.docker.com/swarm/), [mesos](http://mesos.apache.org/)+[aurora](http://aurora.apache.org/)/[marathon](https://mesosphere.github.io/marathon/) 등이 있으며, 상용 서비스로는 [microsoft azure container service](https://azure.microsoft.com/en-us/services/container-service/), [google container engine](https://cloud.google.com/container-engine/), [Amazon EC2 Container Service](https://aws.amazon.com/ecs/) 등이 있습니다.
+CaaS는 컨테이너화(Containerized)된 어플리케이션을 서버에 배포하고 원하는 상태로 유지하는 서비스입니다. 널리 알려진 오픈소스 솔루션으로는 [kubernetes](http://kubernetes.io/), [docker  swarm](https://docs.docker.com/swarm/), [mesos](http://mesos.apache.org/)+[aurora](http://aurora.apache.org/)/[marathon](https://mesosphere.github.io/marathon/) 등이 있으며, 상용 서비스로는 [microsoft azure container service](https://azure.microsoft.com/en-us/services/container-service/), [google container engine](https://cloud.google.com/container-engine/), [Amazon EC2 Container Service](https://aws.amazon.com/ecs/) 등이 있습니다.
 
 
 
