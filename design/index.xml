@@ -2,25 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design-rsses on Cite Documents</title>
-    <link>https://github.daumkakao.com/pages/CTF/citedocs/design/index.xml</link>
+    <link>http://localhost:1313/design/index.xml</link>
     <description>Recent content in Design-rsses on Cite Documents</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache License 2.0</copyright>
-    <lastBuildDate>Mon, 22 Aug 2016 18:41:20 +0900</lastBuildDate>
-    <atom:link href="https://github.daumkakao.com/pages/CTF/citedocs/design/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/design/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Design</title>
-      <link>https://github.daumkakao.com/pages/CTF/citedocs/design/</link>
-      <pubDate>Mon, 22 Aug 2016 18:41:20 +0900</pubDate>
+      <link>http://localhost:1313/design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.daumkakao.com/pages/CTF/citedocs/design/</guid>
+      <guid>http://localhost:1313/design/</guid>
       <description>
 
 &lt;h2 id=&#34;create&#34;&gt;Create&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.daumkakao.com/pages/CTF/citedocs/images/sequencediagrams/cite_userapp_create.png&#34; alt=&#34;cite userapp create&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sequencediagrams/cite_userapp_create.png&#34; alt=&#34;cite userapp create&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxR1h8QhgAcxMJaAB3SHEtAHtBkRqiOq6m1zKykpoAM0xoFHRXKNhB8BVxQcxgXbGvazC-COQckNEJcNloZgA3ARIgA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
@@ -42,7 +41,7 @@
 
 &lt;h3 id=&#34;automatic&#34;&gt;Automatic&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.daumkakao.com/pages/CTF/citedocs/images/sequencediagrams/cite_auto_build.png&#34; alt=&#34;cite auto build&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sequencediagrams/cite_auto_build.png&#34; alt=&#34;cite auto build&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQEbJOAJgFAEAOiATqPKQHbDQCqAzpGSeZSDXQOJgASyTGwogqiWtABCOfJjTBhHLtAAiaWAGsWAJUgBzRaM7i6AYQREmLALQA+XsAGYAXND1hoxZIwAWBB0520rh4csCuAO6QmD5oaBrQAGZoZJ7ePtCQAG6QtATBsvJ2AYKuyMR4iMAwsGgAtnUejMBV3tCuxLl4INQGJZh25tWR0bHxSSnQza2MmTl5Q5B2VmSu1PIgiaJVIGjUE6nYIVMtFPkyoUW2BZfhWBfQeOpaqSB1iHqQ5yFhdmqaOn0HXSj2eLGgbw+Xxuv3s-FK0HKlWqcHqjTo02AbVcjGQsFgkEYjH88IGtkWIxicQSyVSmLa2VyCkWy2Yq2g61AW1gOz2B3uxy6BCAA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
@@ -61,7 +60,7 @@
 
 &lt;h3 id=&#34;manual&#34;&gt;Manual&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.daumkakao.com/pages/CTF/citedocs/images/sequencediagrams/cite_manual_build.png&#34; alt=&#34;cite manual build&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sequencediagrams/cite_manual_build.png&#34; alt=&#34;cite manual build&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgWwIYDsCuzzQEbpOACYBQxADsgE6jwWrDQCqAzpJeVTSHQwMIIdqIWmgYBxMAAl0OQVx7QAQviI4A9sDnDuo6ABE1sANZsASpADmpFmwC0APn7BIALlwqSTyA+UFC64DcLMAALGWgAcnhnCOhIADdIemJfVQ0HCWBpHDd0MkJkZzg1REQwaGZgQvRmaDcyJMIQVCtM7IcvNwB3SBwQtTUjaAAzNUoKquAauMTkrwcbSjdUDRBh4UKQNVQRsfc-Cc4UjwCfE403PAPCQxNxkBQLSGO-U-sDYzNLepqQ6BvPvdHs9Uv50vY2jJcvlCjBYCUygxKtVam5mOhYLBIMxmMRITgOghur1+oNduNkVNagkkpp5vZFstVutYJttuT9kQ4qgSEA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
@@ -86,7 +85,7 @@
 
 &lt;h3 id=&#34;automatic-1&#34;&gt;Automatic&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.daumkakao.com/pages/CTF/citedocs/images/sequencediagrams/cite_auto_deploy.png&#34; alt=&#34;cite auto deploy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sequencediagrams/cite_auto_deploy.png&#34; alt=&#34;cite auto deploy&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQCaQA7jQJ4BQROiATqPGQHbDQDiYAEsgEakVUi30DCCTpRDVEdaAGl2kcjUjBIAZxJNgrNgFoAfAIUAuaAHMwAC3bRFwRMGSLokAG6RxBxcliwly3ZG2r1BrDkkNYw2HiEALbOwEQ+fizsgcGhWLj4BNHilta20AY4zpggNIZxCNpSbDJyCorJIQrQwXgi1iBoNHCdwORo4FDk5QqV0rLySgbIOJipijIOIpDDvlr+SXApTeEZWfQ5Nnau7p6KykA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
@@ -101,7 +100,7 @@
 
 &lt;h3 id=&#34;manual-1&#34;&gt;Manual&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.daumkakao.com/pages/CTF/citedocs/images/sequencediagrams/cite_manual_deploy.png&#34; alt=&#34;cite manual deploy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sequencediagrams/cite_manual_deploy.png&#34; alt=&#34;cite manual deploy&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgWwIYDsCuzzQCaQA7gD2AngFBn7IBOo8Vqw0AqgM6TWU10gNMDiYABLoARl1oh6aJgGEEEnn2gBpMR1SRgkVhTYcAtAD552gFy4CxEtGqQAjuh3AypyMcHARoi7DvJtS0JSREhGVwQPYTFff0C8YJJQxmhWYAD0VmgLfDCcEFQAcwjtYzVRDS0dWMgAmDtCKQCQIlQ4VuBqInAoTjcy9WpNbVYLdHwcOtSOADcpSBL3I09vGqmE62SmNIysi1Z0WFgdXSA&#34;&gt;edit diagram&lt;/a&gt;&lt;/p&gt;
 
@@ -113,6 +112,91 @@
 &lt;li&gt;Kubernetes service의 selector 갱신&lt;/li&gt;
 &lt;li&gt;cite 가 github 에 deployment status 생성 : success&lt;/li&gt;
 &lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Components</title>
+      <link>http://localhost:1313/design/components/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/design/components/</guid>
+      <description>
+
+&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
+
+&lt;h3 id=&#34;cite-https-github-daumkakao-com-ctf-cite&#34;&gt;&lt;a href=&#34;https://github.daumkakao.com/CTF/cite&#34;&gt;cite&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;cite web frontend 및 github의 요청을 처리하는 API 서버. google developer console에 대응&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;service metadata 설정&lt;/li&gt;
+&lt;li&gt;service 생성/삭제&lt;/li&gt;
+&lt;li&gt;pod 상태 조회&lt;/li&gt;
+&lt;li&gt;배포/롤백&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;cite-watcher-https-github-daumkakao-com-ctf-cite-watcher&#34;&gt;&lt;a href=&#34;https://github.daumkakao.com/CTF/cite-watcher&#34;&gt;cite-watcher&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;kubernetes ingress관련 이벤트 처리.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;domain update&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;cite-batch-https-github-daumkakao-com-ctf-cite-batch&#34;&gt;&lt;a href=&#34;https://github.daumkakao.com/CTF/cite-batch&#34;&gt;cite-batch&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;batch성 작업 모음&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;garbage collect : 사용되지 않는 replication controller 삭제&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;external-components&#34;&gt;External Components&lt;/h2&gt;
+
+&lt;h3 id=&#34;etcd&#34;&gt;etcd&lt;/h3&gt;
+
+&lt;p&gt;cite의 main storage. cite configuration, kubernetes metadata, fleet metadata, cite metadata 및 loadbalancer endpoint 관리&lt;/p&gt;
+
+&lt;h3 id=&#34;kubernetes&#34;&gt;kubernetes&lt;/h3&gt;
+
+&lt;p&gt;container pod, replication controller, service 등 관리. replication controller가 container instance개수 유지&lt;/p&gt;
+
+&lt;h3 id=&#34;elasticsearch-kibana&#34;&gt;elasticsearch + kibana&lt;/h3&gt;
+
+&lt;p&gt;kubernetes POD의 로그 수집, kubernetes 및 cite 자체 로그 수집&lt;/p&gt;
+
+&lt;h3 id=&#34;jenkins&#34;&gt;jenkins&lt;/h3&gt;
+
+&lt;p&gt;배치 작업 처리&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;etcd backup&lt;/li&gt;
+&lt;li&gt;elasticsearch cleanup : 오래된 앱 로그 및 배포 로그 삭제&lt;/li&gt;
+&lt;li&gt;service health check&lt;/li&gt;
+&lt;li&gt;kubernetes node lvs 상태 보고&lt;/li&gt;
+&lt;li&gt;cite-batch로 사용되지 않는 replication controller삭제&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;supplement-components&#34;&gt;Supplement Components&lt;/h2&gt;
+
+&lt;h3 id=&#34;ansible&#34;&gt;ansible&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;cite 및 kubernetes 설치, 업데이트&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;docker-registry&#34;&gt;docker-registry&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;docker image 호스팅&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;fluentd&#34;&gt;fluentd&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;pod 및 cite 로그 수집&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

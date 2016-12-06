@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Usage-rsses on Cite Documents</title>
-    <link>http://localhost:1313/usage/index.xml</link>
-    <description>Recent content in Usage-rsses on Cite Documents</description>
+    <title>Install-rsses on Cite Documents</title>
+    <link>http://localhost:1313/install/index.xml</link>
+    <description>Recent content in Install-rsses on Cite Documents</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache License 2.0</copyright>
     <lastBuildDate>Tue, 23 Aug 2016 17:27:31 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/usage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/install/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Usage</title>
-      <link>http://localhost:1313/usage/</link>
+      <title>Install</title>
+      <link>http://localhost:1313/install/</link>
       <pubDate>Tue, 23 Aug 2016 17:27:31 +0900</pubDate>
       
-      <guid>http://localhost:1313/usage/</guid>
+      <guid>http://localhost:1313/install/</guid>
       <description>
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
@@ -112,118 +112,6 @@ kubectl config set-credentials niko-bellic --token=XXXXXX
 &lt;pre&gt;&lt;code&gt;kubectl scale --replicas={NUM} replicationcontrollers {replicationcontrollers name}
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Go</title>
-      <link>http://localhost:1313/usage/languages/go/</link>
-      <pubDate>Tue, 23 Aug 2016 17:02:37 +0900</pubDate>
-      
-      <guid>http://localhost:1313/usage/languages/go/</guid>
-      <description>
-
-&lt;h2 id=&#34;prepare&#34;&gt;Prepare&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;govendor설치&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go get github.com/kardianos/govendor
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;vendor 초기화&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;govendor init
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;vendor 디렉토리에 외부 라이브러리 추가&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;govendor add +external
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-dockerfile&#34;&gt;FROM golang:1.6
-
-ENV TZ Asia/Seoul
-
-ADD . /go/src/[리모트 패키지 경로]
-
-WORKDIR /go/src/[리모트 패키지 경로]
-
-RUN go-wrapper download
-RUN go-wrapper install
-
-EXPOSE [서버가 사용하는 포트]
-
-CMD [&amp;quot;실행 파일 경로&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;예제&#34;&gt;예제&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-dockerfile&#34;&gt;FROM golang:1.6
-
-ENV TZ Asia/Seoul
-
-ADD . /go/src/github.daumkakao.com/ctf/cite
-
-WORKDIR /go/src/github.daumkakao.com/ctf/cite
-
-RUN go-wrapper download
-RUN go-wrapper install
-
-EXPOSE 8080
-
-CMD [&amp;quot;/go/bin/cite&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;dockerignore&#34;&gt;.dockerignore&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;.git
-lastupdate.tmp
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;vendoring을 통해 라이브러리 업데이트로 인한 버그나 외부 repository의 문제로 인한 빌드 실패를 최소화. govendor외에도 vendoring도구는 뭐든 사용 가능함.&lt;/li&gt;
-&lt;li&gt;glide는 vendor디렉토리 내에 .git파일을 그냥 둬서 git에서 submodule로 관리할 필요가 있으나, cite에서는 vendor라이브러리를 직접 github에 호스팅하는 모델로 생각하고 govendor로 변경.&lt;/li&gt;
-&lt;li&gt;golang에 한정해서 scratch 이미지 기반으로 만드는게 더 효율적이겠지만 대부분의 사용자가 OSX 또는 windows일것을 감안하면 빌드용 docker, 릴리즈용 docker를 따로 관리하기가 더 불편할것으로 예상됨.
-
-&lt;ul&gt;
-&lt;li&gt;docker in docker패턴은 향후 needs가 있으면 추가할 예정&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;govendor : &lt;a href=&#34;https://github.com/kardianos/govendor&#34;&gt;https://github.com/kardianos/govendor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;package management tools : &lt;a href=&#34;https://github.com/golang/go/wiki/PackageManagementTools&#34;&gt;https://github.com/golang/go/wiki/PackageManagementTools&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;golang docker guide : &lt;a href=&#34;https://blog.golang.org/docker&#34;&gt;https://blog.golang.org/docker&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Building Docker Images for Static Go Binaries : &lt;a href=&#34;https://medium.com/@kelseyhightower/optimizing-docker-images-for-static-binaries-b5696e26eb07#.a056g91oo&#34;&gt;https://medium.com/@kelseyhightower/optimizing-docker-images-for-static-binaries-b5696e26eb07#.a056g91oo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Logging</title>
-      <link>http://localhost:1313/usage/logging/</link>
-      <pubDate>Tue, 23 Aug 2016 17:27:31 +0900</pubDate>
-      
-      <guid>http://localhost:1313/usage/logging/</guid>
-      <description>
-
-&lt;h2 id=&#34;raw-log&#34;&gt;Raw Log&lt;/h2&gt;
-
-&lt;p&gt;stdout/stderr를 elasticsearch에 log컬럼으로 저장
-&lt;img src=&#34;http://localhost:1313/images/usage/raw_log.png&#34; alt=&#34;RawLog&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;structured-log&#34;&gt;Structured Log&lt;/h2&gt;
-
-&lt;p&gt;stdout/stderr중 &amp;lsquo;{&amp;lsquo;로 시작하고 JSON.parse()에 성공하는 로그는 elasticsearch에 log_obj컬럼으로 저장
-&lt;img src=&#34;http://localhost:1313/images/usage/structured_log.png&#34; alt=&#34;StructuredLog&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
