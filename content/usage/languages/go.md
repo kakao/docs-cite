@@ -1,7 +1,7 @@
 ---
 date: 2016-08-23T17:02:37+09:00
 title: Go
-weight: 21
+weight: 31
 menu:
   main:
     parent: Usage

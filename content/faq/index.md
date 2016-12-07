@@ -1,7 +1,7 @@
 ---
 date: 2016-08-23T18:47:20+09:00
 title: FAQ
-weight: 50
+weight: 60
 ---
 
 ## CITE와 DKOS의 다른점이 뭔가요?

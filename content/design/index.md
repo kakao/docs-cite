@@ -2,7 +2,6 @@
 title: Design
 weight: 10
 ---
-
 ## Create
 {{< js_sequence_diagram app_create >}}
 participant User
@@ -17,6 +16,7 @@ Cite->elasticsearch: upsert kibana index
 Cite->Github: upsert github webhook
 Cite->Github: add cite user as collaborator
 Cite->kubernetes: upsert kubernetes service
+GitHub->AA: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 {{< /js_sequence_diagram >}}
 
 1. create new service on cite webUI

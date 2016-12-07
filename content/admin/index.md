@@ -1,7 +1,7 @@
 ---
 date: 2016-08-23T18:47:19+09:00
 title: Administration
-weight: 40
+weight: 50
 ---
 
 ## kubernetes-ansible
