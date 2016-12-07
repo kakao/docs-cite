@@ -4,9 +4,20 @@ weight: 10
 ---
 
 ## Create
-![cite userapp create](/images/sequencediagrams/cite_userapp_create.png)
+{{< js_sequence_diagram app_create >}}
+participant User
+participant Cite
+participant kubernetes
+participant elasticsearch
+participant Github
 
-[edit diagram](http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgVwM6QE4EMAOW5shsJAFDFYZqjzkB2w0AqqmmRVSLfQMIKuUjUMdaAGtEAI3Q1IRZH3adokcBmRVUFWAAt5AjkPoBxMFomkm6ALQA+HkQBceAkWjYsxO5BtjJaabMdELGZ6HykZSGRoGgwAW0jyWBJPG2VVdQI0bUDg9FCQcSEMaBAaABNIAA8PBBtjYFNxHJDoAHMTCWgAd0hxLQB7fpEaojqOptcysrgEaBR0VyjYfvAVcX7MYA2Rr2swvwjkZrzRCXDZaGYANwESIA)
+User->Cite: create app
+Cite->kubernetes: upsert kubernetes namespace
+Cite->elasticsearch: upsert kibana index
+Cite->Github: upsert github webhook
+Cite->Github: add cite user as collaborator
+Cite->kubernetes: upsert kubernetes service
+{{< /js_sequence_diagram >}}
 
 1. create new service on cite webUI
 1. create/update kubernetes namespace
@@ -14,39 +25,30 @@ weight: 10
 1. register cite webhook on github repository
 1. add cite account as a collaborator on github repository for source checkout, commit status update, deployment create, deployment status update
 
-
-{{< gist spf13 7896402 >}}
-
-<html>
-<div id="myDiagramDiv"
-     style="width:400px; height:150px; background-color: #DAE4E4;"></div>
-</html>
-<script type="text/x-mathjax-config">
-var $ = go.GraphObject.make;
-var myDiagram =
-  $(go.Diagram, 'myDiagramDiv',
-    {
-      initialContentAlignment: go.Spot.Center, // center Diagram contents
-      'undoManager.isEnabled': true // enable Ctrl-Z to undo and Ctrl-Y to redo
-    });
-
-var myModel = $(go.Model);
-// in the model data, each node is represented by a JavaScript object:
-myModel.nodeDataArray = [
-  { key: 'Alpha' },
-  { key: 'Beta' },
-  { key: 'Gamma' }
-];
-myDiagram.model = myModel;
-</script>
-
 ## Build
 
 ### Automatic
 
-![cite auto build](/images/sequencediagrams/cite_auto_build.png)
+{{< js_sequence_diagram app_build_auto >}}
+Title: cite auto build
 
-[edit diagram](http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQEbJOAJgFAEAOiATqPKQHbDQCqAzpGSeZSDXQOJgASyTGwogqiWtABCOfJjTBhHLtAAiaWAGsWAJUgBzRaM7i6AYQREmLALQA+XsAGYAXND1hoxZIwAWBB0520rh4csCuAO6QmD5oaBrQAGZoZJ7ePtCQAG6QtATBsvJ2AYKuyMR4iMAwsGgAtnUejMBV3tCuxLl4INQGJZh25tWR0bHxSSnQza2MmTl5Q5B2VmSu1PIgiaJVIGjUE6nYIVMtFPkyoUW2BZfhWBfQeOpaqSB1iHqQ5yFhdmqaOn0HXSj2eLGgbw+Xxuv3s-FK0HKlWqcHqjTo02AbVcjGQsFgkEYjH88IGtkWIxicQSyVSmLa2VyCkWy2Yq2g61AW1gOz2B3uxy6BCAA)
+participant User
+participant GitHub
+participant Buildbot
+participant DockerReg
+participant Cite
+
+User->GitHub: git push
+GitHub->Buildbot: webhook for push event
+Buildbot->GitHub: update commit status : pending
+GitHub->Cite: webhook for status event
+Cite->User: notification for build start
+Buildbot->Buildbot: build docker image
+Buildbot->DockerReg: push docker image
+Buildbot->GitHub: update commit status : success
+GitHub->Cite: webhook for status event
+Cite->User: notification for build end
+{{< /js_sequence_diagram >}}
 
 1. git push to github
 1. github executes webhook : push event 
@@ -61,9 +63,26 @@ myDiagram.model = myModel;
 
 ### Manual
 
-![cite manual build](/images/sequencediagrams/cite_manual_build.png)
+{{< js_sequence_diagram app_build_manual >}}
+Title: cite manual build
 
-[edit diagram](http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgWwIYDsCuzzQEbpOACYBQxADsgE6jwWrDQCqAzpJeVTSHQwMIIdqIWmgYBxMAAl0OQVx7QAQviI4A9sDnDuo6ABE1sANZsASpADmpFmwC0APn7BIALlwqSTyA+UFC64DcLMAALGWgAcnhnCOhIADdIemJfVQ0HCWBpHDd0MkJkZzg1REQwaGZgQvRmaDcyJMIQVCtM7IcvNwB3SBwQtTUjaAAzNUoKquAauMTkrwcbSjdUDRBh4UKQNVQRsfc-Cc4UjwCfE403PAPCQxNxkBQLSGO-U-sDYzNLepqQ6BvPvdHs9Uv50vY2jJcvlCjBYCUygxKtVam5mOhYLBIMxmMRITgOghur1+oNduNkVNagkkpp5vZFstVutYJttuT9kQ4qgSEA)
+participant User
+participant Cite
+participant GitHub
+participant Buildbot
+participant DockerReg
+
+User->Cite: build
+Cite->Buildbot: github 'cite' event
+Buildbot->GitHub: update commit status : pending
+GitHub->Cite: webhook for status event
+Cite->User: notification for build start
+Buildbot->Buildbot: build docker image
+Buildbot->DockerReg: push docker image
+Buildbot->GitHub: update commit status : success
+GitHub->Cite: webhook for status event
+Cite->User: notification for build end
+{{< /js_sequence_diagram >}}
 
 1. cite UI 에서 build 또는 rebuild 버튼 클릭
 1. cite 가 buildbot 으로 custom github event 전송
@@ -82,9 +101,21 @@ myDiagram.model = myModel;
 ## Deployment
 
 ### Automatic
-![cite auto deploy](/images/sequencediagrams/cite_auto_deploy.png)
 
-[edit diagram](http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgQwK7APbQCaQA7jQJ4BQROiATqPGQHbDQDiYAEsgEakVUi30DCCTpRDVEdaAGl2kcjUjBIAZxJNgrNgFoAfAIUAuaAHMwAC3bRFwRMGSLokAG6RxBxcliwly3ZG2r1BrDkkNYw2HiEALbOwEQ+fizsgcGhWLj4BNHilta20AY4zpggNIZxCNpSbDJyCorJIQrQwXgi1iBoNHCdwORo4FDk5QqV0rLySgbIOJipijIOIpDDvlr+SXApTeEZWfQ5Nnau7p6KykA)
+{{< js_sequence_diagram app_deploy_auto >}}
+Title: cite auto deploy
+
+participant GitHub
+participant Cite
+participant Kubernetes
+
+GitHub->Cite: github status event : success
+Cite->GitHub: create deployment
+Cite->GitHub: create deployment status : pending
+Cite->Kubernetes: create replication controller
+Cite->Kubernetes: update service
+Cite->GitHub: create deployment status : success
+{{< /js_sequence_diagram >}}
 
 1. github 이 status event 에 대한 webhook (cite API) 요청
 1. cite 가 github 에 deployment 생성
@@ -96,9 +127,22 @@ myDiagram.model = myModel;
 
 
 ### Manual
-![cite manual deploy](/images/sequencediagrams/cite_manual_deploy.png)
 
-[edit diagram](http://sequencediagram.org/index.html?initialData=C4S2BsFMAIGMxgWwIYDsCuzzQCaQA7gD2AngFBn7IBOo8Vqw0AqgM6TWU10gNMDiYABLoARl1oh6aJgGEEEnn2gBpMR1SRgkVhTYcAtAD552gFy4CxEtGqQAjuh3AypyMcHARoi7DvJtS0JSREhGVwQPYTFff0C8YJJQxmhWYAD0VmgLfDCcEFQAcwjtYzVRDS0dWMgAmDtCKQCQIlQ4VuBqInAoTjcy9WpNbVYLdHwcOtSOADcpSBL3I09vGqmE62SmNIysi1Z0WFgdXSA)
+{{< js_sequence_diagram app_deploy_manual >}}
+Title: cite manual deploy
+
+participant User
+participant GitHub
+participant Cite
+participant Kubernetes
+
+User->Cite: deploy request
+Cite->GitHub: create deployment
+Cite->GitHub: create deployment status : pending
+Cite->Kubernetes: create replication controller
+Cite->Kubernetes: update service
+Cite->GitHub: create deployment status : success
+{{< /js_sequence_diagram >}}
 
 1. cite UI 에서 deploy버튼 클릭
 1. cite 가 github 에 deployment 생성
