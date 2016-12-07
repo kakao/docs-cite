@@ -379,7 +379,7 @@
 
 <h2 id="create">Create</h2>
 
-<div id='app_create' type="sequence_diagram">
+<div id='app_create' class="sequence_diagram" width="100%">
 participant User
 participant Cite
 participant kubernetes
@@ -404,135 +404,78 @@ Cite->kubernetes: upsert kubernetes service
 
 <h2 id="build">Build</h2>
 
-<h3 id="automatic">Automatic</h3>
-
-<div id='app_build_auto' type="sequence_diagram">
-Title: cite auto build
-
+<div id='app_build' class="sequence_diagram" width="100%">
 participant User
+participant Cite
 participant GitHub
 participant Buildbot
 participant DockerReg
-participant Cite
 
 User->GitHub: git push
-GitHub->Buildbot: webhook for push event
-Buildbot->GitHub: update commit status : pending
-GitHub->Cite: webhook for status event
-Cite->User: notification for build start
+GitHub->Cite: event: push
+Cite->Buildbot: start build
+Buildbot->GitHub: commit status: pending
+GitHub->Cite: event: status(pending)
+Cite->User: notify: build start
 Buildbot->Buildbot: build docker image
 Buildbot->DockerReg: push docker image
-Buildbot->GitHub: update commit status : success
-GitHub->Cite: webhook for status event
-Cite->User: notification for build end
+Buildbot->GitHub: commit status: success
+GitHub->Cite: event: status(success)
+Cite->User: notify: build finish
 </div>
 
 <ol>
-<li>git push to github</li>
-<li>github executes webhook : push event</li>
-<li>buildbot 이 github 의 commit status 업데이트 : pending</li>
-<li>github 이 status event 에 대한 webhook (cite API) 요청</li>
-<li>cite 가 사용자에게 빌드 시작 알림</li>
-<li>buildbot 이 docker image build</li>
-<li>buildbot 이 docker registry 로 image push</li>
-<li>buildbot 이 github 의 commit status 업데이트 : success or failure</li>
-<li>github 이 status event 에 대한 webhook (cite API) 요청</li>
-<li>cite 가 사용자에게 빌드 결과(성공 or 실패) 알림</li>
-</ol>
-
-<h3 id="manual">Manual</h3>
-
-<div id='app_build_manual' type="sequence_diagram">
-Title: cite manual build
-
-participant User
-participant Cite
-participant GitHub
-participant Buildbot
-participant DockerReg
-
-User->Cite: build
-Cite->Buildbot: github 'cite' event
-Buildbot->GitHub: update commit status : pending
-GitHub->Cite: webhook for status event
-Cite->User: notification for build start
-Buildbot->Buildbot: build docker image
-Buildbot->DockerReg: push docker image
-Buildbot->GitHub: update commit status : success
-GitHub->Cite: webhook for status event
-Cite->User: notification for build end
-</div>
-
-<ol>
-<li>cite UI 에서 build 또는 rebuild 버튼 클릭</li>
-<li>cite 가 buildbot 으로 custom github event 전송
+<li>user pushes source to github</li>
+<li>github send push event to cite</li>
+<li>cite trigger buildbot to build docker image
 
 <ul>
 <li><code>X-GitHub-Event: cite</code></li>
 </ul></li>
-<li>buildbot 이 github 의 commit status 업데이트 : pending</li>
-<li>github 이 status event 에 대한 webhook (cite API) 요청</li>
-<li>cite 가 사용자에게 빌드 시작 알림</li>
-<li>buildbot 이 docker image build</li>
-<li>buildbot 이 docker registry로 image push</li>
-<li>buildbot 이 github 의 commit status 업데이트 : success or failure</li>
-<li>github 이 status event 에 대한 webhook (cite API) 요청</li>
-<li>cite 가 사용자에게 빌드 결과(성공 or 실패) 알림</li>
+<li>buildbot start docker build</li>
+<li>buildbot update commit status to pending</li>
+<li>github send status/pending event to cite</li>
+<li>cite send notify : build started</li>
+<li>buildbot execute docker image build</li>
+<li>buildbot execute docker image push</li>
+<li>buildbot update commit status to success or failure</li>
+<li>github send status/success or status/failure event to cite</li>
+<li>cite send notify : build finished</li>
 </ol>
 
 <h2 id="deployment">Deployment</h2>
 
-<h3 id="automatic-1">Automatic</h3>
-
-<div id='app_deploy_auto' type="sequence_diagram">
-Title: cite auto deploy
-
-participant GitHub
-participant Cite
-participant Kubernetes
-
-GitHub->Cite: github status event : success
-Cite->GitHub: create deployment
-Cite->GitHub: create deployment status : pending
-Cite->Kubernetes: create replication controller
-Cite->Kubernetes: update service
-Cite->GitHub: create deployment status : success
-</div>
-
-<ol>
-<li>github 이 status event 에 대한 webhook (cite API) 요청</li>
-<li>cite 가 github 에 deployment 생성</li>
-<li>cite 가 github 에 deployment status 생성 : pending</li>
-<li>Kubernetes replication controller 생성</li>
-<li>Kubernetes service의 selector 갱신</li>
-<li>cite 가 github 에 deployment status 생성 : success</li>
-</ol>
-
-<h3 id="manual-1">Manual</h3>
-
-<div id='app_deploy_manual' type="sequence_diagram">
-Title: cite manual deploy
-
+<div id='app_deploy_auto' class="sequence_diagram" width="100%">
 participant User
-participant GitHub
 participant Cite
+participant GitHub
 participant Kubernetes
 
-User->Cite: deploy request
-Cite->GitHub: create deployment
-Cite->GitHub: create deployment status : pending
+GitHub->Cite: event: status(success)
+Cite->GitHub: deployment
+Cite->GitHub: deployment status: pending
+GitHub->Cite: event: deployment(pending)
+Cite->User: notify: deploy start
 Cite->Kubernetes: create replication controller
-Cite->Kubernetes: update service
-Cite->GitHub: create deployment status : success
+Cite->Cite: wait for Pods become ready
+Cite->Kubernetes: update service selector
+Cite->GitHub: deployment status: success
+GitHub->Cite: event: deployment(success)
+Cite->User: notify: deploy success
 </div>
 
 <ol>
-<li>cite UI 에서 deploy버튼 클릭</li>
-<li>cite 가 github 에 deployment 생성</li>
-<li>cite 가 github 에 deployment status 생성 : pending</li>
-<li>Kubernetes replication controller 생성</li>
-<li>Kubernetes service의 selector 갱신</li>
-<li>cite 가 github 에 deployment status 생성 : success</li>
+<li>github send status/success event to cite</li>
+<li>cite send create deployment to github</li>
+<li>cite send create deployment status/pending to github</li>
+<li>github send back deployment status to cite</li>
+<li>cite send notify : deploy started</li>
+<li>cite create kubernetes replication controller</li>
+<li>cite polls for all pods to become ready status</li>
+<li>cite update kubernetes service selector</li>
+<li>cite send create deployment status/success to github</li>
+<li>github send back deployment status to cite</li>
+<li>cite send notify : deploy finished</li>
 </ol>
 
 
@@ -618,13 +561,13 @@ Cite->GitHub: create deployment status : success
 
     <script src="http://tech.kakao.com/citedocs/javascripts/application.js"></script>
     
+    <script src="http://tech.kakao.com/citedocs/javascripts/jquery.min.js"></script>
+    
     <script src="http://tech.kakao.com/citedocs/javascripts/raphael.min.js"></script>
     
     <script src="http://tech.kakao.com/citedocs/javascripts/underscore-min.js"></script>
     
     <script src="http://tech.kakao.com/citedocs/javascripts/sequence-diagram-min.js"></script>
-    
-    <script src="http://tech.kakao.com/citedocs/javascripts/jquery.min.js"></script>
     
     <script src="http://tech.kakao.com/citedocs/javascripts/sequence-diagram-loader.js"></script>
     
