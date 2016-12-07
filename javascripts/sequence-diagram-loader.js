@@ -7,6 +7,7 @@ $.each($('.sequence_diagram svg'), function() {
 
   $(this).attr({
     'viewBox': '0 0 ' + width + ' ' + height,
-    'width': '100%'
+    'width': '100%',
+    'height': '100%'
   });
 });
