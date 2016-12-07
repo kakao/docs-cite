@@ -58,6 +58,7 @@ Cite-&gt;Github: upsert github webhook
 Cite-&gt;Github: add cite user as collaborator
 Cite-&gt;kubernetes: upsert kubernetes service
 &lt;/div&gt;
+&lt;a href=&#34;#&#34; class=&#34;sequence_diagram_download&#34; target=&#34;app_create&#34;&gt;Download as SVG&lt;/a&gt;
 
 &lt;ol&gt;
 &lt;li&gt;create new service on cite webUI&lt;/li&gt;
@@ -88,6 +89,7 @@ Buildbot-&gt;GitHub: commit status: success
 GitHub-&gt;Cite: event: status(success)
 Cite-&gt;User: notify: build finish
 &lt;/div&gt;
+&lt;a href=&#34;#&#34; class=&#34;sequence_diagram_download&#34; target=&#34;app_build&#34;&gt;Download as SVG&lt;/a&gt;
 
 &lt;ol&gt;
 &lt;li&gt;user pushes source to github&lt;/li&gt;
@@ -128,6 +130,7 @@ Cite-&gt;GitHub: deployment status: success
 GitHub-&gt;Cite: event: deployment(success)
 Cite-&gt;User: notify: deploy success
 &lt;/div&gt;
+&lt;a href=&#34;#&#34; class=&#34;sequence_diagram_download&#34; target=&#34;app_deploy_auto&#34;&gt;Download as SVG&lt;/a&gt;
 
 &lt;ol&gt;
 &lt;li&gt;github send status/success event to cite&lt;/li&gt;
