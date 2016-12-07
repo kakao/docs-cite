@@ -24,10 +24,10 @@ canonifyurls = true
 	# Custom assets
 	custom_css = []
 	custom_js  = [
+		"javascripts/jquery.min.js",
 		"javascripts/raphael.min.js",
 		"javascripts/underscore-min.js",
 		"javascripts/sequence-diagram-min.js",
-		"javascripts/jquery.min.js",
 		"javascripts/sequence-diagram-loader.js"
 	]
  

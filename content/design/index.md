@@ -27,126 +27,71 @@ Cite->kubernetes: upsert kubernetes service
 
 ## Build
 
-### Automatic
-
-{{< js_sequence_diagram app_build_auto >}}
-Title: cite auto build
-
+{{< js_sequence_diagram app_build >}}
 participant User
+participant Cite
 participant GitHub
 participant Buildbot
 participant DockerReg
-participant Cite
 
 User->GitHub: git push
-GitHub->Buildbot: webhook for push event
-Buildbot->GitHub: update commit status : pending
-GitHub->Cite: webhook for status event
-Cite->User: notification for build start
+GitHub->Cite: event: push
+Cite->Buildbot: start build
+Buildbot->GitHub: commit status: pending
+GitHub->Cite: event: status(pending)
+Cite->User: notify: build start
 Buildbot->Buildbot: build docker image
 Buildbot->DockerReg: push docker image
-Buildbot->GitHub: update commit status : success
-GitHub->Cite: webhook for status event
-Cite->User: notification for build end
+Buildbot->GitHub: commit status: success
+GitHub->Cite: event: status(success)
+Cite->User: notify: build finish
 {{< /js_sequence_diagram >}}
 
-1. git push to github
-1. github executes webhook : push event 
-1. buildbot 이 github 의 commit status 업데이트 : pending
-1. github 이 status event 에 대한 webhook (cite API) 요청
-1. cite 가 사용자에게 빌드 시작 알림
-1. buildbot 이 docker image build
-1. buildbot 이 docker registry 로 image push
-1. buildbot 이 github 의 commit status 업데이트 : success or failure
-1. github 이 status event 에 대한 webhook (cite API) 요청
-1. cite 가 사용자에게 빌드 결과(성공 or 실패) 알림
-
-### Manual
-
-{{< js_sequence_diagram app_build_manual >}}
-Title: cite manual build
-
-participant User
-participant Cite
-participant GitHub
-participant Buildbot
-participant DockerReg
-
-User->Cite: build
-Cite->Buildbot: github 'cite' event
-Buildbot->GitHub: update commit status : pending
-GitHub->Cite: webhook for status event
-Cite->User: notification for build start
-Buildbot->Buildbot: build docker image
-Buildbot->DockerReg: push docker image
-Buildbot->GitHub: update commit status : success
-GitHub->Cite: webhook for status event
-Cite->User: notification for build end
-{{< /js_sequence_diagram >}}
-
-1. cite UI 에서 build 또는 rebuild 버튼 클릭
-1. cite 가 buildbot 으로 custom github event 전송
+1. user pushes source to github
+1. github send push event to cite
+1. cite trigger buildbot to build docker image
   * `X-GitHub-Event: cite`
-1. buildbot 이 github 의 commit status 업데이트 : pending
-1. github 이 status event 에 대한 webhook (cite API) 요청
-1. cite 가 사용자에게 빌드 시작 알림
-1. buildbot 이 docker image build
-1. buildbot 이 docker registry로 image push
-1. buildbot 이 github 의 commit status 업데이트 : success or failure
-1. github 이 status event 에 대한 webhook (cite API) 요청
-1. cite 가 사용자에게 빌드 결과(성공 or 실패) 알림
+1. buildbot start docker build
+1. buildbot update commit status to pending
+1. github send status/pending event to cite
+1. cite send notify : build started
+1. buildbot execute docker image build
+1. buildbot execute docker image push
+1. buildbot update commit status to success or failure
+1. github send status/success or status/failure event to cite
+1. cite send notify : build finished
 
 
 
 ## Deployment
 
-### Automatic
-
 {{< js_sequence_diagram app_deploy_auto >}}
-Title: cite auto deploy
-
-participant GitHub
-participant Cite
-participant Kubernetes
-
-GitHub->Cite: github status event : success
-Cite->GitHub: create deployment
-Cite->GitHub: create deployment status : pending
-Cite->Kubernetes: create replication controller
-Cite->Kubernetes: update service
-Cite->GitHub: create deployment status : success
-{{< /js_sequence_diagram >}}
-
-1. github 이 status event 에 대한 webhook (cite API) 요청
-1. cite 가 github 에 deployment 생성
-1. cite 가 github 에 deployment status 생성 : pending
-1. Kubernetes replication controller 생성
-1. Kubernetes service의 selector 갱신
-1. cite 가 github 에 deployment status 생성 : success
-
-
-
-### Manual
-
-{{< js_sequence_diagram app_deploy_manual >}}
-Title: cite manual deploy
-
 participant User
-participant GitHub
 participant Cite
+participant GitHub
 participant Kubernetes
 
-User->Cite: deploy request
-Cite->GitHub: create deployment
-Cite->GitHub: create deployment status : pending
+GitHub->Cite: event: status(success)
+Cite->GitHub: deployment
+Cite->GitHub: deployment status: pending
+GitHub->Cite: event: deployment(pending)
+Cite->User: notify: deploy start
 Cite->Kubernetes: create replication controller
-Cite->Kubernetes: update service
-Cite->GitHub: create deployment status : success
+Cite->Cite: wait for Pods become ready
+Cite->Kubernetes: update service selector
+Cite->GitHub: deployment status: success
+GitHub->Cite: event: deployment(success)
+Cite->User: notify: deploy success
 {{< /js_sequence_diagram >}}
 
-1. cite UI 에서 deploy버튼 클릭
-1. cite 가 github 에 deployment 생성
-1. cite 가 github 에 deployment status 생성 : pending
-1. Kubernetes replication controller 생성
-1. Kubernetes service의 selector 갱신
-1. cite 가 github 에 deployment status 생성 : success
+1. github send status/success event to cite
+1. cite send create deployment to github
+1. cite send create deployment status/pending to github
+1. github send back deployment status to cite
+1. cite send notify : deploy started
+1. cite create kubernetes replication controller
+1. cite polls for all pods to become ready status
+1. cite update kubernetes service selector
+1. cite send create deployment status/success to github
+1. github send back deployment status to cite
+1. cite send notify : deploy finished
