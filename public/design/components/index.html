@@ -376,77 +376,38 @@
 
 <h2 id="components">Components</h2>
 
-<h3 id="cite-https-github-daumkakao-com-ctf-cite"><a href="https://github.daumkakao.com/CTF/cite">cite</a></h3>
-
-<p>cite web frontend 및 github의 요청을 처리하는 API 서버. google developer console에 대응</p>
+<h3 id="cite-https-github-com-kakao-cite">cite (<a href="https://github.com/kakao/cite">https://github.com/kakao/cite</a>)</h3>
 
 <ul>
-<li>service metadata 설정</li>
-<li>service 생성/삭제</li>
-<li>pod 상태 조회</li>
-<li>배포/롤백</li>
-</ul>
-
-<h3 id="cite-watcher-https-github-daumkakao-com-ctf-cite-watcher"><a href="https://github.daumkakao.com/CTF/cite-watcher">cite-watcher</a></h3>
-
-<p>kubernetes ingress관련 이벤트 처리.</p>
+<li>web frontend
 
 <ul>
-<li>domain update</li>
+<li>manage kubernetes service</li>
+<li>manage kubernetes service metadata</li>
+<li>manage kubernetes replication controller</li>
+<li>manage kubernetes pod</li>
+</ul></li>
+<li>process github webhook event</li>
 </ul>
 
-<h3 id="cite-batch-https-github-daumkakao-com-ctf-cite-batch"><a href="https://github.daumkakao.com/CTF/cite-batch">cite-batch</a></h3>
-
-<p>batch성 작업 모음</p>
+<h3 id="cite-build-https-github-com-kakao-cite-build">cite-build (<a href="https://github.com/kakao/cite-build">https://github.com/kakao/cite-build</a>)</h3>
 
 <ul>
-<li>garbage collect : 사용되지 않는 replication controller 삭제</li>
+<li>docker build / push</li>
 </ul>
 
-<h2 id="external-components">External Components</h2>
-
-<h3 id="etcd">etcd</h3>
-
-<p>cite의 main storage. cite configuration, kubernetes metadata, fleet metadata, cite metadata 및 loadbalancer endpoint 관리</p>
-
-<h3 id="kubernetes">kubernetes</h3>
-
-<p>container pod, replication controller, service 등 관리. replication controller가 container instance개수 유지</p>
-
-<h3 id="elasticsearch-kibana">elasticsearch + kibana</h3>
-
-<p>kubernetes POD의 로그 수집, kubernetes 및 cite 자체 로그 수집</p>
-
-<h3 id="jenkins">jenkins</h3>
-
-<p>배치 작업 처리</p>
-
-<ul>
-<li>etcd backup</li>
-<li>elasticsearch cleanup : 오래된 앱 로그 및 배포 로그 삭제</li>
-<li>service health check</li>
-<li>kubernetes node lvs 상태 보고</li>
-<li>cite-batch로 사용되지 않는 replication controller삭제</li>
-</ul>
-
-<h2 id="supplement-components">Supplement Components</h2>
-
-<h3 id="ansible">ansible</h3>
-
-<ul>
-<li>cite 및 kubernetes 설치, 업데이트</li>
-</ul>
-
-<h3 id="docker-registry">docker-registry</h3>
-
-<ul>
-<li>docker image 호스팅</li>
-</ul>
+<h2 id="external">External</h2>
 
 <h3 id="fluentd">fluentd</h3>
 
 <ul>
-<li>pod 및 cite 로그 수집</li>
+<li>aggregator kubernetes pod logs to elasticsearch</li>
+</ul>
+
+<h3 id="elasticsearch-kibana">elasticsearch + kibana</h3>
+
+<ul>
+<li>show kubernetes pod logs</li>
 </ul>
 
 

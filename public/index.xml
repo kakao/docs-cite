@@ -155,77 +155,38 @@ Cite-&gt;User: notify: deploy success
 
 &lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
 
-&lt;h3 id=&#34;cite-https-github-daumkakao-com-ctf-cite&#34;&gt;&lt;a href=&#34;https://github.daumkakao.com/CTF/cite&#34;&gt;cite&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;cite web frontend 및 github의 요청을 처리하는 API 서버. google developer console에 대응&lt;/p&gt;
+&lt;h3 id=&#34;cite-https-github-com-kakao-cite&#34;&gt;cite (&lt;a href=&#34;https://github.com/kakao/cite&#34;&gt;https://github.com/kakao/cite&lt;/a&gt;)&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;service metadata 설정&lt;/li&gt;
-&lt;li&gt;service 생성/삭제&lt;/li&gt;
-&lt;li&gt;pod 상태 조회&lt;/li&gt;
-&lt;li&gt;배포/롤백&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;cite-watcher-https-github-daumkakao-com-ctf-cite-watcher&#34;&gt;&lt;a href=&#34;https://github.daumkakao.com/CTF/cite-watcher&#34;&gt;cite-watcher&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;kubernetes ingress관련 이벤트 처리.&lt;/p&gt;
+&lt;li&gt;web frontend
 
 &lt;ul&gt;
-&lt;li&gt;domain update&lt;/li&gt;
+&lt;li&gt;manage kubernetes service&lt;/li&gt;
+&lt;li&gt;manage kubernetes service metadata&lt;/li&gt;
+&lt;li&gt;manage kubernetes replication controller&lt;/li&gt;
+&lt;li&gt;manage kubernetes pod&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;process github webhook event&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;cite-batch-https-github-daumkakao-com-ctf-cite-batch&#34;&gt;&lt;a href=&#34;https://github.daumkakao.com/CTF/cite-batch&#34;&gt;cite-batch&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;batch성 작업 모음&lt;/p&gt;
+&lt;h3 id=&#34;cite-build-https-github-com-kakao-cite-build&#34;&gt;cite-build (&lt;a href=&#34;https://github.com/kakao/cite-build&#34;&gt;https://github.com/kakao/cite-build&lt;/a&gt;)&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;garbage collect : 사용되지 않는 replication controller 삭제&lt;/li&gt;
+&lt;li&gt;docker build / push&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;external-components&#34;&gt;External Components&lt;/h2&gt;
-
-&lt;h3 id=&#34;etcd&#34;&gt;etcd&lt;/h3&gt;
-
-&lt;p&gt;cite의 main storage. cite configuration, kubernetes metadata, fleet metadata, cite metadata 및 loadbalancer endpoint 관리&lt;/p&gt;
-
-&lt;h3 id=&#34;kubernetes&#34;&gt;kubernetes&lt;/h3&gt;
-
-&lt;p&gt;container pod, replication controller, service 등 관리. replication controller가 container instance개수 유지&lt;/p&gt;
-
-&lt;h3 id=&#34;elasticsearch-kibana&#34;&gt;elasticsearch + kibana&lt;/h3&gt;
-
-&lt;p&gt;kubernetes POD의 로그 수집, kubernetes 및 cite 자체 로그 수집&lt;/p&gt;
-
-&lt;h3 id=&#34;jenkins&#34;&gt;jenkins&lt;/h3&gt;
-
-&lt;p&gt;배치 작업 처리&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;etcd backup&lt;/li&gt;
-&lt;li&gt;elasticsearch cleanup : 오래된 앱 로그 및 배포 로그 삭제&lt;/li&gt;
-&lt;li&gt;service health check&lt;/li&gt;
-&lt;li&gt;kubernetes node lvs 상태 보고&lt;/li&gt;
-&lt;li&gt;cite-batch로 사용되지 않는 replication controller삭제&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;supplement-components&#34;&gt;Supplement Components&lt;/h2&gt;
-
-&lt;h3 id=&#34;ansible&#34;&gt;ansible&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;cite 및 kubernetes 설치, 업데이트&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;docker-registry&#34;&gt;docker-registry&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;docker image 호스팅&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&#34;external&#34;&gt;External&lt;/h2&gt;
 
 &lt;h3 id=&#34;fluentd&#34;&gt;fluentd&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;pod 및 cite 로그 수집&lt;/li&gt;
+&lt;li&gt;aggregator kubernetes pod logs to elasticsearch&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;elasticsearch-kibana&#34;&gt;elasticsearch + kibana&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;show kubernetes pod logs&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
