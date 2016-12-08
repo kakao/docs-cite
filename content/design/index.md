@@ -28,8 +28,8 @@ Cite->kubernetes: upsert kubernetes service
 
 {{< js_sequence_diagram app_build >}}
 participant User
-participant Cite
 participant GitHub
+participant Cite
 participant Buildbot
 participant DockerReg
 

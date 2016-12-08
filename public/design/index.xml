@@ -47,8 +47,8 @@ Cite-&gt;kubernetes: upsert kubernetes service
 
 &lt;div id=&#39;app_build&#39; class=&#34;sequence_diagram&#34; width=&#34;100%&#34;&gt;
 participant User
-participant Cite
 participant GitHub
+participant Cite
 participant Buildbot
 participant DockerReg
 
