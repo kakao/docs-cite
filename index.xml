@@ -21,9 +21,9 @@
 
 &lt;p&gt;Cite is an open source Container as a Service(CaaS) that integrates &lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt; with any Kubernetes cluster, making it easy to deploy and manage applications.&lt;/p&gt;
 
-&lt;div class=&#34;admonition note&#34;&gt;
+&lt;div class=&#34;admonition warning&#34;&gt;
 &lt;p class=&#34;admonition-title&#34;&gt;TODO&lt;/p&gt;
-&lt;p&gt;add video here&amp;hellip;&lt;/p&gt;
+&lt;p&gt;add video here&amp;hellip;&amp;hellip;.&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&#34;repository&#34;&gt;Repository&lt;/h2&gt;
