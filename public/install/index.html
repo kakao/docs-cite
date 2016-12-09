@@ -387,16 +387,38 @@
 
 <h3 id="configuration">Configuration</h3>
 
-<h3 id="start">Start</h3>
+<ol>
+<li>edit build.conf
+
+<ol>
+<li>download <a href="https://github.com/kakao/cite-build/blob/master/build.conf.sample">https://github.com/kakao/cite-build/blob/master/build.conf.sample</a></li>
+<li>edit as needed.</li>
+</ol></li>
+<li>create ConfigMap
+<code>
+kubectl create configmap buildbot-config --from-file=build.conf
+</code></li>
+</ol>
+
+<h3 id="start-master">Start Master</h3>
 
 <pre><code>kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
 </code></pre>
+
+<h3 id="expose-master">Expose Master</h3>
+
+<pre><code>kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+</code></pre>
+
+<h3 id="start-workers">Start Workers</h3>
+
+<p>TODO</p>
 
 <h2 id="cite">Cite</h2>
 
 <h3 id="configuration-1">Configuration</h3>
 
-<h3 id="start-1">Start</h3>
+<h3 id="start">Start</h3>
 
 <pre><code>kubectl create -f https://raw.githubusercontent.com/code0x9/helloworld/master/cite.yaml
 </code></pre>
