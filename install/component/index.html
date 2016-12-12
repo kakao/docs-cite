@@ -416,91 +416,13 @@
 
 			
 
-<h1 id="fluentd-aggregator">fluentd aggregator</h1>
+<h2 id="fluentd-elasticsearch-addon">fluentd-elasticsearch addon</h2>
 
-<h1 id="elasticsearch">elasticsearch</h1>
+<p>to install fluentd/elasticsearch/kibana, see <a href="https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch">https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch</a></p>
 
-<h1 id="kibana">kibana</h1>
+<h2 id="cluster-monitoring">cluster-monitoring</h2>
 
-<h1 id="grafana">grafana</h1>
-
-<h1 id="master">Master</h1>
-
-<h2 id="configuration">Configuration</h2>
-
-<ol>
-<li>edit build.conf. template : <a href="https://github.com/kakao/cite-build/blob/master/build.conf.sample">https://github.com/kakao/cite-build/blob/master/build.conf.sample</a></li>
-
-<li><p>create ConfigMap</p>
-
-<pre><code>kubectl create configmap buildbot-config --from-file=build.conf
-</code></pre></li>
-</ol>
-
-<h2 id="configuration-entries">Configuration Entries</h2>
-
-<ul>
-<li>github
-
-<ul>
-<li>api_url: github api endpoint. <a href="https://api.github.com">https://api.github.com</a> or <a href="https://github.example.com/api/v3">https://github.example.com/api/v3</a></li>
-<li>api_token: cite collaborator user&rsquo;s oauth token. use 8bcd1e531e6b2223599b0a825f19b0e13f89d5b8 for public github</li>
-<li>base_url: github host. <a href="https://github.com">https://github.com</a> or <a href="https://github.example.com">https://github.example.com</a></li>
-</ul></li>
-<li>docker
-
-<ul>
-<li>registry: custom docker registry domain without protocol prefix. ex) docker-reg.example.com</li>
-</ul></li>
-<li>buildbot
-
-<ul>
-<li>workers: name of buildbot workers</li>
-<li>worker_instance: number of buildbot instances per worker</li>
-<li>worker_password: buildbot worker password</li>
-<li>url: buildbot master url</li>
-<li>database: buildbot rbdms url. sqlite:///state.sqlite or mysql://[username]:[password]@[mysql_host]/buildbot?max_idle=300</li>
-</ul></li>
-</ul>
-
-<h2 id="start">Start</h2>
-
-<pre><code>kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
-</code></pre>
-
-<h2 id="expose">Expose</h2>
-
-<pre><code>kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
-</code></pre>
-
-<h1 id="worker">Worker</h1>
-
-<ul>
-<li>do not use docker image buildbot/buildbot-worker, because
-
-<ul>
-<li>need to execute docker build(docker-in-docker)</li>
-<li>public network accessability for dependency resolve</li>
-</ul></li>
-</ul>
-
-<h2 id="install">Install</h2>
-
-<pre><code>pip install -U buildbot-worker
-</code></pre>
-
-<h2 id="configure">Configure</h2>
-
-<pre><code>buildbot-worker create-worker worker \
-    [cite_build_master_host] \
-    [cite_build_worker_name]-[cite_build_instance] \
-    [cite_build_worker_password]
-</code></pre>
-
-<h2 id="start-1">Start</h2>
-
-<pre><code>buildbot-worker start worker
-</code></pre>
+<p>see <a href="https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/cluster-monitoring">https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/cluster-monitoring</a></p>
 
 
 			<aside class="copyright" role="note">
