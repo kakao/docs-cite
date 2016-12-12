@@ -22,6 +22,18 @@
   </url>
   
   <url>
+    <loc>http://tech.kakao.com/citedocs/install/component/</loc>
+  </url>
+  
+  <url>
+    <loc>http://tech.kakao.com/citedocs/install/citebuild/</loc>
+  </url>
+  
+  <url>
+    <loc>http://tech.kakao.com/citedocs/install/cite/</loc>
+  </url>
+  
+  <url>
     <loc>http://tech.kakao.com/citedocs/usage/</loc>
     <lastmod>2016-08-23T17:27:31+09:00</lastmod>
   </url>

@@ -7,36 +7,11 @@ weight: 20
 
 * running kubernetes cluster
 
+## Components
+see [Install Components]({{< relref "install/component.md" >}})
+
 ## Cite Build
-
-### Configuration
-
-1. edit build.conf
-  1. download https://github.com/kakao/cite-build/blob/master/build.conf.sample
-  1. edit as needed.
-1. create ConfigMap
-    ```
-    kubectl create configmap buildbot-config --from-file=build.conf
-    ```
-
-### Start Master
-```
-kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
-```
-
-### Expose Master
-```
-kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
-```
-
-### Start Workers
-TODO
+see [Install Cite Build]({{< relref "install/citebuild.md" >}})
 
 ## Cite
-
-### Configuration
-
-### Start
-```
-kubectl create -f https://raw.githubusercontent.com/code0x9/helloworld/master/cite.yaml
-```
+see [Install Cite]({{< relref "install/cite.md" >}})

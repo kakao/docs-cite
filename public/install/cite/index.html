@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Design - Cite Documents</title>
+    <title>Cite - Cite Documents</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="cite documentation.">
     
-    <link rel="canonical" href="http://tech.kakao.com/citedocs/design/">
+    <link rel="canonical" href="http://tech.kakao.com/citedocs/install/cite/">
     
     <meta name="author" content="Seung Lee &lt;code0x9@gmail.com&gt;">
     
 
-    <meta property="og:url" content="http://tech.kakao.com/citedocs/design/">
+    <meta property="og:url" content="http://tech.kakao.com/citedocs/install/cite/">
     <meta property="og:title" content="Cite Documents">
     <meta property="og:image" content="http://tech.kakao.com/citedocs/images/cite-logo.png">
     <meta name="apple-mobile-web-app-title" content="Cite Documents">
@@ -97,7 +97,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Design
+        Cite
       </div>
     </div>
 
@@ -195,14 +195,11 @@
 
 
 
-<a class="current" title="Design" href="http://tech.kakao.com/citedocs/design/">
+<a  title="Design" href="http://tech.kakao.com/citedocs/design/">
 	
 	Design
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
     <ul>
@@ -415,113 +412,100 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Design </h1>
+			<h1>Cite </h1>
 
 			
 
-<h2 id="create">Create</h2>
-
-<div id='app_create' class="sequence_diagram" width="100%">
-participant User
-participant Cite
-participant kubernetes
-participant elasticsearch
-participant Github
-
-User->Cite: create app
-Cite->kubernetes: upsert kubernetes namespace
-Cite->elasticsearch: upsert kibana index
-Cite->Github: upsert github webhook
-Cite->Github: add cite user as collaborator
-Cite->kubernetes: upsert kubernetes service
-</div>
-<a href="#" class="sequence_diagram_download" target="app_create">Download as SVG</a>
+<h2 id="configuration">Configuration</h2>
 
 <ol>
-<li>create new service on cite webUI</li>
-<li>create/update kubernetes namespace</li>
-<li>create/update kibana index on elasticsearch for Pod log</li>
-<li>register cite webhook on github repository</li>
-<li>add cite account as a collaborator on github repository for source checkout, commit status update, deployment create, deployment status update</li>
+<li>edit cite.yaml. template : <a href="https://github.com/kakao/cite/blob/master/cite.yaml.sample">https://github.com/kakao/cite/blob/master/cite.yaml.sample</a></li>
+
+<li><p>create ConfigMap</p>
+
+<pre><code>kubectl create configmap cite-config --from-file=cite.yaml
+</code></pre></li>
 </ol>
 
-<h2 id="build">Build</h2>
-
-<div id='app_build' class="sequence_diagram" width="100%">
-participant User
-participant GitHub
-participant Cite
-participant Buildbot
-participant DockerReg
-
-User->GitHub: git push
-GitHub->Cite: event: push
-Cite->Buildbot: start build
-Buildbot->GitHub: commit status: pending
-GitHub->Cite: event: status(pending)
-Cite->User: notify: build start
-Buildbot->Buildbot: build docker image
-Buildbot->DockerReg: push docker image
-Buildbot->GitHub: commit status: success
-GitHub->Cite: event: status(success)
-Cite->User: notify: build finish
-</div>
-<a href="#" class="sequence_diagram_download" target="app_build">Download as SVG</a>
-
-<ol>
-<li>user pushes source to github</li>
-<li>github send push event to cite</li>
-<li>cite trigger buildbot to build docker image
+<h2 id="configuration-entries">Configuration Entries</h2>
 
 <ul>
-<li><code>X-GitHub-Event: cite</code></li>
+<li>Cite
+
+<ul>
+<li>Host : cite main url. ex) <a href="http://cite.example.com">http://cite.example.com</a></li>
+<li>ListenPort : cite listening port.default to 8080</li>
+<li>RCRetentionDuration : time to retain unused Replication Controllers. default to 1 hour(1h)</li>
+<li>Version: cite version string</li>
 </ul></li>
-<li>buildbot start docker build</li>
-<li>buildbot update commit status to pending</li>
-<li>github send status/pending event to cite</li>
-<li>cite send notify : build started</li>
-<li>buildbot execute docker image build</li>
-<li>buildbot execute docker image push</li>
-<li>buildbot update commit status to success or failure</li>
-<li>github send status/success or status/failure event to cite</li>
-<li>cite send notify : build finished</li>
-</ol>
+<li>Aggregator
 
-<h2 id="deployment">Deployment</h2>
+<ul>
+<li>Host: fluentd aggregator hostname. ex) aggregator.example.com</li>
+</ul></li>
+<li>Buildbot:
 
-<div id='app_deploy_auto' class="sequence_diagram" width="100%">
-participant User
-participant Cite
-participant GitHub
-participant Kubernetes
+<ul>
+<li>Webhook: buildboot change_hook url. ex) <a href="http://buildbot.example.com:8010/change_hook/github">http://buildbot.example.com:8010/change_hook/github</a></li>
+</ul></li>
+<li>LoadBalancer
 
-GitHub->Cite: event: status(success)
-Cite->GitHub: deployment
-Cite->GitHub: deployment status: pending
-GitHub->Cite: event: deployment(pending)
-Cite->User: notify: deploy start
-Cite->Kubernetes: create replication controller
-Cite->Cite: wait for Pods become ready
-Cite->Kubernetes: update service selector
-Cite->GitHub: deployment status: success
-GitHub->Cite: event: deployment(success)
-Cite->User: notify: deploy success
-</div>
-<a href="#" class="sequence_diagram_download" target="app_deploy_auto">Download as SVG</a>
+<ul>
+<li>Driver: loadbalancer provider. default to netscaler</li>
+</ul></li>
+<li>ElasticSearch
 
-<ol>
-<li>github send status/success event to cite</li>
-<li>cite send create deployment to github</li>
-<li>cite send create deployment status/pending to github</li>
-<li>github send back deployment status to cite</li>
-<li>cite send notify : deploy started</li>
-<li>cite create kubernetes replication controller</li>
-<li>cite polls for all pods to become ready status</li>
-<li>cite update kubernetes service selector</li>
-<li>cite send create deployment status/success to github</li>
-<li>github send back deployment status to cite</li>
-<li>cite send notify : deploy finished</li>
-</ol>
+<ul>
+<li>Host: elasticsearch host. ex) <a href="http://elasticsearch.example.com:9200">http://elasticsearch.example.com:9200</a></li>
+<li>KibanaHost: kibana domain. ex) <a href="http://kibana.example.com">http://kibana.example.com</a></li>
+</ul></li>
+<li>GitHub
+
+<ul>
+<li>AccessToken: cite collaborator user&rsquo;s oauth token. use 8bcd1e531e6b2223599b0a825f19b0e13f89d5b8 for public github</li>
+<li>API: github api endpoint. <a href="https://api.github.com">https://api.github.com</a> or <a href="https://github.example.com/api/v3">https://github.example.com/api/v3</a></li>
+<li>ClientID: cite github client id</li>
+<li>ClientSecret: cite github client secret</li>
+<li>Host: github host. <a href="https://github.com">https://github.com</a> or <a href="https://github.example.com">https://github.example.com</a></li>
+<li>OAuthAuthURL: github oauth authorize url. <a href="https://github.com/login/oauth/authorize">https://github.com/login/oauth/authorize</a> or <a href="https://github.example.com/login/oauth/authorize">https://github.example.com/login/oauth/authorize</a></li>
+<li>OAuthTokenURL: github oauth token exchange url. <a href="https://github.com/login/oauth/access_token">https://github.com/login/oauth/access_token</a> or <a href="https://github.example">https://github.example</a>. com/login/oauth/access_token</li>
+<li>Scope: oauth permissions. default to repo,write:repo_hook</li>
+<li>Username: collaborator userid. use cite-github for public github</li>
+<li>WebhookURI: github webhook url. default to /v1/github</li>
+</ul></li>
+<li>Grafana
+
+<ul>
+<li>Host: grafana host. ex) <a href="http://grafana.example.com">http://grafana.example.com</a></li>
+</ul></li>
+<li>Kubernetes
+
+<ul>
+<li>Master: kubernetes master endpoint. ex) <a href="http://k8s.example.com:8080">http://k8s.example.com:8080</a></li>
+<li>MaxPods: max number of pods per service. default to 20</li>
+<li>MinInitialDelay: minimum initial delay to wait for pod startup. default to 10</li>
+<li>MaxInitialDelay: maximum initial delay to wait for pod startup. default to 600</li>
+<li>PollInterval: health check interval. default to 2</li>
+<li>PollTimeout: maximum time to wait for pod startup. default to 600</li>
+<li>DefaultCPU: initial pod cpu limit. default to 250m</li>
+<li>DefaultMemory: initial pod memory limit. default to 1Gi</li>
+<li>MaxCPU: maximum pod cpu limit. default to 2000m</li>
+<li>MaxMemory: maximum pod cpu limit. default to 8Gi</li>
+</ul></li>
+<li>Notification
+
+<ul>
+<li>Slack</li>
+<li>ClientID: slack client id.</li>
+<li>ClientSecret: slack client secret.</li>
+<li>RedirectURI: slack webhook url. default to /v1/notification/slack</li>
+</ul></li>
+</ul>
+
+<h3 id="start">Start</h3>
+
+<pre><code>kubectl create -f https://raw.githubusercontent.com/code0x9/helloworld/master/cite.yaml
+</code></pre>
 
 
 			<aside class="copyright" role="note">
@@ -540,7 +524,7 @@ Cite->User: notify: deploy success
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://tech.kakao.com/citedocs/" title="Introduction">
+      <a href="http://tech.kakao.com/citedocs/install/citebuild/" title="Cite Build">
         <span class="direction">
           Previous
         </span>
@@ -550,7 +534,7 @@ Cite->User: notify: deploy success
           </div>
           <div class="stretch">
             <div class="title">
-              Introduction
+              Cite Build
             </div>
           </div>
         </div>
@@ -560,14 +544,14 @@ Cite->User: notify: deploy success
 
   <div class="next">
   
-      <a href="http://tech.kakao.com/citedocs/design/components/" title="Components">
+      <a href="http://tech.kakao.com/citedocs/usage/" title="Usage">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Components
+              Usage
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
