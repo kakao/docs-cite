@@ -239,6 +239,48 @@
 </ul>
 
 
+    <ul>
+        
+        
+        
+
+
+
+<a  title="Component" href="http://tech.kakao.com/citedocs/install/component/">
+	
+	Component
+</a>
+
+
+
+        
+        
+        
+
+
+
+<a  title="Cite Build" href="http://tech.kakao.com/citedocs/install/citebuild/">
+	
+	Cite Build
+</a>
+
+
+
+        
+        
+        
+
+
+
+<a  title="Cite" href="http://tech.kakao.com/citedocs/install/cite/">
+	
+	Cite
+</a>
+
+
+
+        
+    </ul>
     
 </li>
 
@@ -383,45 +425,17 @@
 <li>running kubernetes cluster</li>
 </ul>
 
+<h2 id="components">Components</h2>
+
+<p>see <a href="http://tech.kakao.com/citedocs/install/component/">Install Components</a></p>
+
 <h2 id="cite-build">Cite Build</h2>
 
-<h3 id="configuration">Configuration</h3>
-
-<ol>
-<li>edit build.conf
-
-<ol>
-<li>download <a href="https://github.com/kakao/cite-build/blob/master/build.conf.sample">https://github.com/kakao/cite-build/blob/master/build.conf.sample</a></li>
-<li>edit as needed.</li>
-</ol></li>
-<li>create ConfigMap
-<code>
-kubectl create configmap buildbot-config --from-file=build.conf
-</code></li>
-</ol>
-
-<h3 id="start-master">Start Master</h3>
-
-<pre><code>kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
-</code></pre>
-
-<h3 id="expose-master">Expose Master</h3>
-
-<pre><code>kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
-</code></pre>
-
-<h3 id="start-workers">Start Workers</h3>
-
-<p>TODO</p>
+<p>see <a href="http://tech.kakao.com/citedocs/install/citebuild/">Install Cite Build</a></p>
 
 <h2 id="cite">Cite</h2>
 
-<h3 id="configuration-1">Configuration</h3>
-
-<h3 id="start">Start</h3>
-
-<pre><code>kubectl create -f https://raw.githubusercontent.com/code0x9/helloworld/master/cite.yaml
-</code></pre>
+<p>see <a href="http://tech.kakao.com/citedocs/install/cite/">Install Cite</a></p>
 
 
 			<aside class="copyright" role="note">
@@ -460,14 +474,14 @@ kubectl create configmap buildbot-config --from-file=build.conf
 
   <div class="next">
   
-      <a href="http://tech.kakao.com/citedocs/usage/" title="Usage">
+      <a href="http://tech.kakao.com/citedocs/install/component/" title="Component">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Usage
+              Component
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -23,40 +23,297 @@
 &lt;li&gt;running kubernetes cluster&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
+
+&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/citedocs/install/component/&#34;&gt;Install Components&lt;/a&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;cite-build&#34;&gt;Cite Build&lt;/h2&gt;
 
-&lt;h3 id=&#34;configuration&#34;&gt;Configuration&lt;/h3&gt;
+&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/citedocs/install/citebuild/&#34;&gt;Install Cite Build&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;cite&#34;&gt;Cite&lt;/h2&gt;
+
+&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/citedocs/install/cite/&#34;&gt;Install Cite&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Component</title>
+      <link>http://tech.kakao.com/citedocs/install/component/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://tech.kakao.com/citedocs/install/component/</guid>
+      <description>
+
+&lt;h1 id=&#34;fluentd-aggregator&#34;&gt;fluentd aggregator&lt;/h1&gt;
+
+&lt;h1 id=&#34;elasticsearch&#34;&gt;elasticsearch&lt;/h1&gt;
+
+&lt;h1 id=&#34;kibana&#34;&gt;kibana&lt;/h1&gt;
+
+&lt;h1 id=&#34;grafana&#34;&gt;grafana&lt;/h1&gt;
+
+&lt;h1 id=&#34;master&#34;&gt;Master&lt;/h1&gt;
+
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;edit build.conf
+&lt;li&gt;edit build.conf. template : &lt;a href=&#34;https://github.com/kakao/cite-build/blob/master/build.conf.sample&#34;&gt;https://github.com/kakao/cite-build/blob/master/build.conf.sample&lt;/a&gt;&lt;/li&gt;
 
-&lt;ol&gt;
-&lt;li&gt;download &lt;a href=&#34;https://github.com/kakao/cite-build/blob/master/build.conf.sample&#34;&gt;https://github.com/kakao/cite-build/blob/master/build.conf.sample&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;edit as needed.&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;create ConfigMap
-&lt;code&gt;
-kubectl create configmap buildbot-config --from-file=build.conf
-&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;create ConfigMap&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl create configmap buildbot-config --from-file=build.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&#34;start-master&#34;&gt;Start Master&lt;/h3&gt;
+&lt;h2 id=&#34;configuration-entries&#34;&gt;Configuration Entries&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;github
+
+&lt;ul&gt;
+&lt;li&gt;api_url: github api endpoint. &lt;a href=&#34;https://api.github.com&#34;&gt;https://api.github.com&lt;/a&gt; or &lt;a href=&#34;https://github.example.com/api/v3&#34;&gt;https://github.example.com/api/v3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;api_token: cite collaborator user&amp;rsquo;s oauth token. use 8bcd1e531e6b2223599b0a825f19b0e13f89d5b8 for public github&lt;/li&gt;
+&lt;li&gt;base_url: github host. &lt;a href=&#34;https://github.com&#34;&gt;https://github.com&lt;/a&gt; or &lt;a href=&#34;https://github.example.com&#34;&gt;https://github.example.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;docker
+
+&lt;ul&gt;
+&lt;li&gt;registry: custom docker registry domain without protocol prefix. ex) docker-reg.example.com&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;buildbot
+
+&lt;ul&gt;
+&lt;li&gt;workers: name of buildbot workers&lt;/li&gt;
+&lt;li&gt;worker_instance: number of buildbot instances per worker&lt;/li&gt;
+&lt;li&gt;worker_password: buildbot worker password&lt;/li&gt;
+&lt;li&gt;url: buildbot master url&lt;/li&gt;
+&lt;li&gt;database: buildbot rbdms url. sqlite:///state.sqlite or mysql://[username]:[password]@[mysql_host]/buildbot?max_idle=300&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;start&#34;&gt;Start&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;expose-master&#34;&gt;Expose Master&lt;/h3&gt;
+&lt;h2 id=&#34;expose&#34;&gt;Expose&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;start-workers&#34;&gt;Start Workers&lt;/h3&gt;
+&lt;h1 id=&#34;worker&#34;&gt;Worker&lt;/h1&gt;
 
-&lt;p&gt;TODO&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;do not use docker image buildbot/buildbot-worker, because
 
-&lt;h2 id=&#34;cite&#34;&gt;Cite&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;need to execute docker build(docker-in-docker)&lt;/li&gt;
+&lt;li&gt;public network accessability for dependency resolve&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h3 id=&#34;configuration-1&#34;&gt;Configuration&lt;/h3&gt;
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install -U buildbot-worker
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;configure&#34;&gt;Configure&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;buildbot-worker create-worker worker \
+    [cite_build_master_host] \
+    [cite_build_worker_name]-[cite_build_instance] \
+    [cite_build_worker_password]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;start-1&#34;&gt;Start&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;buildbot-worker start worker
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cite Build</title>
+      <link>http://tech.kakao.com/citedocs/install/citebuild/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://tech.kakao.com/citedocs/install/citebuild/</guid>
+      <description>
+
+&lt;h1 id=&#34;master&#34;&gt;Master&lt;/h1&gt;
+
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;edit build.conf. template : &lt;a href=&#34;https://github.com/kakao/cite-build/blob/master/build.conf.sample&#34;&gt;https://github.com/kakao/cite-build/blob/master/build.conf.sample&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;create ConfigMap&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl create configmap buildbot-config --from-file=build.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;configuration-entries&#34;&gt;Configuration Entries&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;github
+
+&lt;ul&gt;
+&lt;li&gt;api_url: github api endpoint. &lt;a href=&#34;https://api.github.com&#34;&gt;https://api.github.com&lt;/a&gt; or &lt;a href=&#34;https://github.example.com/api/v3&#34;&gt;https://github.example.com/api/v3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;api_token: cite collaborator user&amp;rsquo;s oauth token. use 8bcd1e531e6b2223599b0a825f19b0e13f89d5b8 for public github&lt;/li&gt;
+&lt;li&gt;base_url: github host. &lt;a href=&#34;https://github.com&#34;&gt;https://github.com&lt;/a&gt; or &lt;a href=&#34;https://github.example.com&#34;&gt;https://github.example.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;docker
+
+&lt;ul&gt;
+&lt;li&gt;registry: custom docker registry domain without protocol prefix. ex) docker-reg.example.com&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;buildbot
+
+&lt;ul&gt;
+&lt;li&gt;workers: name of buildbot workers&lt;/li&gt;
+&lt;li&gt;worker_instance: number of buildbot instances per worker&lt;/li&gt;
+&lt;li&gt;worker_password: buildbot worker password&lt;/li&gt;
+&lt;li&gt;url: buildbot master url&lt;/li&gt;
+&lt;li&gt;database: buildbot rbdms url. sqlite:///state.sqlite or mysql://[username]:[password]@[mysql_host]/buildbot?max_idle=300&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;start&#34;&gt;Start&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;expose&#34;&gt;Expose&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;worker&#34;&gt;Worker&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;do not use docker image buildbot/buildbot-worker, because
+
+&lt;ul&gt;
+&lt;li&gt;need to execute docker build(docker-in-docker)&lt;/li&gt;
+&lt;li&gt;public network accessability for dependency resolve&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install -U buildbot-worker
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;configure&#34;&gt;Configure&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;buildbot-worker create-worker worker \
+    [cite_build_master_host] \
+    [cite_build_worker_name]-[cite_build_instance] \
+    [cite_build_worker_password]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;start-1&#34;&gt;Start&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;buildbot-worker start worker
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cite</title>
+      <link>http://tech.kakao.com/citedocs/install/cite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://tech.kakao.com/citedocs/install/cite/</guid>
+      <description>
+
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;edit cite.yaml. template : &lt;a href=&#34;https://github.com/kakao/cite/blob/master/cite.yaml.sample&#34;&gt;https://github.com/kakao/cite/blob/master/cite.yaml.sample&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;create ConfigMap&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl create configmap cite-config --from-file=cite.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;configuration-entries&#34;&gt;Configuration Entries&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cite
+
+&lt;ul&gt;
+&lt;li&gt;Host : cite main url. ex) &lt;a href=&#34;http://cite.example.com&#34;&gt;http://cite.example.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ListenPort : cite listening port.default to 8080&lt;/li&gt;
+&lt;li&gt;RCRetentionDuration : time to retain unused Replication Controllers. default to 1 hour(1h)&lt;/li&gt;
+&lt;li&gt;Version: cite version string&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Aggregator
+
+&lt;ul&gt;
+&lt;li&gt;Host: fluentd aggregator hostname. ex) aggregator.example.com&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Buildbot:
+
+&lt;ul&gt;
+&lt;li&gt;Webhook: buildboot change_hook url. ex) &lt;a href=&#34;http://buildbot.example.com:8010/change_hook/github&#34;&gt;http://buildbot.example.com:8010/change_hook/github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;LoadBalancer
+
+&lt;ul&gt;
+&lt;li&gt;Driver: loadbalancer provider. default to netscaler&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ElasticSearch
+
+&lt;ul&gt;
+&lt;li&gt;Host: elasticsearch host. ex) &lt;a href=&#34;http://elasticsearch.example.com:9200&#34;&gt;http://elasticsearch.example.com:9200&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;KibanaHost: kibana domain. ex) &lt;a href=&#34;http://kibana.example.com&#34;&gt;http://kibana.example.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GitHub
+
+&lt;ul&gt;
+&lt;li&gt;AccessToken: cite collaborator user&amp;rsquo;s oauth token. use 8bcd1e531e6b2223599b0a825f19b0e13f89d5b8 for public github&lt;/li&gt;
+&lt;li&gt;API: github api endpoint. &lt;a href=&#34;https://api.github.com&#34;&gt;https://api.github.com&lt;/a&gt; or &lt;a href=&#34;https://github.example.com/api/v3&#34;&gt;https://github.example.com/api/v3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ClientID: cite github client id&lt;/li&gt;
+&lt;li&gt;ClientSecret: cite github client secret&lt;/li&gt;
+&lt;li&gt;Host: github host. &lt;a href=&#34;https://github.com&#34;&gt;https://github.com&lt;/a&gt; or &lt;a href=&#34;https://github.example.com&#34;&gt;https://github.example.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;OAuthAuthURL: github oauth authorize url. &lt;a href=&#34;https://github.com/login/oauth/authorize&#34;&gt;https://github.com/login/oauth/authorize&lt;/a&gt; or &lt;a href=&#34;https://github.example.com/login/oauth/authorize&#34;&gt;https://github.example.com/login/oauth/authorize&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;OAuthTokenURL: github oauth token exchange url. &lt;a href=&#34;https://github.com/login/oauth/access_token&#34;&gt;https://github.com/login/oauth/access_token&lt;/a&gt; or &lt;a href=&#34;https://github.example&#34;&gt;https://github.example&lt;/a&gt;. com/login/oauth/access_token&lt;/li&gt;
+&lt;li&gt;Scope: oauth permissions. default to repo,write:repo_hook&lt;/li&gt;
+&lt;li&gt;Username: collaborator userid. use cite-github for public github&lt;/li&gt;
+&lt;li&gt;WebhookURI: github webhook url. default to /v1/github&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Grafana
+
+&lt;ul&gt;
+&lt;li&gt;Host: grafana host. ex) &lt;a href=&#34;http://grafana.example.com&#34;&gt;http://grafana.example.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Kubernetes
+
+&lt;ul&gt;
+&lt;li&gt;Master: kubernetes master endpoint. ex) &lt;a href=&#34;http://k8s.example.com:8080&#34;&gt;http://k8s.example.com:8080&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;MaxPods: max number of pods per service. default to 20&lt;/li&gt;
+&lt;li&gt;MinInitialDelay: minimum initial delay to wait for pod startup. default to 10&lt;/li&gt;
+&lt;li&gt;MaxInitialDelay: maximum initial delay to wait for pod startup. default to 600&lt;/li&gt;
+&lt;li&gt;PollInterval: health check interval. default to 2&lt;/li&gt;
+&lt;li&gt;PollTimeout: maximum time to wait for pod startup. default to 600&lt;/li&gt;
+&lt;li&gt;DefaultCPU: initial pod cpu limit. default to 250m&lt;/li&gt;
+&lt;li&gt;DefaultMemory: initial pod memory limit. default to 1Gi&lt;/li&gt;
+&lt;li&gt;MaxCPU: maximum pod cpu limit. default to 2000m&lt;/li&gt;
+&lt;li&gt;MaxMemory: maximum pod cpu limit. default to 8Gi&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Notification
+
+&lt;ul&gt;
+&lt;li&gt;Slack&lt;/li&gt;
+&lt;li&gt;ClientID: slack client id.&lt;/li&gt;
+&lt;li&gt;ClientSecret: slack client secret.&lt;/li&gt;
+&lt;li&gt;RedirectURI: slack webhook url. default to /v1/notification/slack&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&#34;start&#34;&gt;Start&lt;/h3&gt;
 

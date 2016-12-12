@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Design - Cite Documents</title>
+    <title>Cite Build - Cite Documents</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="cite documentation.">
     
-    <link rel="canonical" href="http://tech.kakao.com/citedocs/design/">
+    <link rel="canonical" href="http://tech.kakao.com/citedocs/install/citebuild/">
     
     <meta name="author" content="Seung Lee &lt;code0x9@gmail.com&gt;">
     
 
-    <meta property="og:url" content="http://tech.kakao.com/citedocs/design/">
+    <meta property="og:url" content="http://tech.kakao.com/citedocs/install/citebuild/">
     <meta property="og:title" content="Cite Documents">
     <meta property="og:image" content="http://tech.kakao.com/citedocs/images/cite-logo.png">
     <meta name="apple-mobile-web-app-title" content="Cite Documents">
@@ -97,7 +97,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Design
+        Cite Build
       </div>
     </div>
 
@@ -195,14 +195,11 @@
 
 
 
-<a class="current" title="Design" href="http://tech.kakao.com/citedocs/design/">
+<a  title="Design" href="http://tech.kakao.com/citedocs/design/">
 	
 	Design
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
     <ul>
@@ -415,113 +412,87 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Design </h1>
+			<h1>Cite Build </h1>
 
 			
 
-<h2 id="create">Create</h2>
+<h1 id="master">Master</h1>
 
-<div id='app_create' class="sequence_diagram" width="100%">
-participant User
-participant Cite
-participant kubernetes
-participant elasticsearch
-participant Github
-
-User->Cite: create app
-Cite->kubernetes: upsert kubernetes namespace
-Cite->elasticsearch: upsert kibana index
-Cite->Github: upsert github webhook
-Cite->Github: add cite user as collaborator
-Cite->kubernetes: upsert kubernetes service
-</div>
-<a href="#" class="sequence_diagram_download" target="app_create">Download as SVG</a>
+<h2 id="configuration">Configuration</h2>
 
 <ol>
-<li>create new service on cite webUI</li>
-<li>create/update kubernetes namespace</li>
-<li>create/update kibana index on elasticsearch for Pod log</li>
-<li>register cite webhook on github repository</li>
-<li>add cite account as a collaborator on github repository for source checkout, commit status update, deployment create, deployment status update</li>
+<li>edit build.conf. template : <a href="https://github.com/kakao/cite-build/blob/master/build.conf.sample">https://github.com/kakao/cite-build/blob/master/build.conf.sample</a></li>
+
+<li><p>create ConfigMap</p>
+
+<pre><code>kubectl create configmap buildbot-config --from-file=build.conf
+</code></pre></li>
 </ol>
 
-<h2 id="build">Build</h2>
-
-<div id='app_build' class="sequence_diagram" width="100%">
-participant User
-participant GitHub
-participant Cite
-participant Buildbot
-participant DockerReg
-
-User->GitHub: git push
-GitHub->Cite: event: push
-Cite->Buildbot: start build
-Buildbot->GitHub: commit status: pending
-GitHub->Cite: event: status(pending)
-Cite->User: notify: build start
-Buildbot->Buildbot: build docker image
-Buildbot->DockerReg: push docker image
-Buildbot->GitHub: commit status: success
-GitHub->Cite: event: status(success)
-Cite->User: notify: build finish
-</div>
-<a href="#" class="sequence_diagram_download" target="app_build">Download as SVG</a>
-
-<ol>
-<li>user pushes source to github</li>
-<li>github send push event to cite</li>
-<li>cite trigger buildbot to build docker image
+<h2 id="configuration-entries">Configuration Entries</h2>
 
 <ul>
-<li><code>X-GitHub-Event: cite</code></li>
+<li>github
+
+<ul>
+<li>api_url: github api endpoint. <a href="https://api.github.com">https://api.github.com</a> or <a href="https://github.example.com/api/v3">https://github.example.com/api/v3</a></li>
+<li>api_token: cite collaborator user&rsquo;s oauth token. use 8bcd1e531e6b2223599b0a825f19b0e13f89d5b8 for public github</li>
+<li>base_url: github host. <a href="https://github.com">https://github.com</a> or <a href="https://github.example.com">https://github.example.com</a></li>
 </ul></li>
-<li>buildbot start docker build</li>
-<li>buildbot update commit status to pending</li>
-<li>github send status/pending event to cite</li>
-<li>cite send notify : build started</li>
-<li>buildbot execute docker image build</li>
-<li>buildbot execute docker image push</li>
-<li>buildbot update commit status to success or failure</li>
-<li>github send status/success or status/failure event to cite</li>
-<li>cite send notify : build finished</li>
-</ol>
+<li>docker
 
-<h2 id="deployment">Deployment</h2>
+<ul>
+<li>registry: custom docker registry domain without protocol prefix. ex) docker-reg.example.com</li>
+</ul></li>
+<li>buildbot
 
-<div id='app_deploy_auto' class="sequence_diagram" width="100%">
-participant User
-participant Cite
-participant GitHub
-participant Kubernetes
+<ul>
+<li>workers: name of buildbot workers</li>
+<li>worker_instance: number of buildbot instances per worker</li>
+<li>worker_password: buildbot worker password</li>
+<li>url: buildbot master url</li>
+<li>database: buildbot rbdms url. sqlite:///state.sqlite or mysql://[username]:[password]@[mysql_host]/buildbot?max_idle=300</li>
+</ul></li>
+</ul>
 
-GitHub->Cite: event: status(success)
-Cite->GitHub: deployment
-Cite->GitHub: deployment status: pending
-GitHub->Cite: event: deployment(pending)
-Cite->User: notify: deploy start
-Cite->Kubernetes: create replication controller
-Cite->Cite: wait for Pods become ready
-Cite->Kubernetes: update service selector
-Cite->GitHub: deployment status: success
-GitHub->Cite: event: deployment(success)
-Cite->User: notify: deploy success
-</div>
-<a href="#" class="sequence_diagram_download" target="app_deploy_auto">Download as SVG</a>
+<h2 id="start">Start</h2>
 
-<ol>
-<li>github send status/success event to cite</li>
-<li>cite send create deployment to github</li>
-<li>cite send create deployment status/pending to github</li>
-<li>github send back deployment status to cite</li>
-<li>cite send notify : deploy started</li>
-<li>cite create kubernetes replication controller</li>
-<li>cite polls for all pods to become ready status</li>
-<li>cite update kubernetes service selector</li>
-<li>cite send create deployment status/success to github</li>
-<li>github send back deployment status to cite</li>
-<li>cite send notify : deploy finished</li>
-</ol>
+<pre><code>kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+</code></pre>
+
+<h2 id="expose">Expose</h2>
+
+<pre><code>kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+</code></pre>
+
+<h1 id="worker">Worker</h1>
+
+<ul>
+<li>do not use docker image buildbot/buildbot-worker, because
+
+<ul>
+<li>need to execute docker build(docker-in-docker)</li>
+<li>public network accessability for dependency resolve</li>
+</ul></li>
+</ul>
+
+<h2 id="install">Install</h2>
+
+<pre><code>pip install -U buildbot-worker
+</code></pre>
+
+<h2 id="configure">Configure</h2>
+
+<pre><code>buildbot-worker create-worker worker \
+    [cite_build_master_host] \
+    [cite_build_worker_name]-[cite_build_instance] \
+    [cite_build_worker_password]
+</code></pre>
+
+<h2 id="start-1">Start</h2>
+
+<pre><code>buildbot-worker start worker
+</code></pre>
 
 
 			<aside class="copyright" role="note">
@@ -540,7 +511,7 @@ Cite->User: notify: deploy success
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://tech.kakao.com/citedocs/" title="Introduction">
+      <a href="http://tech.kakao.com/citedocs/install/component/" title="Component">
         <span class="direction">
           Previous
         </span>
@@ -550,7 +521,7 @@ Cite->User: notify: deploy success
           </div>
           <div class="stretch">
             <div class="title">
-              Introduction
+              Component
             </div>
           </div>
         </div>
@@ -560,14 +531,14 @@ Cite->User: notify: deploy success
 
   <div class="next">
   
-      <a href="http://tech.kakao.com/citedocs/design/components/" title="Components">
+      <a href="http://tech.kakao.com/citedocs/install/cite/" title="Cite">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Components
+              Cite
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
