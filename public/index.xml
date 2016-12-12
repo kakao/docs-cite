@@ -234,91 +234,13 @@ Cite-&gt;User: notify: deploy success
       <guid>http://tech.kakao.com/citedocs/install/component/</guid>
       <description>
 
-&lt;h1 id=&#34;fluentd-aggregator&#34;&gt;fluentd aggregator&lt;/h1&gt;
+&lt;h2 id=&#34;fluentd-elasticsearch-addon&#34;&gt;fluentd-elasticsearch addon&lt;/h2&gt;
 
-&lt;h1 id=&#34;elasticsearch&#34;&gt;elasticsearch&lt;/h1&gt;
+&lt;p&gt;to install fluentd/elasticsearch/kibana, see &lt;a href=&#34;https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch&#34;&gt;https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;kibana&#34;&gt;kibana&lt;/h1&gt;
+&lt;h2 id=&#34;cluster-monitoring&#34;&gt;cluster-monitoring&lt;/h2&gt;
 
-&lt;h1 id=&#34;grafana&#34;&gt;grafana&lt;/h1&gt;
-
-&lt;h1 id=&#34;master&#34;&gt;Master&lt;/h1&gt;
-
-&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;edit build.conf. template : &lt;a href=&#34;https://github.com/kakao/cite-build/blob/master/build.conf.sample&#34;&gt;https://github.com/kakao/cite-build/blob/master/build.conf.sample&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;create ConfigMap&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl create configmap buildbot-config --from-file=build.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;configuration-entries&#34;&gt;Configuration Entries&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;github
-
-&lt;ul&gt;
-&lt;li&gt;api_url: github api endpoint. &lt;a href=&#34;https://api.github.com&#34;&gt;https://api.github.com&lt;/a&gt; or &lt;a href=&#34;https://github.example.com/api/v3&#34;&gt;https://github.example.com/api/v3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;api_token: cite collaborator user&amp;rsquo;s oauth token. use 8bcd1e531e6b2223599b0a825f19b0e13f89d5b8 for public github&lt;/li&gt;
-&lt;li&gt;base_url: github host. &lt;a href=&#34;https://github.com&#34;&gt;https://github.com&lt;/a&gt; or &lt;a href=&#34;https://github.example.com&#34;&gt;https://github.example.com&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;docker
-
-&lt;ul&gt;
-&lt;li&gt;registry: custom docker registry domain without protocol prefix. ex) docker-reg.example.com&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;buildbot
-
-&lt;ul&gt;
-&lt;li&gt;workers: name of buildbot workers&lt;/li&gt;
-&lt;li&gt;worker_instance: number of buildbot instances per worker&lt;/li&gt;
-&lt;li&gt;worker_password: buildbot worker password&lt;/li&gt;
-&lt;li&gt;url: buildbot master url&lt;/li&gt;
-&lt;li&gt;database: buildbot rbdms url. sqlite:///state.sqlite or mysql://[username]:[password]@[mysql_host]/buildbot?max_idle=300&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;start&#34;&gt;Start&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;expose&#34;&gt;Expose&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;worker&#34;&gt;Worker&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;do not use docker image buildbot/buildbot-worker, because
-
-&lt;ul&gt;
-&lt;li&gt;need to execute docker build(docker-in-docker)&lt;/li&gt;
-&lt;li&gt;public network accessability for dependency resolve&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;pip install -U buildbot-worker
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;configure&#34;&gt;Configure&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;buildbot-worker create-worker worker \
-    [cite_build_master_host] \
-    [cite_build_worker_name]-[cite_build_instance] \
-    [cite_build_worker_password]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;start-1&#34;&gt;Start&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;buildbot-worker start worker
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;see &lt;a href=&#34;https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/cluster-monitoring&#34;&gt;https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/cluster-monitoring&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
