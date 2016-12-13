@@ -7,7 +7,7 @@ menu:
     identifier: component
 ---
 ## fluentd-elasticsearch addon
-to install fluentd/elasticsearch/kibana, see https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch
+see https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch
 
 ## cluster-monitoring
 

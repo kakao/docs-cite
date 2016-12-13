@@ -64,3 +64,8 @@ menu:
 ```
 kubectl create -f https://raw.githubusercontent.com/code0x9/helloworld/master/cite.yaml
 ```
+
+## Expose
+```
+kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite.yaml
+```
