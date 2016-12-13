@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Go - Cite Documents</title>
+    <title>Example - Cite Documents</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
@@ -97,7 +97,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Go
+        Example
       </div>
     </div>
 
@@ -303,9 +303,9 @@
 
 
 
-<a  title="Go" href="http://tech.kakao.com/citedocs/usage/languages/go/">
+<a  title="Logging" href="http://tech.kakao.com/citedocs/usage/logging/">
 	
-	Go
+	Logging
 </a>
 
 
@@ -316,9 +316,9 @@
 
 
 
-<a  title="Logging" href="http://tech.kakao.com/citedocs/usage/logging/">
+<a  title="Example" href="http://tech.kakao.com/citedocs/usage/languages/go/">
 	
-	Logging
+	Example
 </a>
 
 
@@ -412,24 +412,24 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Go </h1>
+			<h1>Example </h1>
 
 			
 
 <h2 id="prepare">Prepare</h2>
 
 <ol>
-<li><p>govendor설치</p>
+<li><p>install govendor</p>
 
 <pre><code class="language-bash">go get github.com/kardianos/govendor
 </code></pre></li>
 
-<li><p>vendor 초기화</p>
+<li><p>initialize vendor</p>
 
 <pre><code class="language-bash">govendor init
 </code></pre></li>
 
-<li><p>vendor 디렉토리에 외부 라이브러리 추가</p>
+<li><p>add external dependencies into vendor directory</p>
 
 <pre><code class="language-bash">govendor add +external
 </code></pre></li>
@@ -441,27 +441,27 @@
 
 ENV TZ Asia/Seoul
 
-ADD . /go/src/[리모트 패키지 경로]
+ADD . /go/src/[path to remote package]
 
-WORKDIR /go/src/[리모트 패키지 경로]
+WORKDIR /go/src/[path to remote package]
 
 RUN go-wrapper download
 RUN go-wrapper install
 
-EXPOSE [서버가 사용하는 포트]
+EXPOSE [port to expose]
 
-CMD [&quot;실행 파일 경로&quot;]
+CMD [&quot;path to executable&quot;]
 </code></pre>
 
-<h3 id="예제">예제</h3>
+<h3 id="sample">Sample</h3>
 
 <pre><code class="language-dockerfile">FROM golang:1.6
 
 ENV TZ Asia/Seoul
 
-ADD . /go/src/github.daumkakao.com/ctf/cite
+ADD . /go/src/github.com/kakao/cite
 
-WORKDIR /go/src/github.daumkakao.com/ctf/cite
+WORKDIR /go/src/github.com/kakao/cite
 
 RUN go-wrapper download
 RUN go-wrapper install
@@ -476,27 +476,6 @@ CMD [&quot;/go/bin/cite&quot;]
 <pre><code>.git
 lastupdate.tmp
 </code></pre>
-
-<h2 id="background">Background</h2>
-
-<ol>
-<li>vendoring을 통해 라이브러리 업데이트로 인한 버그나 외부 repository의 문제로 인한 빌드 실패를 최소화. govendor외에도 vendoring도구는 뭐든 사용 가능함.</li>
-<li>glide는 vendor디렉토리 내에 .git파일을 그냥 둬서 git에서 submodule로 관리할 필요가 있으나, cite에서는 vendor라이브러리를 직접 github에 호스팅하는 모델로 생각하고 govendor로 변경.</li>
-<li>golang에 한정해서 scratch 이미지 기반으로 만드는게 더 효율적이겠지만 대부분의 사용자가 OSX 또는 windows일것을 감안하면 빌드용 docker, 릴리즈용 docker를 따로 관리하기가 더 불편할것으로 예상됨.
-
-<ul>
-<li>docker in docker패턴은 향후 needs가 있으면 추가할 예정</li>
-</ul></li>
-</ol>
-
-<h2 id="reference">Reference</h2>
-
-<ul>
-<li>govendor : <a href="https://github.com/kardianos/govendor">https://github.com/kardianos/govendor</a></li>
-<li>package management tools : <a href="https://github.com/golang/go/wiki/PackageManagementTools">https://github.com/golang/go/wiki/PackageManagementTools</a></li>
-<li>golang docker guide : <a href="https://blog.golang.org/docker">https://blog.golang.org/docker</a></li>
-<li>Building Docker Images for Static Go Binaries : <a href="https://medium.com/@kelseyhightower/optimizing-docker-images-for-static-binaries-b5696e26eb07#.a056g91oo">https://medium.com/@kelseyhightower/optimizing-docker-images-for-static-binaries-b5696e26eb07#.a056g91oo</a></li>
-</ul>
 
 
 			<aside class="copyright" role="note">
@@ -515,7 +494,7 @@ lastupdate.tmp
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://tech.kakao.com/citedocs/usage/" title="Usage">
+      <a href="http://tech.kakao.com/citedocs/usage/logging/" title="Logging">
         <span class="direction">
           Previous
         </span>
@@ -525,7 +504,7 @@ lastupdate.tmp
           </div>
           <div class="stretch">
             <div class="title">
-              Usage
+              Logging
             </div>
           </div>
         </div>
@@ -535,14 +514,14 @@ lastupdate.tmp
 
   <div class="next">
   
-      <a href="http://tech.kakao.com/citedocs/usage/logging/" title="Logging">
+      <a href="http://tech.kakao.com/citedocs/develop/" title="Development">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Logging
+              Development
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
