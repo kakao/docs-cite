@@ -236,7 +236,7 @@ Cite-&gt;User: notify: deploy success
 
 &lt;h2 id=&#34;fluentd-elasticsearch-addon&#34;&gt;fluentd-elasticsearch addon&lt;/h2&gt;
 
-&lt;p&gt;to install fluentd/elasticsearch/kibana, see &lt;a href=&#34;https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch&#34;&gt;https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;see &lt;a href=&#34;https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch&#34;&gt;https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;cluster-monitoring&#34;&gt;cluster-monitoring&lt;/h2&gt;
 
@@ -429,6 +429,11 @@ Cite-&gt;User: notify: deploy success
 &lt;h3 id=&#34;start&#34;&gt;Start&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/code0x9/helloworld/master/cite.yaml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;expose&#34;&gt;Expose&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite.yaml
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
