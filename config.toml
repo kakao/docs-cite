@@ -70,20 +70,9 @@ canonifyurls = true
 	weight = 30
 
 [[menu.main]]
-	name   = "Development"
-	url    = "develop/"
-	weight = 40
-
-[[menu.main]]
 	name   = "Administration"
 	url    = "admin/"
-	weight = 50
-
-[[menu.main]]
-	name   = "FAQ"
-	url    = "faq/"
-	weight = 60
-
+	weight = 40
 
 [blackfriday]
 	smartypants	= true

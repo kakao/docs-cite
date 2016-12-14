@@ -13,3 +13,7 @@ blockquote {
 .banner .name {
     word-break: break-all;
 }
+
+.toc li a {
+    color: black;
+}
