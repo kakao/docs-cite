@@ -5,7 +5,7 @@ export GIT_AUTHOR_NAME="Seung Lee"
 export GIT_AUTHOR_EMAIL="code0x9@gmail.com"
 
 echo "## build document"
-rm -rf public/*
+rm -rf public
 hugo
 
 echo "## push document"
