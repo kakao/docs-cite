@@ -1,5 +1,4 @@
 ---
-date: 2016-08-23T17:27:31+09:00
 title: Logging
 weight: 31
 menu:

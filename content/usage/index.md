@@ -1,5 +1,4 @@
 ---
-date: 2016-08-23T17:27:31+09:00
 title: Usage
 weight: 30
 ---
@@ -37,9 +36,6 @@ weight: 30
 ## Build
 ![Build](/images/usage/cite_build_1.png)
 ![Build](/images/usage/cite_build_2.png)
-
-## Log
-![Deploy](/images/usage/cite_deploy.png)
 
 ## Monitor
 ![Monitor](/images/usage/grafana.png)

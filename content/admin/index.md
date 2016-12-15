@@ -1,12 +1,11 @@
 ---
-date: 2016-08-23T18:47:19+09:00
 title: Administration
 weight: 40
 ---
 
 ## elasticsearch
 ```
-curl -XPUT http://elasticsearch.d.9rum.cc:9200/_template/cite_template -d '
+curl -XPUT http://elasticsearch:9200/_template/cite_template -d '
 {
    "template": "*",
    "settings": {
