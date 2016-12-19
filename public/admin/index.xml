@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Admin-rsses on Cite Documents</title>
-    <link>http://tech.kakao.com/oss-cite/admin/index.xml</link>
+    <link>http://tech.kakao.com/docs-cite/admin/index.xml</link>
     <description>Recent content in Admin-rsses on Cite Documents</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache License 2.0</copyright>
-    <atom:link href="http://tech.kakao.com/oss-cite/admin/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tech.kakao.com/docs-cite/admin/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Administration</title>
-      <link>http://tech.kakao.com/oss-cite/admin/</link>
+      <link>http://tech.kakao.com/docs-cite/admin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/oss-cite/admin/</guid>
+      <guid>http://tech.kakao.com/docs-cite/admin/</guid>
       <description>
 
 &lt;h2 id=&#34;elasticsearch&#34;&gt;elasticsearch&lt;/h2&gt;
