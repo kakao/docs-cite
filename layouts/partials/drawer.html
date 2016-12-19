@@ -46,7 +46,7 @@
         <hr>
 
         <span class="section">Author : {{ .Site.Params.author }}</span>
-
+        
         <ul>
           {{ with .Site.Social.github }}
           <li>
@@ -57,6 +57,8 @@
           {{ end }}
         </ul>
         {{ end }}
+
+        <span class="section">Copyright © Kakao Corp.</span>
 
         {{ if isset .Site.Params "agit" }}
         <h1>aaa</h1>

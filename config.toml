@@ -7,7 +7,7 @@ canonifyurls = true
 
 [params]
 	# General information
-	author = "Seung Lee <code0x9@gmail.com>"
+	author = "Seung Lee <niko.bellic@kakaocorp.com>"
 	description = "cite documentation."
 	copyright = "Released under the Apache License 2.0"
 
@@ -44,7 +44,7 @@ canonifyurls = true
 
 
 [social]
-	github  = "code0x9"
+	github  = "kakao"
 
 [forum]
   agit = "300005513"
