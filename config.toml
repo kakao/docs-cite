@@ -16,7 +16,6 @@ canonifyurls = true
 	repo_url = "https://github.com/kakao/cite"
 
 	version = "0.1"
-	logo = "images/cite-logo.png"
 	favicon = "images/favicons/favicon.ico"
 
 	permalink = "#"
