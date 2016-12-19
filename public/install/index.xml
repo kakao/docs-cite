@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Install-rsses on Cite Documents</title>
-    <link>http://tech.kakao.com/oss/citedocs/install/index.xml</link>
+    <link>http://tech.kakao.com/oss-cite/install/index.xml</link>
     <description>Recent content in Install-rsses on Cite Documents</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache License 2.0</copyright>
-    <atom:link href="http://tech.kakao.com/oss/citedocs/install/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tech.kakao.com/oss-cite/install/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Install</title>
-      <link>http://tech.kakao.com/oss/citedocs/install/</link>
+      <link>http://tech.kakao.com/oss-cite/install/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/oss/citedocs/install/</guid>
+      <guid>http://tech.kakao.com/oss-cite/install/</guid>
       <description>
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
@@ -25,24 +25,24 @@
 
 &lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
 
-&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/oss/citedocs/install/component/&#34;&gt;Install Components&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/oss-cite/install/component/&#34;&gt;Install Components&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;cite-build&#34;&gt;Cite Build&lt;/h2&gt;
 
-&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/oss/citedocs/install/citebuild/&#34;&gt;Install Cite Build&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/oss-cite/install/citebuild/&#34;&gt;Install Cite Build&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;cite&#34;&gt;Cite&lt;/h2&gt;
 
-&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/oss/citedocs/install/cite/&#34;&gt;Install Cite&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/oss-cite/install/cite/&#34;&gt;Install Cite&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Component</title>
-      <link>http://tech.kakao.com/oss/citedocs/install/component/</link>
+      <link>http://tech.kakao.com/oss-cite/install/component/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/oss/citedocs/install/component/</guid>
+      <guid>http://tech.kakao.com/oss-cite/install/component/</guid>
       <description>
 
 &lt;h2 id=&#34;fluentd-elasticsearch-addon&#34;&gt;fluentd-elasticsearch addon&lt;/h2&gt;
@@ -57,10 +57,10 @@
     
     <item>
       <title>Cite Build</title>
-      <link>http://tech.kakao.com/oss/citedocs/install/citebuild/</link>
+      <link>http://tech.kakao.com/oss-cite/install/citebuild/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/oss/citedocs/install/citebuild/</guid>
+      <guid>http://tech.kakao.com/oss-cite/install/citebuild/</guid>
       <description>
 
 &lt;h1 id=&#34;master&#34;&gt;Master&lt;/h1&gt;
@@ -145,10 +145,10 @@
     
     <item>
       <title>Cite</title>
-      <link>http://tech.kakao.com/oss/citedocs/install/cite/</link>
+      <link>http://tech.kakao.com/oss-cite/install/cite/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/oss/citedocs/install/cite/</guid>
+      <guid>http://tech.kakao.com/oss-cite/install/cite/</guid>
       <description>
 
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
