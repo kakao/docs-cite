@@ -1,4 +1,4 @@
-baseurl = "http://tech.kakao.com/citedocs/"
+baseurl = "http://tech.kakao.com/oss/citedocs/"
 languageCode = "en-us"
 title = "Cite Documents"
 theme = "hugo-material-docs"

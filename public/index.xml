@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cite Documents</title>
-    <link>http://tech.kakao.com/citedocs/index.xml</link>
+    <link>http://tech.kakao.com/oss/citedocs/index.xml</link>
     <description>Recent content on Cite Documents</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache License 2.0</copyright>
-    <atom:link href="http://tech.kakao.com/citedocs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tech.kakao.com/oss/citedocs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introduction</title>
-      <link>http://tech.kakao.com/citedocs/</link>
+      <link>http://tech.kakao.com/oss/citedocs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/citedocs/</guid>
+      <guid>http://tech.kakao.com/oss/citedocs/</guid>
       <description>
 
 &lt;h2 id=&#34;about&#34;&gt;About&lt;/h2&gt;
@@ -48,10 +48,10 @@
     
     <item>
       <title>Design</title>
-      <link>http://tech.kakao.com/citedocs/design/</link>
+      <link>http://tech.kakao.com/oss/citedocs/design/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/citedocs/design/</guid>
+      <guid>http://tech.kakao.com/oss/citedocs/design/</guid>
       <description>
 
 &lt;h2 id=&#34;create&#34;&gt;Create&lt;/h2&gt;
@@ -162,10 +162,10 @@ Cite-&gt;User: notify: deploy success
     
     <item>
       <title>Components</title>
-      <link>http://tech.kakao.com/citedocs/design/components/</link>
+      <link>http://tech.kakao.com/oss/citedocs/design/components/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/citedocs/design/components/</guid>
+      <guid>http://tech.kakao.com/oss/citedocs/design/components/</guid>
       <description>
 
 &lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
@@ -208,10 +208,10 @@ Cite-&gt;User: notify: deploy success
     
     <item>
       <title>Install</title>
-      <link>http://tech.kakao.com/citedocs/install/</link>
+      <link>http://tech.kakao.com/oss/citedocs/install/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/citedocs/install/</guid>
+      <guid>http://tech.kakao.com/oss/citedocs/install/</guid>
       <description>
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
@@ -222,24 +222,24 @@ Cite-&gt;User: notify: deploy success
 
 &lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
 
-&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/citedocs/install/component/&#34;&gt;Install Components&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/oss/citedocs/install/component/&#34;&gt;Install Components&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;cite-build&#34;&gt;Cite Build&lt;/h2&gt;
 
-&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/citedocs/install/citebuild/&#34;&gt;Install Cite Build&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/oss/citedocs/install/citebuild/&#34;&gt;Install Cite Build&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;cite&#34;&gt;Cite&lt;/h2&gt;
 
-&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/citedocs/install/cite/&#34;&gt;Install Cite&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;see &lt;a href=&#34;http://tech.kakao.com/oss/citedocs/install/cite/&#34;&gt;Install Cite&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Component</title>
-      <link>http://tech.kakao.com/citedocs/install/component/</link>
+      <link>http://tech.kakao.com/oss/citedocs/install/component/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/citedocs/install/component/</guid>
+      <guid>http://tech.kakao.com/oss/citedocs/install/component/</guid>
       <description>
 
 &lt;h2 id=&#34;fluentd-elasticsearch-addon&#34;&gt;fluentd-elasticsearch addon&lt;/h2&gt;
@@ -254,10 +254,10 @@ Cite-&gt;User: notify: deploy success
     
     <item>
       <title>Cite Build</title>
-      <link>http://tech.kakao.com/citedocs/install/citebuild/</link>
+      <link>http://tech.kakao.com/oss/citedocs/install/citebuild/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/citedocs/install/citebuild/</guid>
+      <guid>http://tech.kakao.com/oss/citedocs/install/citebuild/</guid>
       <description>
 
 &lt;h1 id=&#34;master&#34;&gt;Master&lt;/h1&gt;
@@ -342,10 +342,10 @@ Cite-&gt;User: notify: deploy success
     
     <item>
       <title>Cite</title>
-      <link>http://tech.kakao.com/citedocs/install/cite/</link>
+      <link>http://tech.kakao.com/oss/citedocs/install/cite/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/citedocs/install/cite/</guid>
+      <guid>http://tech.kakao.com/oss/citedocs/install/cite/</guid>
       <description>
 
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
@@ -448,10 +448,10 @@ Cite-&gt;User: notify: deploy success
     
     <item>
       <title>Usage</title>
-      <link>http://tech.kakao.com/citedocs/usage/</link>
+      <link>http://tech.kakao.com/oss/citedocs/usage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/citedocs/usage/</guid>
+      <guid>http://tech.kakao.com/oss/citedocs/usage/</guid>
       <description>
 
 &lt;h2 id=&#34;create&#34;&gt;Create&lt;/h2&gt;
@@ -459,10 +459,10 @@ Cite-&gt;User: notify: deploy success
 &lt;ol&gt;
 &lt;li&gt;open cite web&lt;/li&gt;
 &lt;li&gt;authorize cite
-&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/cite_auth.png&#34; alt=&#34;Auth&#34; /&gt;&lt;/li&gt;
+&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/cite_auth.png&#34; alt=&#34;Auth&#34; /&gt;&lt;/li&gt;
 &lt;li&gt;create service
-&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/cite_create.png&#34; alt=&#34;Create&#34; /&gt;
-&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/cite_create_form.png&#34; alt=&#34;Create Form&#34; /&gt;
+&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/cite_create.png&#34; alt=&#34;Create&#34; /&gt;
+&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/cite_create_form.png&#34; alt=&#34;Create Form&#34; /&gt;
 
 &lt;ul&gt;
 &lt;li&gt;GitHub : github repository and branch&lt;/li&gt;
@@ -472,7 +472,7 @@ Cite-&gt;User: notify: deploy success
 &lt;li&gt;Replicas : number of container instances&lt;/li&gt;
 &lt;li&gt;Auto Deploy : enable auto deploy&lt;/li&gt;
 &lt;li&gt;Environment Variables : container environment variables. lines start with # is ignored.
-&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/cite_notification_slack.png&#34; alt=&#34;Notification&#34; /&gt;&lt;/li&gt;
+&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/cite_notification_slack.png&#34; alt=&#34;Notification&#34; /&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -480,61 +480,61 @@ Cite-&gt;User: notify: deploy success
 
 &lt;h3 id=&#34;service-metadata&#34;&gt;Service Metadata&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/cite_service_meta.png&#34; alt=&#34;Service Meta&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/cite_service_meta.png&#34; alt=&#34;Service Meta&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;service-1&#34;&gt;Service&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/cite_service.png&#34; alt=&#34;Service&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/cite_service.png&#34; alt=&#34;Service&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;github-commits&#34;&gt;GitHub Commits&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/github_commits.png&#34; alt=&#34;Github Commits&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/github_commits.png&#34; alt=&#34;Github Commits&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;github-deployments&#34;&gt;GitHub Deployments&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/github_deployments.png&#34; alt=&#34;Github Deployments&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/github_deployments.png&#34; alt=&#34;Github Deployments&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;build&#34;&gt;Build&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/cite_build_1.png&#34; alt=&#34;Build&#34; /&gt;
-&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/cite_build_2.png&#34; alt=&#34;Build&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/cite_build_1.png&#34; alt=&#34;Build&#34; /&gt;
+&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/cite_build_2.png&#34; alt=&#34;Build&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;monitor&#34;&gt;Monitor&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/grafana.png&#34; alt=&#34;Monitor&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/grafana.png&#34; alt=&#34;Monitor&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;log&#34;&gt;Log&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/cite_log.png&#34; alt=&#34;Log&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/cite_log.png&#34; alt=&#34;Log&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Logging</title>
-      <link>http://tech.kakao.com/citedocs/usage/logging/</link>
+      <link>http://tech.kakao.com/oss/citedocs/usage/logging/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/citedocs/usage/logging/</guid>
+      <guid>http://tech.kakao.com/oss/citedocs/usage/logging/</guid>
       <description>
 
 &lt;h2 id=&#34;raw-log&#34;&gt;Raw Log&lt;/h2&gt;
 
 &lt;p&gt;store stdout/stderr into elasticsearch / log as raw string
-&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/raw_log.png&#34; alt=&#34;RawLog&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/raw_log.png&#34; alt=&#34;RawLog&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;structured-log&#34;&gt;Structured Log&lt;/h2&gt;
 
 &lt;p&gt;store stdout/stderr into elasticsearch / log_obj if starts with &amp;lsquo;{&amp;rsquo; and succeeds JSON.parse()
-&lt;img src=&#34;http://tech.kakao.com/citedocs/images/usage/structured_log.png&#34; alt=&#34;StructuredLog&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;http://tech.kakao.com/oss/citedocs/images/usage/structured_log.png&#34; alt=&#34;StructuredLog&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Administration</title>
-      <link>http://tech.kakao.com/citedocs/admin/</link>
+      <link>http://tech.kakao.com/oss/citedocs/admin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/citedocs/admin/</guid>
+      <guid>http://tech.kakao.com/oss/citedocs/admin/</guid>
       <description>
 
 &lt;h2 id=&#34;elasticsearch&#34;&gt;elasticsearch&lt;/h2&gt;
