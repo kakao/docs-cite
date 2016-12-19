@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/</loc>
+    <loc>http://tech.kakao.com/oss-cite/</loc>
   </url>
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/</loc>
+    <loc>http://tech.kakao.com/oss-cite/</loc>
   </url>
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/design/</loc>
+    <loc>http://tech.kakao.com/oss-cite/design/</loc>
   </url>
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/design/components/</loc>
+    <loc>http://tech.kakao.com/oss-cite/design/components/</loc>
   </url>
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/install/</loc>
+    <loc>http://tech.kakao.com/oss-cite/install/</loc>
   </url>
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/install/component/</loc>
+    <loc>http://tech.kakao.com/oss-cite/install/component/</loc>
   </url>
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/install/citebuild/</loc>
+    <loc>http://tech.kakao.com/oss-cite/install/citebuild/</loc>
   </url>
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/install/cite/</loc>
+    <loc>http://tech.kakao.com/oss-cite/install/cite/</loc>
   </url>
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/usage/</loc>
+    <loc>http://tech.kakao.com/oss-cite/usage/</loc>
   </url>
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/usage/logging/</loc>
+    <loc>http://tech.kakao.com/oss-cite/usage/logging/</loc>
   </url>
   
   <url>
-    <loc>http://tech.kakao.com/oss/citedocs/admin/</loc>
+    <loc>http://tech.kakao.com/oss-cite/admin/</loc>
   </url>
   
 </urlset>
