@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design-rsses on Cite Documents</title>
-    <link>http://tech.kakao.com/oss-cite/design/index.xml</link>
+    <link>http://tech.kakao.com/docs-cite/design/index.xml</link>
     <description>Recent content in Design-rsses on Cite Documents</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache License 2.0</copyright>
-    <atom:link href="http://tech.kakao.com/oss-cite/design/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tech.kakao.com/docs-cite/design/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Design</title>
-      <link>http://tech.kakao.com/oss-cite/design/</link>
+      <link>http://tech.kakao.com/docs-cite/design/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/oss-cite/design/</guid>
+      <guid>http://tech.kakao.com/docs-cite/design/</guid>
       <description>
 
 &lt;h2 id=&#34;create&#34;&gt;Create&lt;/h2&gt;
@@ -125,10 +125,10 @@ Cite-&gt;User: notify: deploy success
     
     <item>
       <title>Components</title>
-      <link>http://tech.kakao.com/oss-cite/design/components/</link>
+      <link>http://tech.kakao.com/docs-cite/design/components/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tech.kakao.com/oss-cite/design/components/</guid>
+      <guid>http://tech.kakao.com/docs-cite/design/components/</guid>
       <description>
 
 &lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
