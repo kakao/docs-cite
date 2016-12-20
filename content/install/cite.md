@@ -62,10 +62,10 @@ menu:
 
 ### Start
 ```
-kubectl create -f https://raw.githubusercontent.com/code0x9/helloworld/master/cite.yaml
+kubectl create -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite.yaml
 ```
 
 ## Expose
 ```
-kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite.yaml
+kubectl expose -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite.yaml
 ```

@@ -33,12 +33,12 @@ menu:
 
 ## Start
 ```
-kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+kubectl create -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite-build.yaml
 ```
 
 ## Expose
 ```
-kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+kubectl expose -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite-build.yaml
 ```
 
 # Worker
