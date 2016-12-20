@@ -10,7 +10,6 @@ Cite is an open source Container as a Service(CaaS) that integrates [GitHub](htt
 {{< youtube Vub4aVbsCIA >}}
 
 {{< warning title="TODO" >}}
-* change install script path from code0x9 to kakao/cite
 * push cite docker image to public docker store
 {{< /warning >}}
 
