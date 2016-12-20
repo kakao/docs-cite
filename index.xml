@@ -32,7 +32,6 @@
 &lt;div class=&#34;admonition warning&#34;&gt;
 &lt;p class=&#34;admonition-title&#34;&gt;TODO&lt;/p&gt;
 &lt;p&gt;&lt;ul&gt;
-&lt;li&gt;change install script path from code0x9 to kakao/cite&lt;/li&gt;
 &lt;li&gt;push cite docker image to public docker store&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;
@@ -301,12 +300,12 @@ Cite-&gt;User: notify: deploy success
 
 &lt;h2 id=&#34;start&#34;&gt;Start&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+&lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite-build.yaml
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;expose&#34;&gt;Expose&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite-build.yaml
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;worker&#34;&gt;Worker&lt;/h1&gt;
@@ -436,12 +435,12 @@ Cite-&gt;User: notify: deploy success
 
 &lt;h3 id=&#34;start&#34;&gt;Start&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/code0x9/helloworld/master/cite.yaml
+&lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite.yaml
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;expose&#34;&gt;Expose&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite.yaml
+&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite.yaml
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

@@ -104,12 +104,12 @@
 
 &lt;h2 id=&#34;start&#34;&gt;Start&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+&lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite-build.yaml
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;expose&#34;&gt;Expose&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite-build.yaml
+&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite-build.yaml
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;worker&#34;&gt;Worker&lt;/h1&gt;
@@ -239,12 +239,12 @@
 
 &lt;h3 id=&#34;start&#34;&gt;Start&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/code0x9/helloworld/master/cite.yaml
+&lt;pre&gt;&lt;code&gt;kubectl create -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite.yaml
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;expose&#34;&gt;Expose&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/code0x9/citetest/master/cite.yaml
+&lt;pre&gt;&lt;code&gt;kubectl expose -f https://raw.githubusercontent.com/kakao/cite/master/examples/cite.yaml
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
