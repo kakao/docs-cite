@@ -9,9 +9,6 @@ Cite is an open source Container as a Service(CaaS) that integrates [GitHub](htt
 ## DEMO
 {{< youtube Vub4aVbsCIA >}}
 
-{{< warning title="TODO" >}}
-* push cite docker image to public docker store
-{{< /warning >}}
-
 ## Repository
 * cite : https://github.com/kakao/cite
+* cite-build : https://github.com/kakao/cite-build
